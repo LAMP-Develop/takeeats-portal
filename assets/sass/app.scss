@@ -1,6 +1,7 @@
-// bootstrap関連
-@import "custom-colors"; // テーマカラー
-@import "custom-font-size"; // テーマフォントサイズ
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Quicksand:wght@400;700&display=swap');
+@import "custom-colors";
+@import "custom-font-size";
 @import "~bootstrap/scss/bootstrap";
-
 @import "~@fortawesome/fontawesome-free/css/all.css";
+
+@import "./component";

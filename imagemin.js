@@ -5,7 +5,7 @@ const imageminSvgo = require('imagemin-svgo');
 
 (async () => {
   const files = await imagemin(['assets/img/**/*.{jpg,png,svg}'], {
-    destination: './min_images',
+    destination: 'dist/images/',
     plugins: [
       imageminSvgo(),
       imageminJpegtran(),
