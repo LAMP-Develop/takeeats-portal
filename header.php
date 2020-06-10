@@ -8,14 +8,15 @@ $wp_url = get_template_directory_uri(); ?>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <?php wp_head(); ?>
 <?php if (!is_user_logged_in()): ?>
-<!-- ここにGAトラッキングタグ -->
 <?php endif; ?>
 </head>
 <body>
-<!-- ヘッダー -->
 <header>
+<nav class="navbar navbar-expand-md">
+<a class="navbar-brand" href="<?php echo $home; ?>">
+<img src="<?php echo $wp_url; ?>/dist/images/logo.png" alt="<?php bloginfo('name'); ?>" srcset="<?php echo $wp_url; ?>/dist/images/logo.png 1x, <?php echo $wp_url; ?>/dist/images/logo@2x.png 2x">
+</a>
+<h1 class="navbar-brand m-0">近くのテイクアウトの<br>名店を探す</h1>
+</nav>
 </header>
-<!-- ヘッダー終了 -->
-
-<!-- メインコンテンツ -->
 <main>
