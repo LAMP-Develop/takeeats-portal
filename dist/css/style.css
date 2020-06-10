@@ -11719,3 +11719,70 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
+.btn {
+  font-size: 0.875rem; }
+  .btn-primary {
+    color: #fff; }
+
+.navbar-brand {
+  font-size: 0; }
+  .navbar-brand img {
+    max-width: 40vw; }
+
+.navbar h1 {
+  font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: normal; }
+
+.mv {
+  overflow: hidden;
+  padding: 20vw 0;
+  background-image: url("../images/mv_bg.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .mv h2 {
+    text-align: center; }
+    .mv h2 span {
+      position: relative;
+      display: inline-block;
+      color: #fff;
+      font-size: 1.375rem;
+      line-height: 1.5;
+      margin: 0; }
+      .mv h2 span img {
+        position: absolute;
+        top: 85%;
+        transform: translateY(-50%); }
+        .mv h2 span img:first-of-type {
+          left: -1.25em; }
+        .mv h2 span img:last-of-type {
+          right: -1.25em; }
+
+.search__area {
+  box-sizing: border-box;
+  padding: 1.25rem;
+  background-color: #f8faf6;
+  border-radius: 0.5rem;
+  margin-top: -10vw; }
+  .search__area h3 {
+    font-size: 0.875rem;
+    font-weight: bold;
+    margin-bottom: 1em; }
+  .search__area ul {
+    margin: 0;
+    padding: 0; }
+    .search__area ul li {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 0.5rem 0.5rem 0; }
+      .search__area ul li a {
+        display: inline-block;
+        vertical-align: middle;
+        box-sizing: border-box;
+        padding: 5px 8px;
+        font-size: 0.875rem;
+        color: #000000;
+        line-height: 1;
+        background-color: #fff; }
+

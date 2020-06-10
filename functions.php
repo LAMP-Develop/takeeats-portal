@@ -60,7 +60,9 @@ add_filter('document_title_separator', 'title_separator');
 // 標準のjquery消去
 function my_delete_local_jquery()
 {
-    wp_deregister_script('jquery');
+    if (!is_admin()) {
+        wp_deregister_script('jquery');
+    }
 }
 add_action('wp_enqueue_scripts', 'my_delete_local_jquery');
 
@@ -100,7 +102,7 @@ function twpp_enqueue_styles()
         'main-style',
         get_template_directory_uri().'/dist/css/style.css',
         [],
-        '1.0.０',
+        '1.0.0',
         'all'
     );
 }
@@ -113,7 +115,7 @@ function add_my_scripts()
         'base-script',
         get_template_directory_uri().'/dist/js/bundle.js',
         [],
-        '1.0.０',
+        '1.0.0',
         true
     );
 }
