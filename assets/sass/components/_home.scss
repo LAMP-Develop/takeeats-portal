@@ -30,4 +30,44 @@
       }
     }
   }
+  &__genre {
+    margin: 2rem 0 0;
+    box-sizing: border-box;
+    h3 {
+      font-size: $font-size-sm;
+      font-weight: bold;
+      margin: 0;
+      padding: 1rem 0;
+      border-bottom: solid 1px $secondary;
+    }
+    &-list {
+      box-sizing: border-box;
+      padding: 1rem 0 1rem 1rem;
+      overflow-x: scroll;
+      ul {
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+        li {
+          display: inline-block;
+          vertical-align: middle;
+          box-sizing: border-box;
+          max-width: 24vw;
+          margin-right: 0.5rem;
+          font-size: 0;
+          img {
+            display: block;
+            margin: 0 auto;
+          }
+          span {
+            display: block;
+            margin: 0.5rem auto 0;
+            font-size: 12px;
+            line-height: 1;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
 }

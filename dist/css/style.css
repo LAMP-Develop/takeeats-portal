@@ -11724,6 +11724,13 @@ a.text-dark:hover, a.text-dark:focus {
   .btn-primary {
     color: #fff; }
 
+body {
+  font-family: Quicksand, Noto Sans JP, sans-serif;
+  letter-spacing: 1px; }
+
+img {
+  max-width: 100%; }
+
 .navbar-brand {
   font-size: 0; }
   .navbar-brand img {
@@ -11736,7 +11743,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .mv {
   overflow: hidden;
-  padding: 20vw 0;
+  padding: 4rem 0;
   background-image: url("../images/mv_bg.png");
   background-position: center center;
   background-repeat: no-repeat;
@@ -11785,4 +11792,38 @@ a.text-dark:hover, a.text-dark:focus {
         color: #000000;
         line-height: 1;
         background-color: #fff; }
+
+.search__genre {
+  margin: 2rem 0 0;
+  box-sizing: border-box; }
+  .search__genre h3 {
+    font-size: 0.875rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 1rem 0;
+    border-bottom: solid 1px #f4f4f4; }
+  .search__genre-list {
+    box-sizing: border-box;
+    padding: 1rem 0 1rem 1rem;
+    overflow-x: scroll; }
+    .search__genre-list ul {
+      margin: 0;
+      padding: 0;
+      white-space: nowrap; }
+      .search__genre-list ul li {
+        display: inline-block;
+        vertical-align: middle;
+        box-sizing: border-box;
+        max-width: 24vw;
+        margin-right: 0.5rem;
+        font-size: 0; }
+        .search__genre-list ul li img {
+          display: block;
+          margin: 0 auto; }
+        .search__genre-list ul li span {
+          display: block;
+          margin: 0.5rem auto 0;
+          font-size: 12px;
+          line-height: 1;
+          text-align: center; }
 
