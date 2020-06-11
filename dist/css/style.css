@@ -11725,11 +11725,36 @@ a.text-dark:hover, a.text-dark:focus {
     color: #fff; }
 
 body {
-  font-family: Quicksand, Noto Sans JP, sans-serif;
+  font-family: "Quicksand", "Noto Sans JP", sans-serif;
   letter-spacing: 1px; }
 
 img {
   max-width: 100%; }
+
+.sec {
+  position: relative;
+  padding: 3rem 0; }
+  .sec-border {
+    border-bottom: solid 0.5rem #f8faf6; }
+
+.ttl-h2 {
+  position: relative;
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 0 0 2em;
+  padding: 1.5rem 0 0; }
+  .ttl-h2::before {
+    content: "\f111";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #f9cf41;
+    font-size: 0.5em; }
 
 .navbar-brand {
   font-size: 0; }
@@ -11756,7 +11781,8 @@ img {
       color: #fff;
       font-size: 1.375rem;
       line-height: 1.5;
-      margin: 0; }
+      margin: 0;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
       .mv h2 span img {
         position: absolute;
         top: 85%;
@@ -11805,7 +11831,11 @@ img {
   .search__genre-list {
     box-sizing: border-box;
     padding: 1rem 0 1rem 1rem;
-    overflow-x: scroll; }
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none; }
+    .search__genre-list::-webkit-scrollbar {
+      display: none; }
     .search__genre-list ul {
       margin: 0;
       padding: 0;
@@ -11826,4 +11856,181 @@ img {
           font-size: 12px;
           line-height: 1;
           text-align: center; }
+
+.shop-buzz__list {
+  position: relative;
+  white-space: nowrap;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none; }
+  .shop-buzz__list::-webkit-scrollbar {
+    display: none; }
+  .shop-buzz__list-inner {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5rem;
+    width: 80vw; }
+    .shop-buzz__list-inner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem; }
+    .shop-buzz__list-inner h3 {
+      font-size: 0.875rem;
+      font-weight: bold;
+      margin: 1rem 0; }
+    .shop-buzz__list-inner-tag {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      flex-wrap: nowrap;
+      font-size: 13px; }
+      .shop-buzz__list-inner-tag-map {
+        display: block;
+        line-height: 1;
+        margin-right: 1rem; }
+        .shop-buzz__list-inner-tag-map::before {
+          content: "\f277";
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          color: #f9cf41;
+          margin-right: 0.5rem; }
+      .shop-buzz__list-inner-tag-genre {
+        display: block;
+        line-height: 1; }
+        .shop-buzz__list-inner-tag-genre::before {
+          content: "\f02c";
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          color: #f9cf41;
+          margin-right: 0.5rem; }
+
+.featured {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap; }
+  .featured-article {
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: 49%;
+    height: 0;
+    padding-top: 49%;
+    margin-top: 2%; }
+    .featured-article::after {
+      z-index: -1;
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)); }
+    .featured-article-new {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      box-sizing: border-box;
+      background-color: #ff8811;
+      color: #fff;
+      font-weight: bold;
+      font-size: 0.875rem;
+      line-height: 1;
+      padding: 0.3rem 0.8rem; }
+    .featured-article img {
+      z-index: -1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+    .featured-article h3 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      color: #fff;
+      font-weight: bold;
+      font-size: 0.875rem;
+      margin: 0;
+      padding: 0.5rem; }
+    .featured-article:first-child {
+      width: 100%;
+      margin-top: 0; }
+
+.menu__ranking {
+  white-space: nowrap;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none; }
+  .menu__ranking::-webkit-scrollbar {
+    display: none; }
+  .menu__ranking__inner {
+    display: inline-block;
+    vertical-align: top;
+    width: 60vw;
+    box-sizing: border-box;
+    margin-right: 1rem;
+    color: #000000; }
+    .menu__ranking__inner__thumbnail {
+      z-index: 1;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 0;
+      padding-top: 75%; }
+      .menu__ranking__inner__thumbnail img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover; }
+      .menu__ranking__inner__thumbnail-no {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #ff8811;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1rem;
+        display: block;
+        line-height: 1;
+        padding: 0.5rem 0.75rem; }
+      .menu__ranking__inner__thumbnail-area {
+        z-index: 1;
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        background-color: rgba(255, 255, 255, 0.9);
+        font-size: 12px;
+        display: block;
+        line-height: 1;
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.1rem; }
+    .menu__ranking__inner-name {
+      font-weight: bold;
+      font-size: 0.875rem;
+      margin: 1rem 0 0; }
+    .menu__ranking__inner-shop {
+      font-weight: bold;
+      font-size: 12px;
+      color: #cccccc;
+      margin: 0; }
+    .menu__ranking__inner-price {
+      font-size: 0.875rem;
+      margin: 0; }
+      .menu__ranking__inner-price span {
+        font-weight: bold;
+        color: #ff8811; }
 
