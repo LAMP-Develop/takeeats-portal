@@ -12,11 +12,12 @@ get_header(); ?>
 </span>
 </h2>
 <div class="text-center mt-4">
-<button class="btn btn-primary text-white"><i class="fas fa-search mr-2"></i>近くのテイクアウト対応店を探す</button>
+<button class="btn btn-primary text-white" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-search mr-2"></i>近くのテイクアウト対応店を探す</button>
 </div>
 </div>
 </section>
-
+<!-- mv -->
+<?php get_template_part('template-part/modal/search-form'); ?>
 <section class="search">
 <div class="container">
 <div class="search__area">
@@ -69,8 +70,8 @@ get_header(); ?>
 </div>
 </div>
 </section>
-
-<section class="sec sec-border">
+<!-- search -->
+<section class="sec sec-border buzz">
 <div class="container">
 <h2 class="ttl-h2">いま話題のお店</h2>
 <div class="shop-buzz">
@@ -89,7 +90,7 @@ get_header(); ?>
 </div>
 </div>
 </section>
-
+<!-- buzz -->
 <section class="sec sec-border">
 <div class="container">
 <h2 class="ttl-h2">おすすめ特集</h2>
@@ -106,10 +107,10 @@ get_header(); ?>
 </div>
 </div>
 </section>
-
+<!-- featured -->
 <section class="sec sec-border">
 <div class="container">
-<h2 class="ttl-h2">いま話題のお店</h2>
+<h2 class="ttl-h2">商品注文ランキング</h2>
 <div class="menu__ranking">
 <?php for ($i=1; $i <= 5; $i++): ?>
 <a class="menu__ranking__inner" href="">
@@ -126,4 +127,19 @@ get_header(); ?>
 </div>
 </div>
 </section>
+<!-- ranking -->
+<section class="sec sec-border">
+<div class="container">
+<h2 class="ttl-h2 mb-3">#TakeEats</h2>
+<p class="text-center font-weight-bold mb-4 small">「#TakeEats」で気になるお店を探そう！</p>
+</div>
+<div class="insta-feed">
+<?php for ($i=1; $i <= 9; $i++): ?>
+<div><img src="<?php echo $wp_url; ?>/dist/images/topic_sample.png" alt="" srcset="<?php echo $wp_url; ?>/dist/images/topic_sample.png 1x, <?php echo $wp_url; ?>/dist/images/topic_sample@2x.png 2x"></div>
+<?php endfor; ?>
+</div>
+</div>
+</section>
+<!-- insta -->
+
 <?php get_footer();
