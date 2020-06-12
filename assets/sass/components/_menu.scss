@@ -7,6 +7,9 @@
     &::-webkit-scrollbar {
       display: none;
     }
+    @include media-breakpoint-up(md) {
+      text-align: center;
+    }
     &__inner {
       display: inline-block;
       vertical-align: top;
@@ -14,6 +17,9 @@
       box-sizing: border-box;
       margin-right: 1rem;
       color: $body-color;
+      @include media-breakpoint-up(md) {
+        width: 18%;
+      }
       &__thumbnail {
         z-index: 1;
         position: relative;
@@ -74,6 +80,9 @@
           font-weight: bold;
           color: $primary;
         }
+      }
+      &:last-child {
+        margin-right: 0;
       }
     }
   }

@@ -15,11 +15,13 @@
         vertical-align: top;
         margin-right: 0.5rem;
         width: 80vw;
+        @include media-breakpoint-up(md) {
+          width: auto;
+        }
         img {
           display: block;
           width: 100%;
           height: auto;
-          // box-shadow: 0 0 1rem rgba($body-color, 0.5);
           border-radius: 0.5rem;
         }
         h3 {

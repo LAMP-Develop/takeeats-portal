@@ -1,3 +1,14 @@
+.cta {
+  .container {
+    @include media-breakpoint-up(md) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
 .footer {
   margin-top: 1rem;
   background-color: $black;

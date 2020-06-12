@@ -4,6 +4,14 @@
     justify-content: flex-start;
     align-items: stretch;
     flex-wrap: wrap;
+    @include media-breakpoint-up(md) {
+      max-width: 960px;
+      margin: 0 auto;
+      justify-content: center;
+    }
+    @include media-breakpoint-up(lg) {
+      max-width: 1140px;
+    }
     div {
       position: relative;
       overflow: hidden;
@@ -12,6 +20,10 @@
       padding-top: 33.33333%;
       box-sizing: border-box;
       border: solid 1px $white;
+      @include media-breakpoint-up(md) {
+        width: calc(100% / 5);
+        padding-top: calc(100% / 5);
+      }
       img {
         position: absolute;
         top: 50%;

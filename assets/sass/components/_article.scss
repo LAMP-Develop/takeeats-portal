@@ -12,6 +12,11 @@
     height: 0;
     padding-top: 49%;
     margin-top: 2%;
+    @include media-breakpoint-up(md) {
+      width: 24%;
+      margin-top: 0;
+      padding-top: 18%;
+    }
     &::after {
       z-index: -1;
       content: "";
@@ -61,6 +66,14 @@
     &:first-child {
       width: 100%;
       margin-top: 0;
+      @include media-breakpoint-up(md) {
+        width: 24%;
+      }
+    }
+    &:last-child {
+      @include media-breakpoint-up(md) {
+        display: none;
+      }
     }
   }
 }

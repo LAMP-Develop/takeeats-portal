@@ -4,7 +4,7 @@
     padding: 1.25rem;
     background-color: $light;
     border-radius: 0.5rem;
-    margin-top: -10vw;
+    margin-top: -2.5rem;
     h3 {
       font-size: $font-size-sm;
       font-weight: bold;
@@ -48,6 +48,13 @@
       scrollbar-width: none;
       &::-webkit-scrollbar {
         display: none;
+      }
+      @include media-breakpoint-up(md) {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      @include media-breakpoint-up(lg) {
+        max-width: 1140px;
       }
       ul {
         margin: 0;
