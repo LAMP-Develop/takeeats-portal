@@ -95,15 +95,30 @@ get_header(); ?>
 <div class="container">
 <h2 class="ttl-h2">おすすめ特集</h2>
 <div class="featured">
-<?php for ($i=1; $i <= 5; $i++): ?>
-<a class="featured-article" href="">
-<?php if($i === 1): ?>
+<?php
+$no = 1;
+$args = [
+    'post_type' => 'post',
+    'posts_per_page' => 5,
+    'orderby' => 'date',
+    'order' => 'DESC'
+];
+$posts = get_posts($args);
+foreach ($posts as $post): setup_postdata($post);
+$t = get_the_title();
+$p = get_the_permalink();
+if (has_post_thumbnail()) {
+    $i = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+}
+?>
+<a class="featured-article" href="<?php echo $p; ?>">
+<?php if ($no === 1): ?>
 <span class="featured-article-new">New!</span>
 <?php endif; ?>
-<img src="<?php echo $wp_url; ?>/dist/images/topic_sample.png" alt="" srcset="<?php echo $wp_url; ?>/dist/images/topic_sample.png 1x, <?php echo $wp_url; ?>/dist/images/topic_sample@2x.png 2x">
-<h3>宅飲みに最適なおつまみテイクアウト特集</h3>
+<img src="<?php echo $i; ?>" alt="<?php echo $t; ?>">
+<h3><?php echo $t; ?></h3>
 </a>
-<?php endfor; ?>
+<?php $no++; endforeach; wp_reset_postdata(); ?>
 </div>
 </div>
 </section>

@@ -24,7 +24,7 @@ $wp_url = get_template_directory_uri(); ?>
 <li><a href="">掲載のお問い合わせ</a></li>
 <li><a href="">お問い合わせ</a></li>
 </ul>
-<p class="mb-0 text-center socket">©2020 TakeEats（テイクイーツ）</p>
+<p class="mb-0 text-center socket">©2020 <a class="text-white" href="<?php echo $home; ?>">TakeEats（テイクイーツ）</a></p>
 </div>
 </footer>
 
