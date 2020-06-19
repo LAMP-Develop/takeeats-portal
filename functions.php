@@ -1,5 +1,8 @@
 <?php
 
+// 専用関数
+include_once 'lib/func/add-func.php';
+
 // アイキャッチ設定
 add_theme_support('post-thumbnails');
 
@@ -60,7 +63,7 @@ add_filter('document_title_separator', 'title_separator');
 // 標準のjquery消去
 function my_delete_local_jquery()
 {
-    if (!is_admin() && !is_single()) {
+    if (!is_admin() && !is_single() && !is_page('request') && !is_page('contact')) {
         wp_deregister_script('jquery');
     }
 }

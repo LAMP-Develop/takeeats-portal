@@ -2,7 +2,7 @@
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri();
 get_header(); ?>
-<div class="py-5 border-top">
+<div class="py-md-5 py-4">
 <div class="container">
 <div class="row">
 <?php

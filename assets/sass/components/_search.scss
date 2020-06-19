@@ -44,6 +44,7 @@
       box-sizing: border-box;
       padding: 1rem 0 1rem 1rem;
       overflow-x: scroll;
+      overflow-y: hidden;
       -ms-overflow-style: none;
       scrollbar-width: none;
       &::-webkit-scrollbar {
@@ -78,6 +79,99 @@
             line-height: 1;
             text-align: center;
           }
+        }
+      }
+    }
+  }
+  &__filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    & > * {
+      width: 49%;
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+  &__result {
+    @include media-breakpoint-up(md) {
+      display: flex;
+      justify-content: start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    &__inner {
+      overflow: hidden;
+      box-sizing: border-box;
+      margin-bottom: 1rem;
+      @include media-breakpoint-up(md) {
+        width: 33%;
+      }
+      &:nth-child(3n+2) {
+        @include media-breakpoint-up(md) {
+          margin-right: 0.5%;
+          margin-left: 0.5%;
+        }
+      }
+      a {
+        color: $body-color;
+        display: block;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      &__wrap {
+        box-sizing: border-box;
+        padding: 1rem;
+      }
+      &-thumbnail {
+        display: block;
+        font-size: 0;
+        margin: 0;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      &-name {
+        font-weight: bold;
+        font-size: 1rem;
+        margin: 0 0 $font-size-sm;
+      }
+      &-info {
+        margin: 0;
+        span {
+          display: block;
+          font-size: $font-size-sm;
+          &::before {
+            content: "\f02c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: $info;
+            margin-right: 0.5rem;
+          }
+          &:last-child {
+            &::before {
+              content: "\f277";
+            }
+          }
+        }
+      }
+      &-time {
+        margin: $font-size-sm 0 0;
+        color: #5d5d5d;
+        font-size: 12px;
+      }
+      &-btn {
+        margin-top: 1rem;
+        .btn {
+          width: 100%;
+          border-radius: 0;
+          padding: $font-size-sm;
+          font-size: $font-size-sm;
+          font-weight: bold;
         }
       }
     }

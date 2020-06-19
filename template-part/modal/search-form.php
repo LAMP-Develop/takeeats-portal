@@ -1,4 +1,6 @@
 <?php
+$genres = get_genres();
+$home = esc_url(home_url());
 $wp_url = get_template_directory_uri(); ?>
 
 <div class="modal fade" id="search-restaurant" tabindex="-1" role="dialog" aria-hidden="true">
@@ -35,7 +37,9 @@ $wp_url = get_template_directory_uri(); ?>
 <input type="text" class="form-control border-0" placeholder="000-0000" aria-describedby="zipicon">
 </div>
 </div>
-<div class="tab-pane fade" id="area" role="tabpanel" aria-labelledby="area-tab">...</div>
+<div class="tab-pane fade" id="area" role="tabpanel" aria-labelledby="area-tab">
+<a class="btn btn-sm btn-light py-1 px-2" href="">京都</a>
+</div>
 </div>
 </div>
 <div class="search-form mt-4">
@@ -43,12 +47,17 @@ $wp_url = get_template_directory_uri(); ?>
 <div class="bg-light p-3">
 <select name="" id="" class="form-control border-0">
 <option value="">---</option>
+<?php
+foreach ($genres as $key => $val): ?>
+<option value="<?php echo $key; ?>"><?php echo $val; ?></option>
+<?php endforeach; ?>
 </select>
 </div>
 </div>
 </div>
 <div class="modal-footer">
-<button type="button" class="btn btn-block btn-primary"><i class="fas fa-search mr-2"></i>検索</button>
+<!-- <button type="button" class="btn btn-block btn-primary"><i class="fas fa-search mr-2"></i>検索</button> -->
+<a class="btn btn-block btn-primary" href="<?php echo $home; ?>/search/"><i class="fas fa-search mr-2"></i>検索</a>
 </div>
 </div>
 </div>

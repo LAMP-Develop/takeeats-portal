@@ -24,6 +24,9 @@ img {
     font-weight: bold;
     margin: 0 0 2em;
     padding: 1.5rem 0 0;
+    @include media-breakpoint-up(md) {
+      font-size: 1.4rem;
+    }
     &::before {
       content: "\f111";
       position: absolute;
@@ -36,5 +39,12 @@ img {
       color: $info;
       font-size: 0.5em;
     }
+  }
+}
+
+.sp-mode {
+  @include media-breakpoint-up(md) {
+    max-width: 768px;
+    margin: 0 auto;
   }
 }

@@ -23,10 +23,7 @@ get_header(); ?>
 <div class="search__area">
 <h3>よく見られているエリア</h3>
 <ul>
-<li><a href="">東京</a></li>
-<li><a href="">東京</a></li>
-<li><a href="">東京</a></li>
-<li><a href="">東京</a></li>
+<li><a href="<?php echo $home; ?>/search/">京都</a></li>
 </ul>
 </div>
 </div>
@@ -35,36 +32,52 @@ get_header(); ?>
 <div class="search__genre-list">
 <ul>
 <li>
+<a class="text-body" href="<?php echo $home; ?>/search/">
 <img src="<?php echo $wp_url; ?>/dist/images/genre_sushi.png" alt="料理のジャンル" srcset="<?php echo $wp_url; ?>/dist/images/genre_sushi.png 1x, <?php echo $wp_url; ?>/dist/images/genre_sushi@2x.png 2x">
 <span>寿司</span>
+</a>
 </li>
 <li>
+<a class="text-body" href="<?php echo $home; ?>/search/">
 <img src="<?php echo $wp_url; ?>/dist/images/genre_sakana.png" alt="料理のジャンル" srcset="<?php echo $wp_url; ?>/dist/images/genre_sakana.png 1x, <?php echo $wp_url; ?>/dist/images/genre_sakana@2x.png 2x">
 <span>魚料理</span>
+</a>
 </li>
 <li>
+<a class="text-body" href="<?php echo $home; ?>/search/">
 <img src="<?php echo $wp_url; ?>/dist/images/genre_washoku.png" alt="料理のジャンル" srcset="<?php echo $wp_url; ?>/dist/images/genre_washoku.png 1x, <?php echo $wp_url; ?>/dist/images/genre_washoku@2x.png 2x">
 <span>和食</span>
+</a>
 </li>
 <li>
+<a class="text-body" href="<?php echo $home; ?>/search/">
 <img src="<?php echo $wp_url; ?>/dist/images/genre_okonomi.png" alt="料理のジャンル" srcset="<?php echo $wp_url; ?>/dist/images/genre_okonomi.png 1x, <?php echo $wp_url; ?>/dist/images/genre_okonomi@2x.png 2x">
 <span>お好み焼き</span>
+</a>
 </li>
 <li>
+<a class="text-body" href="<?php echo $home; ?>/search/">
 <img src="<?php echo $wp_url; ?>/dist/images/genre_chuka.png" alt="料理のジャンル" srcset="<?php echo $wp_url; ?>/dist/images/genre_chuka.png 1x, <?php echo $wp_url; ?>/dist/images/genre_chuka@2x.png 2x">
 <span>中華</span>
+</a>
 </li>
 <li>
+<a class="text-body" href="<?php echo $home; ?>/search/">
 <img src="<?php echo $wp_url; ?>/dist/images/genre_italy.png" alt="料理のジャンル" srcset="<?php echo $wp_url; ?>/dist/images/genre_italy.png 1x, <?php echo $wp_url; ?>/dist/images/genre_italy@2x.png 2x">
 <span>イタリアン</span>
+</a>
 </li>
 <li>
+<a class="text-body" href="<?php echo $home; ?>/search/">
 <img src="<?php echo $wp_url; ?>/dist/images/genre_niku.png" alt="料理のジャンル" srcset="<?php echo $wp_url; ?>/dist/images/genre_niku.png 1x, <?php echo $wp_url; ?>/dist/images/genre_niku@2x.png 2x">
 <span>焼肉</span>
+</a>
 </li>
 <li>
+<a class="text-body" href="<?php echo $home; ?>/search/">
 <img src="<?php echo $wp_url; ?>/dist/images/genre_hum.png" alt="料理のジャンル" srcset="<?php echo $wp_url; ?>/dist/images/genre_hum.png 1x, <?php echo $wp_url; ?>/dist/images/genre_hum@2x.png 2x">
 <span>ファストフード</span>
+</a>
 </li>
 </ul>
 </div>
@@ -128,7 +141,7 @@ if (has_post_thumbnail()) {
 <h2 class="ttl-h2">商品注文ランキング</h2>
 <div class="menu__ranking">
 <?php for ($i=1; $i <= 5; $i++): ?>
-<a class="menu__ranking__inner" href="">
+<a class="menu__ranking__inner" href="<?php echo $home; ?>/restaurant?recommend=1">
 <div class="menu__ranking__inner__thumbnail">
 <span class="menu__ranking__inner__thumbnail-no"><?php echo $i; ?></span>
 <img src="<?php echo $wp_url; ?>/dist/images/topic_sample.png" alt="" srcset="<?php echo $wp_url; ?>/dist/images/topic_sample.png 1x, <?php echo $wp_url; ?>/dist/images/topic_sample@2x.png 2x">

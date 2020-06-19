@@ -11,7 +11,7 @@ $wp_url = get_template_directory_uri(); ?>
 <?php endif; ?>
 </head>
 <body>
-<header>
+<header class="shadow-sm">
 <nav class="navbar navbar-expand-md justify-content-start align-items-center">
 <a class="navbar-brand p-0" href="<?php echo $home; ?>">
 <img src="<?php echo $wp_url; ?>/dist/images/logo.png" alt="<?php bloginfo('name'); ?>" srcset="<?php echo $wp_url; ?>/dist/images/logo.png 1x, <?php echo $wp_url; ?>/dist/images/logo@2x.png 2x">
