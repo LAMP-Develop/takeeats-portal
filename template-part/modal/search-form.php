@@ -20,17 +20,33 @@ $wp_url = get_template_directory_uri(); ?>
 <a class="nav-link" id="geo-tab" data-toggle="tab" href="#geo" role="tab" aria-controls="geo" aria-selected="true">現在地</a>
 </li> -->
 <li class="nav-item" role="presentation">
-<a class="nav-link active" id="zipcode-tab" data-toggle="tab" href="#zipcode" role="tab" aria-controls="zipcode" aria-selected="false">郵便番号</a>
+<a class="nav-link active" id="area-tab" data-toggle="tab" href="#area" role="tab" aria-controls="area" aria-selected="false">エリア一覧</a>
 </li>
 <li class="nav-item" role="presentation">
-<a class="nav-link" id="area-tab" data-toggle="tab" href="#area" role="tab" aria-controls="area" aria-selected="false">エリア一覧</a>
+<a class="nav-link" id="zipcode-tab" data-toggle="tab" href="#zipcode" role="tab" aria-controls="zipcode" aria-selected="false">郵便番号</a>
 </li>
 </ul>
 <div class="tab-content" id="myTabContent">
+
 <!-- <div class="tab-pane fade" id="geo" role="tabpanel" aria-labelledby="geo-tab">
 <button class="btn btn-block btn-light"><i class="fas fa-map-marker-alt mr-2 text-info"></i>位置情報から探す</button>
 </div> -->
-<div class="tab-pane fade show active" id="zipcode" role="tabpanel" aria-labelledby="zipcode-tab">
+
+<div class="tab-pane fade show active" id="area" role="tabpanel" aria-labelledby="area-tab">
+<select name="pref" id="pref-select" class="form-control border-0">
+<option value="">---</option>
+<?php
+$pref = get_pref();
+foreach ($pref as $key => $val): ?>
+<option value="<?php echo $val['id']; ?>" <?php
+if ($_GET['pref'] != '' && $val['id'] == $_GET['pref']) {
+    echo "selected";
+} ?>><?php echo $val['name']; ?></option>
+<?php endforeach; ?>
+</select>
+</div>
+
+<div class="tab-pane fade" id="zipcode" role="tabpanel" aria-labelledby="zipcode-tab">
 <div class="input-group">
 <div class="input-group-prepend">
 <span class="input-group-text border-0" id="zipicon">〒</span>
@@ -38,16 +54,7 @@ $wp_url = get_template_directory_uri(); ?>
 <input type="text" class="form-control border-0" name="zipcode" placeholder="000-0000" aria-describedby="zipicon">
 </div>
 </div>
-<div class="tab-pane fade" id="area" role="tabpanel" aria-labelledby="area-tab">
-<select name="pref" id="pref-select" class="form-control border-0">
-<option value="">---</option>
-<?php
-$pref = get_pref();
-foreach ($pref as $key => $val): ?>
-<option value="<?php echo $val['id']; ?>"><?php echo $val['name']; ?></option>
-<?php endforeach; ?>
-</select>
-</div>
+
 </div>
 </div>
 <div class="search-form mt-4">
@@ -58,7 +65,10 @@ foreach ($pref as $key => $val): ?>
 <?php
 $genres = get_genres();
 foreach ($genres as $key => $val): ?>
-<option value="<?php echo $val['id']; ?>"><?php echo $val['name']; ?></option>
+<option value="<?php echo $val['id']; ?>" <?php
+if ($_GET['genre'] != '' && $val['id'] == $_GET['genre']) {
+    echo "selected";
+} ?>><?php echo $val['name']; ?></option>
 <?php endforeach; ?>
 </select>
 </div>

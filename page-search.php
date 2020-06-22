@@ -11,8 +11,14 @@ foreach ($request as $key => $val) {
     } else {
         if ($param === '') {
             $param .= "?".$key."=".$val;
+            if ($key === 'pages') {
+                $param .= "?page=".$val;
+            }
         } else {
             $param .= "&".$key."=".$val;
+            if ($key === 'pages') {
+                $param .= "&page=".$val;
+            }
         }
     }
     ++$temp;
@@ -20,6 +26,7 @@ foreach ($request as $key => $val) {
 
 $data = get_restaurant($param);
 $total = $data['total'];
+$current_page = $data['current_page'];
 
 $pref = get_pref();
 $genres = get_genres();
@@ -41,7 +48,16 @@ get_header(); ?>
 <button type="button" class="btn btn-secondary font-weight-bold" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-filter mr-2"></i>絞り込み</button>
 </div>
 <!-- search__filter -->
-<div class="search__current my-3"></div>
+<div class="search__current my-3">
+<?php
+if ($_GET['pref'] != '') {
+    echo '<span class="badge badge-light p-2 mr-2">'.$pref[((int)$_GET['pref']-1)]['name'].'</span>';
+}
+if ($_GET['genre'] != '') {
+    echo '<span class="badge badge-light p-2 mr-2">'.$genres[((int)$_GET['genre']-1)]['name'].'</span>';
+}
+?>
+</div>
 <!-- search__current -->
 <div class="search__result-txt my-3 small">検索結果：<span><?php echo $data['total']; ?></span></div>
 <!-- search__result-txt -->
@@ -78,7 +94,8 @@ $regular_holiday = $val['regular_holiday'];
 <?php endforeach; ?>
 </div>
 <!-- search__result -->
+
+<?php search_page_navi($total, $current_page); ?>
 </div>
 </section>
-
 <?php get_footer();
