@@ -1,30 +1,37 @@
 <?php
 
-function get_genres () {
-  $genres = [
-    1 => '寿司',
-    2 => '魚料理',
-    3 => '和食',
-    4 => 'ラーメン・麺類',
-    5 => 'お好み焼き・粉物',
-    6 => '日本料理・郷土料理',
-    7 => 'アジア・エスニック',
-    8 => '中華',
-    9 => 'イタリアン',
-    10 => '洋食・西洋料理',
-    11 => 'フレンチ',
-    12 => 'アメリカ料理',
-    13 => '珍しい各国料理',
-    14 => '焼肉・ステーキ',
-    15 => '焼き鳥・串料理',
-    16 => 'しゃぶしゃぶ・すき焼き',
-    17 => 'カフェ・スイーツ',
-    18 => 'ビュッフェ・バイキング',
-    19 => '居酒屋・バー',
-    20 => 'ファミレス',
-    21 => 'ファストフード',
-    22 => 'その他',
-  ];
+function get_genres()
+{
+    $url = 'https://ssl.omomuki.me/api/cuisine-genre/';
+    $json = mb_convert_encoding(file_get_contents($url), 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+    $genres = json_decode($json, true);
 
-  return $genres;
+    return $genres;
+}
+
+function get_pref()
+{
+    $url = 'https://ssl.omomuki.me/api/pref/';
+    $json = mb_convert_encoding(file_get_contents($url), 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+    $pref = json_decode($json, true);
+
+    return $pref;
+}
+
+function get_restaurant($param)
+{
+    $url = 'https://ssl.omomuki.me/api/restaurants/'.$param;
+    $json = mb_convert_encoding(file_get_contents($url), 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+    $restaurant = json_decode($json, true);
+
+    return $restaurant;
+}
+
+function get_restaurant_detail($id)
+{
+    $url = 'https://ssl.omomuki.me/api/restaurants/'.$id;
+    $json = mb_convert_encoding(file_get_contents($url), 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+    $restaurant = json_decode($json, true);
+
+    return $restaurant;
 }

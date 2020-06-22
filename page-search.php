@@ -1,6 +1,29 @@
 <?php
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri();
+
+$request = $_GET;
+$param = '';
+$temp = 0;
+foreach ($request as $key => $val) {
+    if ($val == '' && $val == null) {
+        unset($request[$key]);
+    } else {
+        if ($param === '') {
+            $param .= "?".$key."=".$val;
+        } else {
+            $param .= "&".$key."=".$val;
+        }
+    }
+    ++$temp;
+}
+
+$data = get_restaurant($param);
+$total = $data['total'];
+
+$pref = get_pref();
+$genres = get_genres();
+
 get_header(); ?>
 
 <?php get_template_part('template-part/modal/search-form'); ?>
@@ -20,101 +43,39 @@ get_header(); ?>
 <!-- search__filter -->
 <div class="search__current my-3"></div>
 <!-- search__current -->
-<div class="search__result-txt my-3 small">検索結果：<span>10</span></div>
+<div class="search__result-txt my-3 small">検索結果：<span><?php echo $data['total']; ?></span></div>
 <!-- search__result-txt -->
 <div class="search__result">
-<div class="search__result__inner shadow-sm">
-<figure class="search__result__inner-thumbnail">
-<img src="<?php echo $wp_url; ?>/dist/images/topic_sample.png" alt="">
-</figure>
-<div class="search__result__inner__wrap">
-<p class="search__result__inner-name">店名が入ります。</p>
-<p class="search__result__inner-info">
-<span>インド料理</span>
-<span>京都市中京区</span>
-</p>
-<p class="search__result__inner-time">営業時間 11:00~22:00 / 定休日：火曜</p>
-<div class="search__result__inner-btn">
-<a class="btn btn-primary text-white" href="<?php echo $home; ?>/restaurant?recommend=1">メニューを見る</a>
-</div>
-</div>
-</div>
-<!-- search__result__inner -->
-<div class="search__result__inner shadow-sm">
-<figure class="search__result__inner-thumbnail">
-<img src="<?php echo $wp_url; ?>/dist/images/topic_sample.png" alt="">
-</figure>
-<div class="search__result__inner__wrap">
-<p class="search__result__inner-name">店名が入ります。</p>
-<p class="search__result__inner-info">
-<span>インド料理</span>
-<span>京都市中京区</span>
-</p>
-<p class="search__result__inner-time">営業時間 11:00~22:00 / 定休日：火曜</p>
-<div class="search__result__inner-btn">
-<a class="btn btn-primary text-white" href="<?php echo $home; ?>/restaurant?recommend=1">メニューを見る</a>
-</div>
-</div>
-</div>
-<!-- search__result__inner -->
-<div class="search__result__inner shadow-sm">
-<figure class="search__result__inner-thumbnail">
-<img src="<?php echo $wp_url; ?>/dist/images/topic_sample.png" alt="">
-</figure>
-<div class="search__result__inner__wrap">
-<p class="search__result__inner-name">店名が入ります。</p>
-<p class="search__result__inner-info">
-<span>インド料理</span>
-<span>京都市中京区</span>
-</p>
-<p class="search__result__inner-time">営業時間 11:00~22:00 / 定休日：火曜</p>
-<div class="search__result__inner-btn">
-<a class="btn btn-primary text-white" href="<?php echo $home; ?>/restaurant?recommend=1">メニューを見る</a>
-</div>
-</div>
-</div>
-<!-- search__result__inner -->
 
-<!-- ここから無料枠 -->
+<?php
+foreach ($data['data'] as $key => $val):
+$shop_id = $val['id'];
+$shop_name = $val['name'];
+$shop_address1 = $val['address1'];
+$shop_genre = $genres[((int)$val['cuisine_genre_id']-1)]['name'];
+$business_hours = $val['business_hours'];
+$regular_holiday = $val['regular_holiday'];
+?>
 <div class="search__result__inner shadow-sm">
-<a href="<?php echo $home; ?>/restaurant?recommend=0">
+<a href="<?php echo $home; ?>/restaurant?id=<?php echo $shop_id; ?>">
+<!-- <figure class="search__result__inner-thumbnail">
+<img src="<?php echo $wp_url; ?>/dist/images/topic_sample.png" alt="">
+</figure> -->
 <div class="search__result__inner__wrap">
-<p class="search__result__inner-name">店名が入ります。</p>
+<p class="search__result__inner-name"><?php echo $shop_name; ?></p>
 <p class="search__result__inner-info">
-<span>インド料理</span>
-<span>京都市中京区</span>
+<span><?php echo $shop_genre; ?></span>
+<span><?php echo $shop_address1; ?></span>
 </p>
-<p class="search__result__inner-time">営業時間 11:00~22:00 / 定休日：火曜</p>
+<p class="search__result__inner-time">営業時間 <?php echo $business_hours; ?> / 定休日：<?php echo $regular_holiday; ?></p>
+<!-- <div class="search__result__inner-btn">
+<a class="btn btn-primary text-white" href="<?php echo $home; ?>/restaurant?recommend=1">メニューを見る</a>
+</div> -->
 </div>
 </a>
 </div>
 <!-- search__result__inner -->
-<div class="search__result__inner shadow-sm">
-<a href="<?php echo $home; ?>/restaurant?recommend=0">
-<div class="search__result__inner__wrap">
-<p class="search__result__inner-name">店名が入ります。</p>
-<p class="search__result__inner-info">
-<span>インド料理</span>
-<span>京都市中京区</span>
-</p>
-<p class="search__result__inner-time">営業時間 11:00~22:00 / 定休日：火曜</p>
-</div>
-</a>
-</div>
-<!-- search__result__inner -->
-<div class="search__result__inner shadow-sm">
-<a href="<?php echo $home; ?>/restaurant?recommend=0">
-<div class="search__result__inner__wrap">
-<p class="search__result__inner-name">店名が入ります。</p>
-<p class="search__result__inner-info">
-<span>インド料理</span>
-<span>京都市中京区</span>
-</p>
-<p class="search__result__inner-time">営業時間 11:00~22:00 / 定休日：火曜</p>
-</div>
-</a>
-</div>
-<!-- search__result__inner -->
+<?php endforeach; ?>
 </div>
 <!-- search__result -->
 </div>

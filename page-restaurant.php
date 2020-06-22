@@ -8,6 +8,35 @@ if ($_GET['recommend'] == '1') {
     $recommend = false;
 }
 
+$pref = get_pref();
+$genres = get_genres();
+
+$data = get_restaurant_detail($_GET['id']);
+$shop_id = $data['id'];
+$shop_name = $data['name'];
+$shop_zipcode = $data['zipcode'];
+$shop_address1 = $data['address1'];
+$shop_address2 = $data['address2'];
+$shop_genre = $genres[((int)$data['cuisine_genre_id']-1)]['name'];
+$business_hours = $data['business_hours'];
+$regular_holiday = $data['regular_holiday'];
+$gmap_url = $data['gmap_url'];
+$keys = parse_url($gmap_url);
+$gmap_emmbed = end(explode("/", $keys['path']));
+$shop_tel = $data['tel'];
+$shop_access = $data['access'];
+$parking_flag = $data['parking_flag'];
+if ($parking_flag) {
+    $parking_text = $data['parking_text'];
+}
+$credit_card = $data['credit_card'];
+$electronic_money = $data['electronic_money'];
+$hp_url = $data['hp_url'];
+$gnavi_url = $data['gnavi_url'];
+$tabelog_url = $data['tabelog_url'];
+$demaecan_url = $data['demaecan_url'];
+$ubereats_url = $data['ubereats_url'];
+
 get_header(); ?>
 <?php if ($recommend): ?>
 <section class="pb-4 restaurant">
@@ -27,12 +56,12 @@ get_header(); ?>
 <?php else: ?>
 <div class="search__result__inner__wrap shadow-sm my-0">
 <?php endif; ?>
-<p class="search__result__inner-name">店名が入ります。</p>
+<p class="search__result__inner-name"><?php echo $shop_name; ?></p>
 <p class="search__result__inner-info">
-<span>インド料理</span>
-<span>京都市中京区</span>
+<span><?php echo $shop_genre; ?></span>
+<span><?php echo $shop_address1; ?></span>
 </p>
-<p class="search__result__inner-time">営業時間 11:00~22:00 / 定休日：火曜</p>
+<p class="search__result__inner-time">営業時間 <?php echo $business_hours; ?> / 定休日：<?php echo $regular_holiday; ?></p>
 </div>
 <!-- search__result__inner__wrap -->
 <?php if ($recommend): ?>
@@ -57,12 +86,12 @@ get_header(); ?>
 <div class="restaurant__access restaurant-block">
 <h2 class="restaurant-ttl">アクセス</h2>
 <div class="container">
-<p>〒604-8131 京都府京都市中京区菱屋町３２−１ 三条東洞院東入ル</p>
+<p>〒<?php echo $shop_zipcode; ?> <?php echo $shop_address1; ?> <?php echo $shop_address2; ?></p>
 <div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d104573.29726034151!2d135.70535535002745!3d35.00881933433474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001089300bcb213%3A0xb7a56d575ebdf516!2z5a-_44GX44Gu44KA44GV44GXIOS4ieadoeacrOW6lw!5e0!3m2!1sja!2sjp!4v1592533194800!5m2!1sja!2sjp"></iframe>
+<iframe class="embed-responsive-item" src="https://maps.google.co.jp/maps?output=embed&q=<?php echo $shop_name; ?>"></iframe>
 </div>
 <div class="text-center mt-3">
-<a class="btn btn-primary font-weight-bold rounded-pill" href="" target="_blank">GoogleMapで見る</a>
+<a class="btn btn-primary font-weight-bold rounded-pill" href="<?php echo $gmap_url; ?>" target="_blank">GoogleMapで見る</a>
 </div>
 </div>
 </div>
@@ -70,28 +99,54 @@ get_header(); ?>
 <div class="restaurant__overview restaurant-block">
 <h2 class="restaurant-ttl">店舗情報</h2>
 <div class="container">
-<p>保存料なしの無添加なカレーと栄養たっぷりの野菜ジュースを。定番バターチキンカレー、激辛ビーフカレーからコンビネーションカレーまで。</p>
+<!-- <p>保存料なしの無添加なカレーと栄養たっぷりの野菜ジュースを。定番バターチキンカレー、激辛ビーフカレーからコンビネーションカレーまで。</p> -->
 <table>
 <tbody>
 <tr>
 <th>電話番号</th>
-<td><a class="text-body" href="tel:"><i class="fas fa-phone mr-1 text-info"></i>000-000-0000</a></td>
+<td><a class="text-body" href="tel:<?php echo $shop_tel; ?>"><i class="fas fa-phone mr-1 text-info"></i><?php echo $shop_tel; ?></a></td>
 </tr>
 <tr>
 <th>駐車場</th>
-<td>なし</td>
+<td>
+<?php
+if ($parking_flag) {
+    echo $parking_text;
+} else {
+    echo "なし";
+}
+?>
+</td>
 </tr>
 <tr>
 <th>クレジットカード</th>
-<td>VISA、MasterCard</td>
+<td><?php
+if ($credit_card != null) {
+    echo $credit_card;
+} else {
+    echo "使用不可";
+}
+?></td>
 </tr>
 <tr>
 <th>電子決済</th>
-<td>PayPay、LINEPay、auPay</td>
+<td><?php
+if ($electronic_money != null) {
+    echo $electronic_money;
+} else {
+    echo "使用不可";
+}
+?></td>
 </tr>
 <tr>
 <th>公式HP</th>
-<td><a class="text-body" href="https://google.com" target="_blank">https://google.com</a></td>
+<td>
+<?php if ($hp_url != null): ?>
+<a class="text-body" href="<?php echo $hp_url; ?>" target="_blank"><?php echo $hp_url; ?></a>
+<?php else: ?>
+なし
+<?php endif; ?>
+</td>
 </tr>
 </tbody>
 </table>
@@ -112,16 +167,44 @@ get_header(); ?>
 </thead>
 <tbody>
 <tr>
-<td><i class="far fa-circle text-primary"></i></td>
-<td></td>
-<td><i class="far fa-circle text-primary"></i></td>
-<td></td>
+<td><?php
+if ($gnavi_url != null) {
+    echo '<i class="far fa-circle text-primary"></i>';
+}
+?></td>
+<td><?php
+if ($tabelog_url != null) {
+    echo '<i class="far fa-circle text-primary"></i>';
+}
+?></td>
+<td><?php
+if ($demaecan_url != null) {
+    echo '<i class="far fa-circle text-primary"></i>';
+}
+?></td>
+<td><?php
+if ($ubereats_url != null) {
+    echo '<i class="far fa-circle text-primary"></i>';
+}
+?></td>
 </tr>
 </tbody>
 </table>
 <div class="mt-2">
-<a class="btn btn-secondary btn-block text-left" href="">食べログ</a>
-<a class="btn btn-secondary btn-block text-left" href="">出前館</a>
+<?php
+if ($gnavi_url != null) {
+    echo '<a class="btn btn-secondary btn-block text-left" href="'.$gnavi_url.'" target="_blank">ぐるなび</a>';
+}
+if ($tabelog_url != null) {
+    echo '<a class="btn btn-secondary btn-block text-left" href="'.$tabelog_url.'" target="_blank">食べログ</a>';
+}
+if ($demaecan_url != null) {
+    echo '<a class="btn btn-secondary btn-block text-left" href="'.$demaecan_url.'" target="_blank">出前館</a>';
+}
+if ($ubereats_url != null) {
+    echo '<a class="btn btn-secondary btn-block text-left" href="'.$ubereats_url.'" target="_blank">Uber Eats</a>';
+}
+?>
 </div>
 </div>
 </div>
