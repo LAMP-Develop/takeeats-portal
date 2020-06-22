@@ -38,13 +38,13 @@ get_header(); ?>
 <section class="py-4 search">
 <div class="container">
 <div class="search__filter">
-<div class="dropdown d-inline-block">
+<!-- <div class="dropdown d-inline-block">
 <button type="button" class="btn btn-secondary font-weight-bold dropdown-toggle" id="sort-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-sort-amount-down mr-2"></i>並び替え</button>
 <div class="dropdown-menu" aria-labelledby="sort-menu">
 <a class="dropdown-item" href="#">おすすめ</a>
 <a class="dropdown-item" href="#">最新</a>
 </div>
-</div>
+</div> -->
 <button type="button" class="btn btn-secondary font-weight-bold" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-filter mr-2"></i>絞り込み</button>
 </div>
 <!-- search__filter -->
@@ -55,6 +55,15 @@ if ($_GET['pref'] != '') {
 }
 if ($_GET['genre'] != '') {
     echo '<span class="badge badge-light p-2 mr-2">'.$genres[((int)$_GET['genre']-1)]['name'].'</span>';
+}
+if ($_GET['credit_card'] != '') {
+    echo '<span class="badge badge-light p-2 mr-2">クレカ</span>';
+}
+if ($_GET['electronic_money'] != '') {
+    echo '<span class="badge badge-light p-2 mr-2">電子マネー</span>';
+}
+if ($_GET['parking_flag'] != '') {
+    echo '<span class="badge badge-light p-2 mr-2">駐車場あり</span>';
 }
 ?>
 </div>
