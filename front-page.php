@@ -12,7 +12,7 @@ get_header(); ?>
 </span>
 </h2>
 <div class="text-center mt-4">
-<button class="btn btn-primary text-white" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-search mr-2"></i>近くのテイクアウト対応店を探す</button>
+<button class="btn btn-primary text-white py-2 px-3" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-search mr-2"></i>近くのテイクアウト対応店を探す</button>
 </div>
 </div>
 </section>
@@ -20,7 +20,7 @@ get_header(); ?>
 <?php get_template_part('template-part/modal/search-form'); ?>
 <section class="search">
 <div class="container">
-<div class="search__area">
+<div class="search__area shadow-sm">
 <h3>よく見られているエリア</h3>
 <ul>
 <li><a href="<?php echo $home; ?>/search/?pref=26">京都</a></li>
@@ -107,6 +107,11 @@ get_header(); ?>
 <section class="sec sec-border">
 <div class="container">
 <h2 class="ttl-h2">おすすめ特集</h2>
+
+<a class="d-block text-center mb-md-5" href="<?php echo $home; ?>/special/yell-meshi/">
+<img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯" srcset=" <?php echo $wp_url; ?>/dist/images/banner_yell.png 1x, <?php echo $wp_url; ?>/dist/images/banner_yell@2x.png 2x">
+</a>
+
 <div class="featured">
 <?php
 $no = 1;
@@ -133,6 +138,9 @@ if (has_post_thumbnail()) {
 </a>
 <?php $no++; endforeach; wp_reset_postdata(); ?>
 </div>
+
+<a class="d-block text-center pt-3 mt-3 border-top text-body" href="<?php echo $home; ?>/special/">特集記事一覧へ<i class="fas fa-angle-right ml-3"></i></a>
+
 </div>
 </section>
 <!-- featured -->

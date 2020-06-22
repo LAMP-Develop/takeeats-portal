@@ -4,7 +4,7 @@ $home = esc_url(home_url());
 $wp_url = get_template_directory_uri(); ?>
 
 <div class="modal fade" id="search-restaurant" tabindex="-1" role="dialog" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered">
+<div class="modal-dialog modal-dialog-centered modal-lg">
 <div class="modal-content">
 <form action="<?php echo $home; ?>/search/" method="GET">
 <div class="modal-header">

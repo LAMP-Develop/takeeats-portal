@@ -68,7 +68,7 @@ if ($_GET['parking_flag'] != '') {
 ?>
 </div>
 <!-- search__current -->
-<div class="search__result-txt my-3 small">検索結果：<span><?php echo $data['total']; ?></span></div>
+<div class="search__result-txt my-3 small">検索結果：<span><?php echo $data['total']; ?></span>件</div>
 <!-- search__result-txt -->
 <div class="search__result">
 
