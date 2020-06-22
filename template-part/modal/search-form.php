@@ -16,9 +16,9 @@ $wp_url = get_template_directory_uri(); ?>
 <div class="search-form">
 <h3 class="modal-body-title">場所指定</h3>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
-<!-- <li class="nav-item" role="presentation">
+<li class="nav-item" role="presentation">
 <a class="nav-link" id="geo-tab" data-toggle="tab" href="#geo" role="tab" aria-controls="geo" aria-selected="true">現在地</a>
-</li> -->
+</li>
 <li class="nav-item" role="presentation">
 <a class="nav-link active" id="area-tab" data-toggle="tab" href="#area" role="tab" aria-controls="area" aria-selected="false">エリア一覧</a>
 </li>
@@ -28,9 +28,9 @@ $wp_url = get_template_directory_uri(); ?>
 </ul>
 <div class="tab-content" id="myTabContent">
 
-<!-- <div class="tab-pane fade" id="geo" role="tabpanel" aria-labelledby="geo-tab">
-<button class="btn btn-block btn-light"><i class="fas fa-map-marker-alt mr-2 text-info"></i>位置情報から探す</button>
-</div> -->
+<div class="tab-pane fade" id="geo" role="tabpanel" aria-labelledby="geo-tab">
+<button class="btn btn-block btn-light" type="submit" name="gps"><i class="fas fa-map-marker-alt mr-2 text-info"></i>位置情報から探す</button>
+</div>
 
 <div class="tab-pane fade show active" id="area" role="tabpanel" aria-labelledby="area-tab">
 <select name="pref" id="pref-select" class="form-control border-0">
