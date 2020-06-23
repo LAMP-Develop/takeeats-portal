@@ -2,7 +2,7 @@
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri();
 get_header(); ?>
-<section class="sec">
+<section class="py-md-5 py-4">
 <div class="container">
 <div class="featured">
 <?php if (have_posts()): while (have_posts()): the_post();

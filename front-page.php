@@ -144,7 +144,7 @@ if (has_post_thumbnail()) {
 </div>
 </section>
 <!-- featured -->
-<section class="sec sec-border">
+<!-- <section class="sec sec-border">
 <div class="container">
 <h2 class="ttl-h2">商品注文ランキング</h2>
 <div class="menu__ranking">
@@ -162,18 +162,14 @@ if (has_post_thumbnail()) {
 <?php endfor; ?>
 </div>
 </div>
-</section>
+</section> -->
 <!-- ranking -->
 <section class="sec sec-border">
 <div class="container">
 <h2 class="ttl-h2 mb-3">#TakeEats</h2>
 <p class="text-center font-weight-bold mb-4 small">「#TakeEats」で気になるお店を探そう！</p>
 </div>
-<div class="insta-feed">
-<?php for ($i=1; $i <= 9; $i++): ?>
-<div><img src="<?php echo $wp_url; ?>/dist/images/topic_sample.png" alt="" srcset="<?php echo $wp_url; ?>/dist/images/topic_sample.png 1x, <?php echo $wp_url; ?>/dist/images/topic_sample@2x.png 2x"></div>
-<?php endfor; ?>
-</div>
+<?php echo do_shortcode('[instagram-feed]'); ?>
 </div>
 </section>
 <!-- insta -->
