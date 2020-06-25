@@ -34,6 +34,7 @@ $takeeats_url = $data['takeeats_url'];
 
 if ($takeeats_url != '' && $takeeats_url != null) {
     $recommend = true;
+    $menus = get_menu($shop_id)['data'];
 } else {
     $recommend = false;
 }
@@ -56,15 +57,16 @@ get_header(); ?>
 <h2 class="restaurant-ttl">人気テイクアウトメニュー</h2>
 <div class="container">
 <div class="menu__ranking">
-<?php for ($i=1; $i <= 5; $i++): ?>
-<a class="menu__ranking__inner" href="" target="_blank">
+<?php if (count($menus) != 0):
+foreach ($menus as $key => $menu): ?>
+<a class="menu__ranking__inner" href="<?php echo $takeeats_url; ?>" target="_blank">
 <div class="menu__ranking__inner__thumbnail">
-<img src="<?php echo $wp_url; ?>/dist/images/topic_sample.png" alt="" srcset="<?php echo $wp_url; ?>/dist/images/topic_sample.png 1x, <?php echo $wp_url; ?>/dist/images/topic_sample@2x.png 2x">
+<img src="//ssl.omomuki.me/storage/<?php echo $menu['thumbnail']; ?>" alt="<?php echo $menu['name']; ?>">
 </div>
-<p class="menu__ranking__inner-name">バジルソースのパスタ</p>
-<p class="menu__ranking__inner-price">¥<span>980</span>[税抜]</p>
+<p class="menu__ranking__inner-name"><?php echo $menu['name']; ?></p>
+<p class="menu__ranking__inner-price">¥<span><?php echo number_format((int)$menu['price']); ?></span>[税抜]</p>
 </a>
-<?php endfor; ?>
+<?php endforeach; endif; ?>
 </div>
 </div>
 </div>

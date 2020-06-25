@@ -103,15 +103,22 @@ foreach ($data as $key => $val):
     $business_hours = $val['business_hours'];
     $regular_holiday = $val['regular_holiday'];
     $tags = explode(',',$val['tags']);
+    $menus = get_menu($shop_id)['data'];
 ?>
 <a class="shop-buzz__list-inner shadow-sm text-body" href="<?php echo $home; ?>/restaurant?id=<?php echo $shop_id; ?>&recommend=1">
 <h3><?php echo $shop_name; ?></h3>
 <div class="shop-buzz__list-inner-wrap">
-<!-- <div class="shop-buzz__list-inner-imgs">
-<div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
-<div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
-<div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
-</div> -->
+<?php if (count($menus) != 0): ?>
+<div class="shop-buzz__list-inner-imgs">
+<?php foreach ($menus as $key => $menu): ?>
+<div><img src="//ssl.omomuki.me/storage/<?php echo $menu['thumbnail']; ?>" alt="<?php echo $menu['name']; ?>"></div>
+<?php
+if ($key === 2) {
+    break;
+}
+endforeach; ?>
+</div>
+<?php endif; ?>
 <div class="shop-buzz__list-inner-tag">
 <span class="shop-buzz__list-inner-tag-map"><?php echo $shop_pref; ?></span>
 <span class="shop-buzz__list-inner-tag-genre"><?php echo $shop_genre; ?></span>
