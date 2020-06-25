@@ -118,7 +118,7 @@ if ($_GET['genre'] != '' && $val['id'] == $_GET['genre']) {
 <input class="form-check-input" type="checkbox" id="ubereats" name="ubereats_url" value="1" <?php if ($_GET['ubereats_url'] != '') {
     echo "checked";
 } ?>>
-<label class="form-check-label" for="ubereats">出前館掲載</label>
+<label class="form-check-label" for="ubereats">Uber Eats掲載</label>
 </div>
 </div>
 </div>
