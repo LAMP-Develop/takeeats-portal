@@ -2,12 +2,6 @@
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri();
 
-if ($_GET['recommend'] == '1') {
-    $recommend = true;
-} else {
-    $recommend = false;
-}
-
 $pref = get_pref();
 $genres = get_genres();
 
@@ -36,26 +30,19 @@ $gnavi_url = $data['gnavi_url'];
 $tabelog_url = $data['tabelog_url'];
 $demaecan_url = $data['demaecan_url'];
 $ubereats_url = $data['ubereats_url'];
+$takeeats_url = $data['takeeats_url'];
+
+if ($takeeats_url != '' && $takeeats_url != null) {
+    $recommend = true;
+} else {
+    $recommend = false;
+}
 
 get_header(); ?>
-<?php if ($recommend): ?>
-<section class="pb-4 restaurant">
-<?php else: ?>
-<section class="py-4 restaurant">
-<?php endif; ?>
-<div class="sp-mode">
-<?php if ($recommend): ?>
-<figure class="restaurant-thumbnail">
-<img src="<?php echo $wp_url; ?>/dist/images/topic_sample.png" alt="">
-</figure>
-<!-- restaurant-thumbnail -->
-<?php endif; ?>
 
-<?php if ($recommend): ?>
-<div class="search__result__inner__wrap shadow-sm">
-<?php else: ?>
+<section class="py-4 restaurant">
+<div class="sp-mode">
 <div class="search__result__inner__wrap shadow-sm my-0">
-<?php endif; ?>
 <p class="search__result__inner-name"><?php echo $shop_name; ?></p>
 <p class="search__result__inner-info">
 <span><?php echo $shop_genre; ?></span>
@@ -212,7 +199,7 @@ if ($ubereats_url != null) {
 </div>
 </section>
 <?php if ($recommend): ?>
-<a id="restaurant-btn" href="" target="_blank">テイクアウト予約する</a>
+<a id="restaurant-btn" href="<?php echo $takeeats_url; ?>" target="_blank">テイクアウト予約する</a>
 <?php endif; ?>
 
 <?php get_footer();

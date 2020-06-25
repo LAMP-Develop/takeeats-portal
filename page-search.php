@@ -83,8 +83,13 @@ $shop_pref = $pref[((int)$val['pref_id']-1)]['name'];
 $business_hours = $val['business_hours'];
 $regular_holiday = $val['regular_holiday'];
 $tags = explode(',',$val['tags']);
+if ($tags[0] != '' && $tags[0] != null) {
+    $recommend = '&recommend=1';
+} else {
+    $recommend = '';
+}
 ?>
-<a class="shop-buzz__list-inner shadow-sm text-body" href="<?php echo $home; ?>/restaurant?id=<?php echo $shop_id; ?>">
+<a class="shop-buzz__list-inner shadow-sm text-body" href="<?php echo $home; ?>/restaurant?id=<?php echo $shop_id.$recommend; ?>">
 <h3><?php echo $shop_name; ?></h3>
 <div class="shop-buzz__list-inner-wrap">
 <!-- <div class="shop-buzz__list-inner-imgs">
