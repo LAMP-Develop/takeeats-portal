@@ -92,11 +92,11 @@ foreach ($menus as $key => $menu): ?>
 <table>
 <tbody>
 <tr>
-<th>電話番号</th>
+<th class="text-nowrap">電話番号</th>
 <td><a class="text-body" href="tel:<?php echo $shop_tel; ?>"><i class="fas fa-phone mr-1 text-info"></i><?php echo $shop_tel; ?></a></td>
 </tr>
 <tr>
-<th>駐車場</th>
+<th class="">駐車場</th>
 <td>
 <?php
 if ($parking_flag) {
@@ -108,7 +108,7 @@ if ($parking_flag) {
 </td>
 </tr>
 <tr>
-<th>クレジットカード</th>
+<th class="text-nowrap">クレジットカード</th>
 <td><?php
 if ($credit_card != null) {
     echo $credit_card;
@@ -118,7 +118,7 @@ if ($credit_card != null) {
 ?></td>
 </tr>
 <tr>
-<th>電子決済</th>
+<th class="text-nowrap">電子決済</th>
 <td><?php
 if ($electronic_money != null) {
     echo $electronic_money;
@@ -128,7 +128,7 @@ if ($electronic_money != null) {
 ?></td>
 </tr>
 <tr>
-<th>公式HP</th>
+<th class="text-nowrap">公式HP</th>
 <td>
 <?php if ($hp_url != null): ?>
 <a class="text-body" href="<?php echo $hp_url; ?>" target="_blank"><?php echo $hp_url; ?></a>
