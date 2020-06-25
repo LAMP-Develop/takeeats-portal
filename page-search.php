@@ -77,29 +77,36 @@ foreach ($data['data'] as $key => $val):
 $shop_id = $val['id'];
 $shop_name = $val['name'];
 $shop_address1 = $val['address1'];
+$shop_address2 = $val['address2'];
 $shop_genre = $genres[((int)$val['cuisine_genre_id']-1)]['name'];
+$shop_pref = $pref[((int)$val['pref_id']-1)]['name'];
 $business_hours = $val['business_hours'];
 $regular_holiday = $val['regular_holiday'];
 ?>
-<div class="search__result__inner shadow-sm">
-<a href="<?php echo $home; ?>/restaurant?id=<?php echo $shop_id; ?>">
-<!-- <figure class="search__result__inner-thumbnail">
-<img src="<?php echo $wp_url; ?>/dist/images/topic_sample.png" alt="">
-</figure> -->
-<div class="search__result__inner__wrap">
-<p class="search__result__inner-name"><?php echo $shop_name; ?></p>
-<p class="search__result__inner-info">
-<span><?php echo $shop_genre; ?></span>
-<span><?php echo $shop_address1; ?></span>
-</p>
-<p class="search__result__inner-time">営業時間 <?php echo $business_hours; ?> / 定休日：<?php echo $regular_holiday; ?></p>
-<!-- <div class="search__result__inner-btn">
-<a class="btn btn-primary text-white" href="<?php echo $home; ?>/restaurant?recommend=1">メニューを見る</a>
+<a class="shop-buzz__list-inner shadow-sm text-body" href="<?php $home; ?>/restaurant?id=<?php echo $shop_id; ?>">
+<h3><?php echo $shop_name; ?></h3>
+<div class="shop-buzz__list-inner-wrap">
+
+<!-- <div class="shop-buzz__list-inner-imgs">
+<div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
+<div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
+<div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
 </div> -->
+
+<div class="shop-buzz__list-inner-tag">
+<span class="shop-buzz__list-inner-tag-map"><?php echo $shop_pref; ?></span>
+<span class="shop-buzz__list-inner-tag-genre"><?php echo $shop_genre; ?></span>
+
+<!-- <div class="shop-buzz__list-inner-label">
+<span>送料無料</span>
+<span>宅配可</span>
+</div> -->
+
+<div class="shop-buzz__list-inner-time text-muted"><?php echo $shop_address1.' '.$shop_address2; ?></div>
+
+</div>
 </div>
 </a>
-</div>
-<!-- search__result__inner -->
 <?php endforeach; ?>
 </div>
 <!-- search__result -->

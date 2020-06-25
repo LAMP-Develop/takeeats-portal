@@ -27,7 +27,7 @@ get_header(); ?>
 </ul>
 </div>
 </div>
-<div class="search__genre bg-light">
+<div class="search__genre bg-white">
 <h3><div class="container">ジャンルから探す</div></h3>
 <div class="search__genre-list">
 <ul>
@@ -84,20 +84,31 @@ get_header(); ?>
 </div>
 </section>
 <!-- search -->
-<section class="sec sec-border buzz">
+<section class="sec bg-light buzz">
 <div class="container">
 <h2 class="ttl-h2">いま話題のお店</h2>
 <div class="shop-buzz">
 <div class="shop-buzz__list">
-<?php for ($i=1; $i <= 5; $i++): ?>
-<div class="shop-buzz__list-inner">
-<img src="<?php echo $wp_url; ?>/dist/images/topic_sample.png" alt="" srcset="<?php echo $wp_url; ?>/dist/images/topic_sample.png 1x, <?php echo $wp_url; ?>/dist/images/topic_sample@2x.png 2x">
+<?php for ($i=1; $i <= 3; $i++): ?>
+<a class="shop-buzz__list-inner shadow-sm text-body">
 <h3>店舗名店舗名店舗名</h3>
+<div class="shop-buzz__list-inner-wrap">
+<div class="shop-buzz__list-inner-imgs">
+<div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
+<div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
+<div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
+</div>
 <div class="shop-buzz__list-inner-tag">
 <span class="shop-buzz__list-inner-tag-map">京都</span>
 <span class="shop-buzz__list-inner-tag-genre">ジャンル</span>
+<div class="shop-buzz__list-inner-label">
+<span>送料無料</span>
+<span>宅配可</span>
+</div>
+<div class="shop-buzz__list-inner-time text-muted"><?php echo $shop_address1.' '.$shop_address2; ?></div>
 </div>
 </div>
+</a>
 <?php endfor; ?>
 </div>
 </div>
@@ -108,7 +119,7 @@ get_header(); ?>
 <div class="container">
 <h2 class="ttl-h2">おすすめ特集</h2>
 
-<a class="d-block text-center mb-md-5" href="<?php echo $home; ?>/special/yell-meshi/">
+<a class="yell-bnr d-block text-center mb-md-5 mb-3" href="<?php echo $home; ?>/special/yell-meshi/">
 <img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯" srcset=" <?php echo $wp_url; ?>/dist/images/banner_yell.png 1x, <?php echo $wp_url; ?>/dist/images/banner_yell@2x.png 2x">
 </a>
 
