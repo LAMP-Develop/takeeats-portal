@@ -158,7 +158,7 @@ foreach ($posts as $post): setup_postdata($post);
 $t = get_the_title();
 $p = get_the_permalink();
 if (has_post_thumbnail()) {
-    $i = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+    $i = get_the_post_thumbnail_url(get_the_ID(), 'large');
 }
 ?>
 <a class="featured-article" href="<?php echo $p; ?>">
