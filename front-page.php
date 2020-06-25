@@ -104,7 +104,7 @@ foreach ($data as $key => $val):
     $regular_holiday = $val['regular_holiday'];
     $tags = explode(',',$val['tags']);
 ?>
-<a class="shop-buzz__list-inner shadow-sm text-body" href="<?php $home; ?>/restaurant?id=<?php echo $shop_id; ?>">
+<a class="shop-buzz__list-inner shadow-sm text-body" href="<?php echo $home; ?>/restaurant?id=<?php echo $shop_id; ?>">
 <h3><?php echo $shop_name; ?></h3>
 <div class="shop-buzz__list-inner-wrap">
 <!-- <div class="shop-buzz__list-inner-imgs">
