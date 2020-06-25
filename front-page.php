@@ -89,27 +89,48 @@ get_header(); ?>
 <h2 class="ttl-h2">いま話題のお店</h2>
 <div class="shop-buzz">
 <div class="shop-buzz__list">
-<?php for ($i=1; $i <= 3; $i++): ?>
-<a class="shop-buzz__list-inner shadow-sm text-body">
-<h3>店舗名店舗名店舗名</h3>
+<?php
+$data = get_restaurant('?fixed=1')['data'];
+$pref = get_pref();
+$genres = get_genres();
+foreach ($data as $key => $val):
+    $shop_id = $val['id'];
+    $shop_name = $val['name'];
+    $shop_address1 = $val['address1'];
+    $shop_address2 = $val['address2'];
+    $shop_genre = $genres[((int)$val['cuisine_genre_id']-1)]['name'];
+    $shop_pref = $pref[((int)$val['pref_id']-1)]['name'];
+    $business_hours = $val['business_hours'];
+    $regular_holiday = $val['regular_holiday'];
+    $tags = explode(',',$val['tags']);
+?>
+<a class="shop-buzz__list-inner shadow-sm text-body" href="<?php $home; ?>/restaurant?id=<?php echo $shop_id; ?>">
+<h3><?php echo $shop_name; ?></h3>
 <div class="shop-buzz__list-inner-wrap">
-<div class="shop-buzz__list-inner-imgs">
+<!-- <div class="shop-buzz__list-inner-imgs">
 <div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
 <div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
 <div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
-</div>
+</div> -->
 <div class="shop-buzz__list-inner-tag">
-<span class="shop-buzz__list-inner-tag-map">京都</span>
-<span class="shop-buzz__list-inner-tag-genre">ジャンル</span>
+<span class="shop-buzz__list-inner-tag-map"><?php echo $shop_pref; ?></span>
+<span class="shop-buzz__list-inner-tag-genre"><?php echo $shop_genre; ?></span>
+<?php if ($tags[0] != '' && $tags[0] != null): ?>
 <div class="shop-buzz__list-inner-label">
-<span>送料無料</span>
-<span>宅配可</span>
+<?php foreach ($tags as $key => $tag): ?>
+<span><?php echo $tag; ?></span>
+<?php endforeach; ?>
 </div>
+<?php endif; ?>
 <div class="shop-buzz__list-inner-time text-muted"><?php echo $shop_address1.' '.$shop_address2; ?></div>
 </div>
 </div>
 </a>
-<?php endfor; ?>
+<?php
+if ($key === 4) {
+    break;
+}
+endforeach; ?>
 </div>
 </div>
 </div>

@@ -82,28 +82,27 @@ $shop_genre = $genres[((int)$val['cuisine_genre_id']-1)]['name'];
 $shop_pref = $pref[((int)$val['pref_id']-1)]['name'];
 $business_hours = $val['business_hours'];
 $regular_holiday = $val['regular_holiday'];
+$tags = explode(',',$val['tags']);
 ?>
 <a class="shop-buzz__list-inner shadow-sm text-body" href="<?php $home; ?>/restaurant?id=<?php echo $shop_id; ?>">
 <h3><?php echo $shop_name; ?></h3>
 <div class="shop-buzz__list-inner-wrap">
-
 <!-- <div class="shop-buzz__list-inner-imgs">
 <div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
 <div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
 <div><img src="<?php echo $wp_url; ?>/dist/images/banner_yell.png" alt="エール飯"></div>
 </div> -->
-
 <div class="shop-buzz__list-inner-tag">
 <span class="shop-buzz__list-inner-tag-map"><?php echo $shop_pref; ?></span>
 <span class="shop-buzz__list-inner-tag-genre"><?php echo $shop_genre; ?></span>
-
-<!-- <div class="shop-buzz__list-inner-label">
-<span>送料無料</span>
-<span>宅配可</span>
-</div> -->
-
+<?php if ($tags[0] != '' && $tags[0] != null): ?>
+<div class="shop-buzz__list-inner-label">
+<?php foreach ($tags as $key => $tag): ?>
+<span><?php echo $tag; ?></span>
+<?php endforeach; ?>
+</div>
+<?php endif; ?>
 <div class="shop-buzz__list-inner-time text-muted"><?php echo $shop_address1.' '.$shop_address2; ?></div>
-
 </div>
 </div>
 </a>

@@ -18,6 +18,15 @@ function get_pref()
     return $pref;
 }
 
+function get_menu($restaurants_id = '')
+{
+    $url = 'https://ssl.omomuki.me/api/restaurant-menu/'.$restaurants_id;
+    $json = mb_convert_encoding(file_get_contents($url), 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+    $restaurant = json_decode($json, true);
+
+    return $restaurant;
+}
+
 function get_restaurant($param = '')
 {
     $url = 'https://ssl.omomuki.me/api/restaurants/'.$param;
@@ -36,7 +45,7 @@ function get_restaurant_detail($id = 1)
     return $restaurant;
 }
 
-function search_page_navi($total = 0, $current = 1, $unit = 10)
+function search_page_navi($total = 0, $current = 1, $unit = 12)
 {
     $range = 3;
     $showitems = ($range * 2)+1;
