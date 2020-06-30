@@ -22,11 +22,11 @@ $wp_url = get_template_directory_uri(); ?>
 <footer class="footer py-5">
 <div class="container">
 <ul class="footer-links">
+<li><a href="<?php echo $home; ?>/request/">掲載のお申し込み</a></li>
 <li><a href="<?php echo $home; ?>/company/">企業情報</a></li>
 <li><a href="<?php echo $home; ?>/term/">利用規約</a></li>
 <li><a href="<?php echo $home; ?>/privacy-policy/">プライバシーポリシー</a></li>
-<li><a href="<?php echo $home; ?>/request/">掲載のお問い合わせ</a></li>
-<li><a href="<?php echo $home; ?>/contact/">お問い合わせ</a></li>
+<!-- <li><a href="<?php echo $home; ?>/contact/">お問い合わせ</a></li> -->
 </ul>
 <p class="mb-0 text-center socket">©2020 <a class="text-white" href="<?php echo $home; ?>">TakeEats（テイクイーツ）</a></p>
 </div>
