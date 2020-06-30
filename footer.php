@@ -9,7 +9,7 @@ $wp_url = get_template_directory_uri(); ?>
 <img class="w-100 d-md-none" src="<?php echo $wp_url; ?>/dist/images/banner_portal.png" alt="TakeEats" srcset="<?php echo $wp_url; ?>/dist/images/banner_portal.png 1x, <?php echo $wp_url; ?>/dist/images/banner_portal@2x.png 2x">
 <img class="w-100 d-md-block d-none" src="<?php echo $wp_url; ?>/dist/images/banner_portal_pc.png" alt="TakeEats" srcset="<?php echo $wp_url; ?>/dist/images/banner_portal_pc.png 1x, <?php echo $wp_url; ?>/dist/images/banner_portal_pc@2x.png 2x">
 </a>
-<a href="https://take-eats.jp" target="_blank">
+<a href="https://system.take-eats.jp" target="_blank">
 <img class="w-100 d-md-none" src="<?php echo $wp_url; ?>/dist/images/banner_service.png" alt="TakeEats" srcset="<?php echo $wp_url; ?>/dist/images/banner_service.png 1x, <?php echo $wp_url; ?>/dist/images/banner_service@2x.png 2x">
 <img class="w-100 d-md-block d-none" src="<?php echo $wp_url; ?>/dist/images/banner_service_pc.png" alt="TakeEats" srcset="<?php echo $wp_url; ?>/dist/images/banner_service_pc.png 1x, <?php echo $wp_url; ?>/dist/images/banner_service_pc@2x.png 2x">
 </a>

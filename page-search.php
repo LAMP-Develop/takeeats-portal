@@ -1,4 +1,6 @@
 <?php
+global $pref_name,$genre_name;
+
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri();
 
@@ -30,6 +32,13 @@ $current_page = $data['current_page'];
 
 $pref = get_pref();
 $genres = get_genres();
+
+if ($_GET['pref'] != '') {
+    $pref_name = $pref[((int)$_GET['pref']-1)]['name'];
+}
+if ($_GET['genre'] != '') {
+    $genre_name = $genres[((int)$_GET['genre']-1)]['name'];
+}
 
 get_header(); ?>
 
@@ -82,7 +91,7 @@ $shop_genre = $genres[((int)$val['cuisine_genre_id']-1)]['name'];
 $shop_pref = $pref[((int)$val['pref_id']-1)]['name'];
 $business_hours = $val['business_hours'];
 $regular_holiday = $val['regular_holiday'];
-$tags = explode(',',$val['tags']);
+$tags = explode(',', $val['tags']);
 $takeeats_url = $val['takeeats_url'];
 if ($takeeats_url != '' && $takeeats_url != null) {
     $recommend = '&recommend=1';

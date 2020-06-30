@@ -2,6 +2,7 @@
 
 // 専用関数
 include_once 'lib/func/add-func.php';
+include_once 'lib/func/seo.php';
 
 // アイキャッチ設定
 add_theme_support('post-thumbnails');

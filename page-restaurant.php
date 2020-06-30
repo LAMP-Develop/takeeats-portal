@@ -1,4 +1,6 @@
 <?php
+global $shop_name,$shop_address1;
+
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri();
 

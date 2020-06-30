@@ -7,12 +7,12 @@ get_header(); ?>
 <h2>
 <span>
 <img src="<?php echo $wp_url; ?>/dist/images/mv_icon_01.png" alt="アイコン" srcset="<?php echo $wp_url; ?>/dist/images/mv_icon_01.png 1x, <?php echo $wp_url; ?>/dist/images/mv_icon_01@2x.png 2x">
-近くのテイクアウトの<br>名店を探す
+近くのテイクアウトできる<br>お店を探す
 <img src="<?php echo $wp_url; ?>/dist/images/mv_icon_02.png" alt="アイコン" srcset="<?php echo $wp_url; ?>/dist/images/mv_icon_02.png 1x, <?php echo $wp_url; ?>/dist/images/mv_icon_02@2x.png 2x">
 </span>
 </h2>
 <div class="text-center mt-4">
-<button class="btn btn-primary text-white py-2 px-3" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-search mr-2"></i>近くのテイクアウト対応店を探す</button>
+<button class="btn btn-primary text-white py-2 px-3" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-search mr-2"></i>お店を検索する</button>
 </div>
 </div>
 </section>
@@ -156,7 +156,7 @@ endforeach; ?>
 $no = 1;
 $args = [
     'post_type' => 'post',
-    'posts_per_page' => 5,
+    'posts_per_page' => 2,
     'orderby' => 'date',
     'order' => 'DESC'
 ];
@@ -187,30 +187,30 @@ if (has_post_thumbnail()) {
 <div class="container">
 <h2 class="ttl-h2">商品注文ランキング</h2>
 <div class="menu__ranking">
-<?php for ($i=1; $i <= 5; $i++): ?>
-<a class="menu__ranking__inner" href="<?php echo $home; ?>/restaurant?recommend=1">
+<?php // for ($i=1; $i <= 5; $i++): ?>
+<a class="menu__ranking__inner" href="<?php // echo $home; ?>/restaurant?recommend=1">
 <div class="menu__ranking__inner__thumbnail">
-<span class="menu__ranking__inner__thumbnail-no"><?php echo $i; ?></span>
-<img src="<?php echo $wp_url; ?>/dist/images/topic_sample.png" alt="" srcset="<?php echo $wp_url; ?>/dist/images/topic_sample.png 1x, <?php echo $wp_url; ?>/dist/images/topic_sample@2x.png 2x">
+<span class="menu__ranking__inner__thumbnail-no"><?php // echo $i; ?></span>
+<img src="<?php // echo $wp_url; ?>/dist/images/topic_sample.png" alt="" srcset="<?php // echo $wp_url; ?>/dist/images/topic_sample.png 1x, <?php // echo $wp_url; ?>/dist/images/topic_sample@2x.png 2x">
 <span class="menu__ranking__inner__thumbnail-area">京都</span>
 </div>
 <p class="menu__ranking__inner-name">バジルソースのパスタ</p>
 <p class="menu__ranking__inner-shop">TakeCafe</p>
 <p class="menu__ranking__inner-price">¥<span>980</span>[税込]</p>
 </a>
-<?php endfor; ?>
+<?php // endfor; ?>
 </div>
 </div>
 </section> -->
 <!-- ranking -->
-<section class="sec sec-border">
+<!-- <section class="sec sec-border">
 <div class="container">
 <h2 class="ttl-h2 mb-3">#TakeEats</h2>
 <p class="text-center font-weight-bold mb-4 small">「#TakeEats」で気になるお店を探そう！</p>
 </div>
-<?php echo do_shortcode('[instagram-feed]'); ?>
+<?php // echo do_shortcode('[instagram-feed]'); ?>
 </div>
-</section>
+</section> -->
 <!-- insta -->
 
 <?php get_footer();
