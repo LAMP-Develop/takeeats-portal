@@ -2,16 +2,20 @@
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri(); ?>
 <aside class="sidebar col-md-3 mt-md-0 mt-4">
+
+<?php if (is_active_sidebar('side-bar')) {
+    dynamic_sidebar('side-bar');
+} ?>
+
 <div class="sidebar-inner">
-<h3>その他によく見られている特集</h3>
+<h3>その他のおすすめ記事</h3>
 <div class="sidebar__posts">
 <?php
 $no = 1;
 $args = [
     'post_type' => 'post',
     'posts_per_page' => 5,
-    'orderby' => 'date',
-    'order' => 'DESC'
+    'orderby' => 'rand',
 ];
 $posts = get_posts($args);
 foreach ($posts as $post): setup_postdata($post);

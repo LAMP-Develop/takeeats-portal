@@ -76,9 +76,9 @@ function arphabet_widgets_init()
     register_sidebar([
         'name' => 'サイドバー',
         'id' => 'side-bar',
-        'before_widget' => '<div class="sidebar">',
+        'before_widget' => '<div class="sidebar-inner">',
         'after_widget' => '</div>',
-        'before_title' => '<h3 class="sidebar-ttl">',
+        'before_title' => '<h3>',
         'after_title' => '</h3>',
     ]);
 }
