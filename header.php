@@ -26,7 +26,7 @@ $wp_url = get_template_directory_uri(); ?>
 </a>
 <h1 class="navbar-brand m-0 text-white bg-primary py-1 px-3">お店検索</h1>
 
-<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<button class="navbar-toggler ml-auto px-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 <i class="fas fa-bars"></i>
 </button>
 
