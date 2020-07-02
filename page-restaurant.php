@@ -159,12 +159,12 @@ if ($electronic_money != null) {
 <tbody>
 <tr>
 <td><?php
-if ($gnavi_url != null) {
+if ($tabelog_url != null) {
     echo '<a href="'.$tabelog_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
 }
 ?></td>
 <td><?php
-if ($tabelog_url != null) {
+if ($gnavi_url != null) {
     echo '<a href="'.$gnavi_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
 }
 ?></td>
