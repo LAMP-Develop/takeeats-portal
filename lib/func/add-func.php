@@ -114,7 +114,7 @@ function get_restaurant_detail($id = 1)
 
 function search_page_navi($total = 0, $current = 1, $unit = 12)
 {
-    $range = 3;
+    $range = 2;
     $showitems = ($range * 2)+1;
     $pages = ceil($total / $unit);
     $paged = $current;

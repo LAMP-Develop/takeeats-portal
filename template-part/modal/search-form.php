@@ -35,14 +35,29 @@ $wp_url = get_template_directory_uri(); ?>
 <div class="tab-pane fade show active" id="area" role="tabpanel" aria-labelledby="area-tab">
 <select name="pref" id="pref-select" class="form-control border-0">
 <option value="">---</option>
-<?php
-$pref = get_pref();
-foreach ($pref as $key => $val): ?>
-<option value="<?php echo $val['id']; ?>" <?php
-if ($_GET['pref'] != '' && $val['id'] == $_GET['pref']) {
+
+<option value="13" <?php
+if ($_GET['pref'] != '' && "13" == $_GET['pref']) {
     echo "selected";
-} ?>><?php echo $val['name']; ?></option>
-<?php endforeach; ?>
+} ?>>東京都</option>
+<option value="26" <?php
+if ($_GET['pref'] != '' && "26" == $_GET['pref']) {
+    echo "selected";
+} ?>>京都府</option>
+<option value="27" <?php
+if ($_GET['pref'] != '' && "27" == $_GET['pref']) {
+    echo "selected";
+} ?>>大阪府</option>
+
+
+<?php
+// $pref = get_pref();
+// foreach ($pref as $key => $val): ?>
+<!-- <option value="<?php echo $val['id']; ?>" <?php
+// if ($_GET['pref'] != '' && $val['id'] == $_GET['pref']) {
+//     echo "selected";
+// } ?>><?php // echo $val['name']; ?></option> -->
+<?php // endforeach; ?>
 </select>
 </div>
 
