@@ -46,19 +46,13 @@ add_filter('wpseo_metadesc', 'filter_wpseo_metadesc', 10, 1);
 
 
 // canonical上書き
-// function filter_wpseo_canonical($canonical)
-// {
-//     global $shop_name,$shop_address1,$pref_name,$genre_name;
-//     if (is_page('restaurant')) {
-//     } elseif (is_page('search')) {
-//         if ($pref_name != null && $genre_name != null) {
-//         } elseif ($pref_name == null && $genre_name != null) {
-//         } elseif ($pref_name != null && $genre_name == null) {
-//         } else {
-//             return $canonical;
-//         }
-//     } else {
-//         return $canonical;
-//     }
-// };
-// add_filter('wpseo_canonical', 'filter_wpseo_canonical', 10, 1);
+function filter_wpseo_canonical($canonical)
+{
+    global $pref_name,$genre_name;
+    if (is_page('restaurant') || is_page('search')) {
+        return (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    } else {
+        return $canonical;
+    }
+};
+add_filter('wpseo_canonical', 'filter_wpseo_canonical', 10, 1);

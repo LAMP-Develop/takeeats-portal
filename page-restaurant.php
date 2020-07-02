@@ -56,7 +56,10 @@ get_header(); ?>
 <!-- search__result__inner__wrap -->
 <?php if ($recommend): ?>
 <div class="restaurant__menu restaurant-block">
-<h2 class="restaurant-ttl">人気テイクアウトメニュー</h2>
+<h2 class="restaurant-ttl d-flex justify-content-between align-items-center">
+<span>人気テイクアウトメニュー</span>
+<a class="btn btn-sm btn-primary rounded-pill px-3" href="<?php echo $takeeats_url; ?>" target="_blank">すべてのメニュー</a>
+</h2>
 <div class="container">
 <div class="menu__ranking">
 <?php if (count($menus) != 0):
