@@ -17,8 +17,6 @@ $shop_genre = $genres[((int)$data['cuisine_genre_id']-1)]['name'];
 $business_hours = $data['business_hours'];
 $regular_holiday = $data['regular_holiday'];
 $gmap_url = $data['gmap_url'];
-$keys = parse_url($gmap_url);
-$gmap_emmbed = end(explode("/", $keys['path']));
 $shop_tel = $data['tel'];
 $shop_access = $data['access'];
 $parking_flag = $data['parking_flag'];
@@ -45,7 +43,11 @@ get_header(); ?>
 
 <section class="py-4 restaurant">
 <div class="sp-mode">
-<div class="search__result__inner__wrap shadow-sm my-0">
+<div class="search__result__inner__wrap shadow-sm my-0 position-relative">
+
+<?php if ($gmap_url != null): ?>
+<a class="restaurant-mapbtn" href="<?php echo $gmap_url; ?>"><i class="fas fa-map-marker-alt mr-1 text-info"></i>地図</a>
+<?php endif; ?>
 <p class="search__result__inner-name"><?php echo $shop_name; ?></p>
 <p class="search__result__inner-info">
 <span><?php echo $shop_genre; ?></span>
@@ -58,7 +60,7 @@ get_header(); ?>
 <div class="restaurant__menu restaurant-block">
 <h2 class="restaurant-ttl d-flex justify-content-between align-items-center">
 <span>人気テイクアウトメニュー</span>
-<a class="btn btn-sm btn-primary rounded-pill px-3" href="<?php echo $takeeats_url; ?>" target="_blank">すべてのメニュー</a>
+<a class="btn btn-sm btn-primary rounded-pill px-3" href="<?php echo $takeeats_url; ?>" target="_blank">メニュー一覧<i class="fas fa-angle-right ml-1"></i></a>
 </h2>
 <div class="container">
 <div class="menu__ranking">
@@ -81,19 +83,20 @@ foreach ($menus as $key => $menu): ?>
 <h2 class="restaurant-ttl">アクセス</h2>
 <div class="container">
 <p>〒<?php echo $shop_zipcode; ?> <?php echo $shop_address1; ?> <?php echo $shop_address2; ?></p>
+<?php if ($gmap_url): ?>
 <div class="embed-responsive embed-responsive-16by9">
 <iframe class="embed-responsive-item" src="https://maps.google.co.jp/maps?output=embed&q=<?php echo $shop_name; ?>"></iframe>
 </div>
 <div class="text-center mt-3">
 <a class="btn btn-primary font-weight-bold rounded-pill" href="<?php echo $gmap_url; ?>" target="_blank">GoogleMapで見る</a>
 </div>
+<?php endif; ?>
 </div>
 </div>
 <!-- restaurant__access -->
 <div class="restaurant__overview restaurant-block">
 <h2 class="restaurant-ttl">店舗情報</h2>
 <div class="container">
-<!-- <p>保存料なしの無添加なカレーと栄養たっぷりの野菜ジュースを。定番バターチキンカレー、激辛ビーフカレーからコンビネーションカレーまで。</p> -->
 <table>
 <tbody>
 <tr>
@@ -133,12 +136,20 @@ if ($electronic_money != null) {
 ?></td>
 </tr>
 <tr>
-<th class="text-nowrap">公式HP</th>
+<th class="text-nowrap"><?php if ($recommend) {
+    echo "予約サイト";
+} else {
+    echo "公式HP";
+} ?></th>
 <td>
+<?php if ($takeeats_url != null): ?>
+<a class="text-body" href="<?php echo $takeeats_url; ?>" target="_blank"><?php echo $takeeats_url; ?></a>
+<?php else: ?>
 <?php if ($hp_url != null): ?>
 <a class="text-body" href="<?php echo $hp_url; ?>" target="_blank"><?php echo $hp_url; ?></a>
 <?php else: ?>
 なし
+<?php endif; ?>
 <?php endif; ?>
 </td>
 </tr>
