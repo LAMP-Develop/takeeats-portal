@@ -154,7 +154,7 @@ if ($electronic_money != null) {
 } ?></th>
 <td>
 <?php if ($takeeats_url != null): ?>
-<a class="text-body" href="<?php echo $takeeats_url; ?>" target="_blank"><?php echo $takeeats_url; ?></a>
+<a class="text-body" href="<?php echo $takeeats_url; ?>" target="_blank" onclick="gtag('event','click',{'event_category':'button','event_label':'テイクアウト予約する'});"><?php echo $takeeats_url; ?></a>
 <?php else: ?>
 <?php if ($hp_url != null): ?>
 <a class="text-body" href="<?php echo $hp_url; ?>" target="_blank"><?php echo $hp_url; ?></a>
