@@ -48,7 +48,7 @@ get_header(); ?>
 <div class="search__result__inner__wrap shadow-sm my-0 position-relative">
 
 <?php if ($gmap_url != null): ?>
-<a class="restaurant-mapbtn" href="<?php echo $gmap_url; ?>"><i class="fas fa-map-marker-alt mr-1 text-info"></i>地図</a>
+<a class="restaurant-mapbtn" href="<?php echo $gmap_url; ?>" target="_blank"><i class="fas fa-map-marker-alt mr-1 text-info"></i>地図</a>
 <?php endif; ?>
 <p class="search__result__inner-name"><?php echo $shop_name; ?></p>
 <p class="search__result__inner-info">
