@@ -82,13 +82,13 @@ if ($_GET['genre'] != '' && $val['id'] == $_GET['genre']) {
 <input class="form-check-input" type="checkbox" id="credit" name="credit_card" value="1" <?php if ($_GET['credit_card'] != '') {
     echo "checked";
 } ?>>
-<label class="form-check-label" for="credit">クレジットカード</label>
+<label class="form-check-label" for="credit">クレジットカード可</label>
 </div>
 <div class="form-check form-check-inline">
 <input class="form-check-input" type="checkbox" id="electronic" name="electronic_money" value="1" <?php if ($_GET['electronic_money'] != '') {
     echo "checked";
 } ?>>
-<label class="form-check-label" for="electronic">電子マネー</label>
+<label class="form-check-label" for="electronic">電子マネー可</label>
 </div>
 <div class="form-check form-check-inline">
 <input class="form-check-input" type="checkbox" id="parking" name="parking_flag" value="1" <?php if ($_GET['parking_flag'] != '') {

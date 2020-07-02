@@ -66,10 +66,10 @@ if ($_GET['genre'] != '') {
     echo '<span class="badge badge-light p-2 mr-2">'.$genres[((int)$_GET['genre']-1)]['name'].'</span>';
 }
 if ($_GET['credit_card'] != '') {
-    echo '<span class="badge badge-light p-2 mr-2">クレカ</span>';
+    echo '<span class="badge badge-light p-2 mr-2">クレカ可</span>';
 }
 if ($_GET['electronic_money'] != '') {
-    echo '<span class="badge badge-light p-2 mr-2">電子マネー</span>';
+    echo '<span class="badge badge-light p-2 mr-2">電子マネー可</span>';
 }
 if ($_GET['parking_flag'] != '') {
     echo '<span class="badge badge-light p-2 mr-2">駐車場あり</span>';

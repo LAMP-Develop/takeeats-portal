@@ -160,22 +160,22 @@ if ($electronic_money != null) {
 <tr>
 <td><?php
 if ($gnavi_url != null) {
-    echo '<a class="btn btn-secondary btn-block text-left" href="'.$gnavi_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
+    echo '<a href="'.$gnavi_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
 }
 ?></td>
 <td><?php
 if ($tabelog_url != null) {
-    echo '<a class="btn btn-secondary btn-block text-left" href="'.$tabelog_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
+    echo '<a href="'.$tabelog_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
 }
 ?></td>
 <td><?php
 if ($demaecan_url != null) {
-    echo '<a class="btn btn-secondary btn-block text-left" href="'.$demaecan_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
+    echo '<a href="'.$demaecan_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
 }
 ?></td>
 <td><?php
 if ($ubereats_url != null) {
-    echo '<a class="btn btn-secondary btn-block text-left" href="'.$ubereats_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
+    echo '<a href="'.$ubereats_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
 }
 ?></td>
 </tr>

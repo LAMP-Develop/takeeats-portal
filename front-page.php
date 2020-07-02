@@ -23,6 +23,8 @@ get_header(); ?>
 <div class="search__area shadow-sm">
 <h3>よく見られているエリア</h3>
 <ul>
+<li><a href="<?php echo $home; ?>/search/?pref=13">東京</a></li>
+<li><a href="<?php echo $home; ?>/search/?pref=27">大阪</a></li>
 <li><a href="<?php echo $home; ?>/search/?pref=26">京都</a></li>
 </ul>
 </div>
