@@ -48,9 +48,19 @@ add_filter('wpseo_metadesc', 'filter_wpseo_metadesc', 10, 1);
 // canonical上書き
 function filter_wpseo_canonical($canonical)
 {
-    global $pref_name,$genre_name;
-    if (is_page('restaurant') || is_page('search')) {
+    global $pref_id,$genre_id;
+    if (is_page('restaurant')) {
         return (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    } elseif (is_page('search')) {
+        if ($pref_id != null && $genre_id != null) {
+            return get_the_permalink().'?pref='.$pref_id.'&genre='.$genre_id;
+        } elseif ($pref_id == null && $genre_id != null) {
+            return get_the_permalink().'?genre='.$genre_id;
+        } elseif ($pref_id != null && $genre_id == null) {
+            return get_the_permalink().'?pref='.$pref_id;
+        } else {
+            return $canonical;
+        }
     } else {
         return $canonical;
     }

@@ -1,5 +1,5 @@
 <?php
-global $pref_name,$genre_name;
+global $pref_name,$genre_name,$pref_id,$genre_id;
 
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri();
@@ -35,9 +35,11 @@ $genres = get_genres();
 
 if ($_GET['pref'] != '') {
     $pref_name = $pref[((int)$_GET['pref']-1)]['name'];
+    $pref_id = (int)$_GET['pref'];
 }
 if ($_GET['genre'] != '') {
     $genre_name = $genres[((int)$_GET['genre']-1)]['name'];
+    $genre_id = (int)$_GET['genre'];
 }
 
 get_header(); ?>
