@@ -228,7 +228,7 @@ if ($ubereats_url != null) {
 </div>
 </section>
 <?php if ($recommend): ?>
-<a id="restaurant-btn" class="shadow-sm" href="<?php echo $takeeats_url; ?>" target="_blank">テイクアウト予約する</a>
+<a id="restaurant-btn" class="border-top" href="<?php echo $takeeats_url; ?>" target="_blank"><span class="shadow-sm">テイクアウト予約する</span></a>
 <?php endif; ?>
 
 <?php get_footer();
