@@ -32,6 +32,8 @@ $demaecan_url = $data['demaecan_url'];
 $ubereats_url = $data['ubereats_url'];
 $takeeats_url = $data['takeeats_url'];
 
+$tags = explode(',', $data['tags']);
+
 if ($takeeats_url != '' && $takeeats_url != null) {
     $recommend = true;
     $menus = get_menu($shop_id)['data'];
@@ -53,6 +55,15 @@ get_header(); ?>
 <span><?php echo $shop_genre; ?></span>
 <span><?php echo $shop_address1; ?></span>
 </p>
+
+<?php if ($tags[0] != '' && $tags[0] != null): ?>
+<div class="shop-buzz__list-inner-label">
+<?php foreach ($tags as $key => $tag): ?>
+<span><?php echo $tag; ?></span>
+<?php endforeach; ?>
+</div>
+<?php endif; ?>
+
 <p class="search__result__inner-time">営業時間 <?php echo $business_hours; ?> / 定休日：<?php echo $regular_holiday; ?></p>
 </div>
 <!-- search__result__inner__wrap -->
