@@ -71,7 +71,7 @@ get_header(); ?>
 <div class="restaurant__menu restaurant-block">
 <h2 class="restaurant-ttl d-flex justify-content-between align-items-center">
 <span>人気テイクアウトメニュー</span>
-<a class="btn btn-sm btn-primary rounded-pill px-3" href="<?php echo $takeeats_url; ?>" target="_blank">メニュー一覧<i class="fas fa-angle-right ml-1"></i></a>
+<a class="btn btn-sm btn-default rounded-pill px-3" href="<?php echo $takeeats_url; ?>" target="_blank">メニュー一覧<i class="fas fa-angle-right ml-1"></i></a>
 </h2>
 <div class="container">
 <div class="menu__ranking">
@@ -99,7 +99,7 @@ foreach ($menus as $key => $menu): ?>
 <iframe class="embed-responsive-item" src="https://maps.google.co.jp/maps?output=embed&q=<?php echo $shop_name; ?>"></iframe>
 </div>
 <div class="text-center mt-3">
-<a class="btn btn-primary font-weight-bold rounded-pill" href="<?php echo $gmap_url; ?>" target="_blank">GoogleMapで見る</a>
+<a class="btn btn-default rounded-pill" href="<?php echo $gmap_url; ?>" target="_blank">GoogleMapで見る</a>
 </div>
 <?php endif; ?>
 </div>
@@ -228,7 +228,14 @@ if ($ubereats_url != null) {
 </div>
 </section>
 <?php if ($recommend): ?>
-<a id="restaurant-btn" class="border-top" href="<?php echo $takeeats_url; ?>" target="_blank" onclick="gtag('event','click',{'event_category':'button','event_label':'テイクアウト予約する'});"><span class="shadow-sm">テイクアウト予約する</span></a>
+<div id="restaurant-btn" class="border-top <?php if ($shop_tel != null) {
+    echo "is-tel";
+} ?>">
+<?php if ($shop_tel != null): ?>
+<a class="restaurant-tel" href="tel:<?php echo $shop_tel; ?>">電話する<i class="fas fa-angle-right ml-2"></i></a>
+<?php endif; ?>
+<a class="restaurant-link" href="<?php echo $takeeats_url; ?>" target="_blank" onclick="gtag('event','click',{'event_category':'button','event_label':'テイクアウト予約する'});">WEBで注文<i class="fas fa-angle-right ml-2"></i></a>
+</div>
 <?php endif; ?>
 
 <?php get_footer();
