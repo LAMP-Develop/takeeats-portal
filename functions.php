@@ -3,6 +3,7 @@
 // 専用関数
 include_once 'lib/func/add-func.php';
 include_once 'lib/func/seo.php';
+include_once 'lib/func/remove-asset.php';
 
 // アイキャッチ設定
 add_theme_support('post-thumbnails');
@@ -60,15 +61,6 @@ function title_separator($sep)
     return $sep;
 }
 add_filter('document_title_separator', 'title_separator');
-
-// 標準のjquery消去
-function my_delete_local_jquery()
-{
-    if (!is_front_page() && !is_admin() && !is_single() && !is_page('request') && !is_page('contact') && !is_page('search')) {
-        wp_deregister_script('jquery');
-    }
-}
-add_action('wp_enqueue_scripts', 'my_delete_local_jquery');
 
 // ウィジェット登録
 function arphabet_widgets_init()
