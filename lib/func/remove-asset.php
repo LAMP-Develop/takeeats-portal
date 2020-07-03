@@ -3,13 +3,12 @@
 // cssの除去
 function dp_deregister_styles()
 {
-    if (!is_page('contact')) {
+    if (!is_page(['contact', 'request'])) {
         wp_dequeue_style('contact-form-7');
     }
     if (!is_single()) {
         wp_dequeue_style('toc-screen');
         wp_dequeue_style('wp-block-library');
-        wp_dequeue_style('wp-social-bookmarking-light');
     }
 }
 add_action('wp_print_styles', 'dp_deregister_styles', 100);
@@ -17,12 +16,11 @@ add_action('wp_print_styles', 'dp_deregister_styles', 100);
 // jsの除去
 function dp_deregister_scripts()
 {
-    if (!is_page('contact')) {
+    if (!is_page(['contact', 'request'])) {
         wp_deregister_script('contact-form-7');
     }
     if (!is_single()) {
-        wp_dequeue_style('toc-screen');
-        wp_dequeue_style('wp-block-library');
+        wp_deregister_script('toc-front');
     }
 }
 add_action('wp_print_scripts', 'dp_deregister_scripts', 100);
