@@ -21,10 +21,9 @@ function dp_deregister_scripts()
         wp_deregister_script('contact-form-7');
     }
     if (!is_single()) {
-      wp_dequeue_style('toc-screen');
-      wp_dequeue_style('wp-block-library');
-      wp_dequeue_style('wp-social-bookmarking-light');
-  }
+        wp_dequeue_style('toc-screen');
+        wp_dequeue_style('wp-block-library');
+    }
 }
 add_action('wp_print_scripts', 'dp_deregister_scripts', 100);
 
@@ -36,3 +35,19 @@ function my_delete_local_jquery()
     }
 }
 add_action('wp_enqueue_scripts', 'my_delete_local_jquery');
+
+
+// 読み込み確認
+function dp_display_pluginhandles()
+{
+    $wp_styles = wp_styles();
+    $wp_scripts = wp_scripts();
+
+    foreach ($wp_styles->queue as $handle) {
+        echo $handle.'<br>';
+    }
+    foreach ($wp_scripts->queue as $handle) {
+        echo $handle.'<br>';
+    }
+}
+add_shortcode('pluginhandles', 'dp_display_pluginhandles');
