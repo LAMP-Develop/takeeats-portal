@@ -2,3 +2,4 @@
 /assets
 imagemin.js
 webpack.config.js
+.DS_Store
