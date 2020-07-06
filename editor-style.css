@@ -4,6 +4,9 @@
   line-height: 1.5;
   letter-spacing: 1px;
 }
+.editor-post-title__block .editor-post-title__input {
+  font-family: sans-serif;
+}
 p a {
   text-decoration: underline;
 }
