@@ -30,7 +30,6 @@ $wp_url = get_template_directory_uri(); ?>
 <i class="fas fa-bars"></i>
 </button>
 
-
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 <ul class="navbar-nav mr-auto mt-3">
 <li class="nav-item border-top">
