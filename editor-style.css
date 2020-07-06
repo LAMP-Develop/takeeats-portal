@@ -8,6 +8,7 @@
   font-family: sans-serif;
 }
 p a {
+  color: #f81;
   text-decoration: underline;
 }
 p a[target="_blank"]::after {
