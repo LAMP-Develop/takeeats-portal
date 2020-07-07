@@ -8,11 +8,11 @@ function edit_wpseo_title($title)
         return $shop_name.'('.$shop_address1.') | '.get_bloginfo('name');
     } elseif (is_page('search')) {
         if ($pref_name != null && $genre_name != null) {
-            return $pref_name.'で'.$genre_name.'がテイクアウトできるおすすめのお店 | '.get_bloginfo('name');
+            return $pref_name.'で'.$genre_name.'がテイクアウト(お持ち帰り)できるおすすめのお店 | '.get_bloginfo('name');
         } elseif ($pref_name == null && $genre_name != null) {
-            return $genre_name.'がテイクアウトできるおすすめのお店 | '.get_bloginfo('name');
+            return $genre_name.'がテイクアウト(お持ち帰り)できるおすすめのお店 | '.get_bloginfo('name');
         } elseif ($pref_name != null && $genre_name == null) {
-            return $pref_name.'でテイクアウトできるおすすめのお店 | '.get_bloginfo('name');
+            return $pref_name.'でテイクアウト(お持ち帰り)できるおすすめのお店 | '.get_bloginfo('name');
         } else {
             return $title;
         }
@@ -30,11 +30,11 @@ function filter_wpseo_metadesc($wpseo_replace_vars)
         return $shop_name.'('.$shop_address1.') | '.get_bloginfo('name');
     } elseif (is_page('search')) {
         if ($pref_name != null && $genre_name != null) {
-            return $pref_name.'で'.$genre_name.'がテイクアウトできるおすすめのお店一覧ページです。テイクアウトを活用してお家で美味しいごはんを食べませんか？';
+            return $pref_name.'で'.$genre_name.'がテイクアウト(お持ち帰り)できるおすすめのお店一覧ページです。テイクアウトを活用してお家で美味しいごはんを食べませんか？';
         } elseif ($pref_name == null && $genre_name != null) {
-            return $genre_name.'がテイクアウトできるおすすめのお店一覧ページです。テイクアウトを活用してお家で美味しいごはんを食べませんか？';
+            return $genre_name.'がテイクアウト(お持ち帰り)できるおすすめのお店一覧ページです。テイクアウトを活用してお家で美味しいごはんを食べませんか？';
         } elseif ($pref_name != null && $genre_name == null) {
-            return $pref_name.'でテイクアウトできるおすすめのお店一覧ページです。テイクアウトを活用してお家で美味しいごはんを食べませんか？';
+            return $pref_name.'でテイクアウト(お持ち帰り)できるおすすめのお店一覧ページです。テイクアウトを活用してお家で美味しいごはんを食べませんか？';
         } else {
             return $wpseo_replace_vars;
         }
