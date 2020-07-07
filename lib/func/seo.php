@@ -8,11 +8,11 @@ function edit_wpseo_title($title)
         return $shop_name.'('.$shop_address1.') | '.get_bloginfo('name');
     } elseif (is_page('search')) {
         if ($pref_name != null && $genre_name != null) {
-            return $pref_name.'で'.$genre_name.'がテイクアウト(お持ち帰り)できるおすすめのお店 | '.get_bloginfo('name');
+            return $pref_name.'で'.$genre_name.'がテイクアウト(お持ち帰り)できるおすすめのお店 | TakeEats(テイクイーツ)';
         } elseif ($pref_name == null && $genre_name != null) {
-            return $genre_name.'がテイクアウト(お持ち帰り)できるおすすめのお店 | '.get_bloginfo('name');
+            return $genre_name.'がテイクアウト(お持ち帰り)できるおすすめのお店 | TakeEats(テイクイーツ)';
         } elseif ($pref_name != null && $genre_name == null) {
-            return $pref_name.'でテイクアウト(お持ち帰り)できるおすすめのお店 | '.get_bloginfo('name');
+            return $pref_name.'でテイクアウト(お持ち帰り)できるおすすめのお店 | TakeEats(テイクイーツ)';
         } else {
             return $title;
         }
