@@ -5,7 +5,7 @@ function edit_wpseo_title($title)
 {
     global $shop_name,$shop_address1,$pref_name,$genre_name;
     if (is_page('restaurant')) {
-        return $shop_name.'('.$shop_address1.') | '.get_bloginfo('name');
+        return $shop_name.'('.$shop_address1.') | TakeEats(テイクイーツ)';
     } elseif (is_page('search')) {
         if ($pref_name != null && $genre_name != null) {
             return $pref_name.'で'.$genre_name.'がテイクアウト(お持ち帰り)できるおすすめのお店 | TakeEats(テイクイーツ)';
@@ -27,7 +27,7 @@ function filter_wpseo_metadesc($wpseo_replace_vars)
 {
     global $shop_name,$shop_address1,$pref_name,$genre_name;
     if (is_page('restaurant')) {
-        return $shop_name.'('.$shop_address1.') | '.get_bloginfo('name');
+        return $shop_name.'('.$shop_address1.')'.'でテイクアウト(お持ち帰り)してお家で美味しいごはんを食べませんか？';
     } elseif (is_page('search')) {
         if ($pref_name != null && $genre_name != null) {
             return $pref_name.'で'.$genre_name.'がテイクアウト(お持ち帰り)できるおすすめのお店一覧ページです。テイクアウトを活用してお家で美味しいごはんを食べませんか？';
