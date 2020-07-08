@@ -228,12 +228,7 @@ if ($ubereats_url != null) {
 </div>
 </section>
 <?php if ($recommend): ?>
-<div id="restaurant-btn" class="border-top <?php if ($shop_tel != null) {
-    echo "is-tel";
-} ?>">
-<?php if ($shop_tel != null): ?>
-<a class="restaurant-tel" href="tel:<?php echo $shop_tel; ?>">電話する<i class="fas fa-angle-right ml-2"></i></a>
-<?php endif; ?>
+<div id="restaurant-btn" class="border-top">
 <a class="restaurant-link" href="<?php echo $takeeats_url; ?>" target="_blank" onclick="gtag('event','click',{'event_category':'button','event_label':'テイクアウト予約する'});">WEBで注文<i class="fas fa-angle-right ml-2"></i></a>
 </div>
 <?php endif; ?>

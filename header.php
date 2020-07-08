@@ -21,10 +21,12 @@ $wp_url = get_template_directory_uri(); ?>
 <body>
 <header class="header shadow-sm">
 <nav class="navbar navbar-expand-xlg justify-content-start align-items-center">
-<a class="navbar-brand p-0 mb-1" href="<?php echo $home; ?>">
+<h1 class="navbar-brand p-0 m-0">
+<a class="d-inline-block align-middle" href="<?php echo $home; ?>">
 <img src="<?php echo $wp_url; ?>/dist/images/logo.png" alt="<?php bloginfo('name'); ?>" srcset="<?php echo $wp_url; ?>/dist/images/logo.png 1x, <?php echo $wp_url; ?>/dist/images/logo@2x.png 2x">
 </a>
-<h1 class="navbar-brand m-0 text-white bg-primary py-1 px-3">お店検索</h1>
+<span class="d-inline-block align-middle">お店検索</span>
+</h1>
 
 <button class="navbar-toggler ml-auto px-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 <i class="fas fa-bars"></i>

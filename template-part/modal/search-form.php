@@ -140,7 +140,7 @@ if ($_GET['genre'] != '' && $val['id'] == $_GET['genre']) {
 
 </div>
 <div class="modal-footer">
-<button type="submit" class="btn btn-block btn-primary"><i class="fas fa-search mr-2"></i>検索</button>
+<button type="submit" class="btn btn-block btn-primary"><i class="fas fa-search mr-2"></i>検索する</button>
 </div>
 </form>
 </div>
