@@ -12,17 +12,17 @@ $data = get_restaurant('?fixed=1')['data'];
 $pref = get_pref();
 $genres = get_genres();
 foreach ($data as $keys => $val):
-    $shop_id = $val['id'];
-    $shop_name = $val['name'];
-    $shop_address1 = $val['address1'];
-    $shop_address2 = $val['address2'];
-    $shop_genre = $genres[((int)$val['cuisine_genre_id']-1)]['name'];
-    $shop_pref = $pref[((int)$val['pref_id']-1)]['name'];
-    $shop_access = $val['access'];
-    $business_hours = $val['business_hours'];
-    $regular_holiday = $val['regular_holiday'];
-    $tags = explode(',', $val['tags']);
-    $menus = get_menu($shop_id)['data'];
+$shop_id = $val['id'];
+$shop_name = $val['name'];
+$shop_address1 = $val['address1'];
+$shop_address2 = $val['address2'];
+$shop_genre = $genres[((int)$val['cuisine_genre_id']-1)]['name'];
+$shop_pref = $pref[((int)$val['pref_id']-1)]['name'];
+$shop_access = $val['access'];
+$business_hours = mb_strimwidth($val['business_hours'], 0, 90, "…");
+$regular_holiday = mb_strimwidth($val['regular_holiday'], 0, 85, "…");
+$tags = explode(',', $val['tags']);
+$menus = get_menu($shop_id)['data'];
 ?>
 <a class="shop-buzz__list-inner shadow-sm text-body" href="<?php echo $home; ?>/restaurant?id=<?php echo $shop_id; ?>&recommend=1">
 
@@ -51,7 +51,10 @@ endforeach; ?>
 <?php endforeach; ?>
 </div>
 <?php endif; ?>
-<div class="shop-buzz__list-inner-time text-muted"><?php echo $shop_address1.' '.$shop_address2; ?></div>
+<div class="shop-buzz__list-inner-time text-muted">
+<span class="d-block"><?php echo $business_hours; ?></span>
+<span class="d-block mt-2">定休日：<?php echo $regular_holiday; ?></span>
+</div>
 </div>
 
 <div class="shop-buzz__list-inner-link">お店の詳細を見る<i class="fas fa-chevron-right ml-2"></i></div>

@@ -92,8 +92,8 @@ $shop_address2 = $val['address2'];
 $shop_genre = $genres[((int)$val['cuisine_genre_id']-1)]['name'];
 $shop_pref = $pref[((int)$val['pref_id']-1)]['name'];
 $shop_access = mb_strimwidth($val['access'], 0, 90, "…");
-$business_hours = $val['business_hours'];
-$regular_holiday = $val['regular_holiday'];
+$business_hours = mb_strimwidth($val['business_hours'], 0, 90, "…");
+$regular_holiday = mb_strimwidth($val['regular_holiday'], 0, 85, "…");
 $tags = explode(',', $val['tags']);
 $menus = get_menu($shop_id)['data'];
 $takeeats_url = $val['takeeats_url'];
@@ -134,7 +134,10 @@ endforeach; ?>
 <?php endforeach; ?>
 </div>
 <?php endif; ?>
-<div class="shop-buzz__list-inner-time text-muted"><?php echo $shop_address1.' '.$shop_address2; ?></div>
+<div class="shop-buzz__list-inner-time text-muted">
+<span class="d-block"><?php echo $business_hours; ?></span>
+<span class="d-block mt-1">定休日：<?php echo $regular_holiday; ?></span>
+</div>
 </div>
 <div class="shop-buzz__list-inner-link">お店の詳細を見る<i class="fas fa-chevron-right ml-2"></i></div>
 </div>
