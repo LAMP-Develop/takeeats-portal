@@ -22,7 +22,7 @@ $wp_url = get_template_directory_uri(); ?>
 <?php endif; ?>
 </head>
 <body>
-<header class="header shadow-sm">
+<header class="header shadow-sm sticky-top bg-white">
 <nav class="navbar navbar-expand-xlg justify-content-start align-items-center">
 <h1 class="navbar-brand p-0 m-0">
 <a class="d-inline-block align-middle" href="<?php echo $home; ?>">
@@ -31,7 +31,9 @@ $wp_url = get_template_directory_uri(); ?>
 <span class="d-inline-block align-middle">お店検索</span>
 </h1>
 
-<button class="navbar-toggler ml-auto px-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<a class="d-block text-body ml-auto mr-3" href="<?php echo $home; ?>#mv"><i class="fas fa-search"></i></a>
+
+<button class="navbar-toggler px-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 <i class="fas fa-bars"></i>
 </button>
 
