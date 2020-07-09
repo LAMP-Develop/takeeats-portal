@@ -30,7 +30,7 @@ get_header(); ?>
 </div>
 </div>
 <div class="search__genre bg-white">
-<h3><div class="container">ジャンルから探す</div></h3>
+<h3><span class="container d-block mx-auto">ジャンルから探す</span></h3>
 <div class="search__genre-list">
 <ul>
 <li>
