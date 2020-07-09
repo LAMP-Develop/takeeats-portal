@@ -4,6 +4,8 @@ global $shop_name,$shop_address1;
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri();
 
+$referer = $_SERVER['HTTP_REFERER'];
+
 $pref = get_pref();
 $genres = get_genres();
 
@@ -13,12 +15,12 @@ $shop_name = $data['name'];
 $shop_zipcode = $data['zipcode'];
 $shop_address1 = $data['address1'];
 $shop_address2 = $data['address2'];
+$shop_access = $data['access'];
 $shop_genre = $genres[((int)$data['cuisine_genre_id']-1)]['name'];
 $business_hours = $data['business_hours'];
 $regular_holiday = $data['regular_holiday'];
 $gmap_url = $data['gmap_url'];
 $shop_tel = $data['tel'];
-$shop_access = $data['access'];
 $parking_flag = $data['parking_flag'];
 if ($parking_flag) {
     $parking_text = $data['parking_text'];
@@ -65,14 +67,15 @@ get_header(); ?>
 <?php endif; ?>
 
 <p class="search__result__inner-time">営業時間 <?php echo $business_hours; ?> / 定休日：<?php echo $regular_holiday; ?></p>
+
+<div class="text-center mt-3">
+<a class="btn btn-primary w-100" href="<?php echo $takeeats_url; ?>" target="_blank" onclick="gtag('event','click',{'event_category':'button','event_label':'テイクアウト予約する'});" style="min-width:1px;">ネットで注文する<i class="fas fa-angle-right ml-2"></i></a>
+</div>
 </div>
 <!-- search__result__inner__wrap -->
 <?php if ($recommend): ?>
 <div class="restaurant__menu restaurant-block">
-<h2 class="restaurant-ttl d-flex justify-content-between align-items-center">
-<span>人気テイクアウトメニュー</span>
-<a class="btn btn-sm btn-default rounded-pill px-3" href="<?php echo $takeeats_url; ?>" target="_blank">メニュー一覧<i class="fas fa-angle-right ml-1"></i></a>
-</h2>
+<h2 class="restaurant-ttl d-flex justify-content-between align-items-center"><span>人気のメニュー</span></h2>
 <div class="container">
 <div class="menu__ranking">
 <?php if (count($menus) != 0):
@@ -86,6 +89,9 @@ foreach ($menus as $key => $menu): ?>
 </a>
 <?php endforeach; endif; ?>
 </div>
+<div class="mt-3 text-center">
+<a class="btn btn-light" href="<?php echo $takeeats_url; ?>" target="_blank">メニュー一覧</a>
+</div>
 </div>
 </div>
 <!-- restaurant__menu -->
@@ -98,8 +104,9 @@ foreach ($menus as $key => $menu): ?>
 <div class="embed-responsive embed-responsive-16by9">
 <iframe class="embed-responsive-item" src="https://maps.google.co.jp/maps?output=embed&q=<?php echo $shop_name; ?>"></iframe>
 </div>
+<p class="text-muted small mt-2"><?php echo $shop_access; ?></p>
 <div class="text-center mt-3">
-<a class="btn btn-default rounded-pill" href="<?php echo $gmap_url; ?>" target="_blank">GoogleMapで見る</a>
+<a class="btn btn-light" href="<?php echo $gmap_url; ?>" target="_blank">GoogleMapで見る</a>
 </div>
 <?php endif; ?>
 </div>
@@ -111,8 +118,32 @@ foreach ($menus as $key => $menu): ?>
 <table>
 <tbody>
 <tr>
+<th>店名</th>
+<td><?php echo $shop_name; ?></td>
+</tr>
+<tr>
+<th>ジャンル</th>
+<td><?php echo $shop_genre; ?></td>
+</tr>
+<tr>
 <th class="text-nowrap">電話番号</th>
 <td><a class="text-body" href="tel:<?php echo $shop_tel; ?>"><i class="fas fa-phone mr-1 text-info"></i><?php echo $shop_tel; ?></a></td>
+</tr>
+<tr>
+<th>住所</th>
+<td>〒<?php echo $shop_zipcode; ?><br><?php echo $shop_address1.' '.$shop_address2; ?></td>
+</tr>
+<tr>
+<th>交通手段</th>
+<td><?php echo $shop_access; ?></td>
+</tr>
+<tr>
+<th>営業日・時間</th>
+<td><?php echo $business_hours; ?></td>
+</tr>
+<tr>
+<th>定休日</th>
+<td><?php echo $regular_holiday; ?></td>
 </tr>
 <tr>
 <th class="">駐車場</th>
@@ -185,22 +216,22 @@ if ($electronic_money != null) {
 <tr>
 <td><?php
 if ($tabelog_url != null) {
-    echo '<a href="'.$tabelog_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
+    echo '<a class="d-block w-100 text-center" href="'.$tabelog_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
 }
 ?></td>
 <td><?php
 if ($gnavi_url != null) {
-    echo '<a href="'.$gnavi_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
+    echo '<a class="d-block w-100 text-center" href="'.$gnavi_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
 }
 ?></td>
 <td><?php
 if ($demaecan_url != null) {
-    echo '<a href="'.$demaecan_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
+    echo '<a class="d-block w-100 text-center" href="'.$demaecan_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
 }
 ?></td>
 <td><?php
 if ($ubereats_url != null) {
-    echo '<a href="'.$ubereats_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
+    echo '<a class="d-block w-100 text-center" href="'.$ubereats_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
 }
 ?></td>
 </tr>
@@ -209,19 +240,24 @@ if ($ubereats_url != null) {
 <div class="mt-2">
 <?php
 if ($gnavi_url != null) {
-    echo '<a class="btn btn-secondary btn-block text-left" href="'.$gnavi_url.'" target="_blank">ぐるなび</a>';
+    echo '<a class="btn btn-sm btn-secondary btn-block text-left" href="'.$gnavi_url.'" target="_blank">ぐるなび</a>';
 }
 if ($tabelog_url != null) {
-    echo '<a class="btn btn-secondary btn-block text-left" href="'.$tabelog_url.'" target="_blank">食べログ</a>';
+    echo '<a class="btn btn-sm btn-secondary btn-block text-left" href="'.$tabelog_url.'" target="_blank">食べログ</a>';
 }
 if ($demaecan_url != null) {
-    echo '<a class="btn btn-secondary btn-block text-left" href="'.$demaecan_url.'" target="_blank">出前館</a>';
+    echo '<a class="btn btn-sm btn-secondary btn-block text-left" href="'.$demaecan_url.'" target="_blank">出前館</a>';
 }
 if ($ubereats_url != null) {
-    echo '<a class="btn btn-secondary btn-block text-left" href="'.$ubereats_url.'" target="_blank">Uber Eats</a>';
+    echo '<a class="btn btn-sm btn-secondary btn-block text-left" href="'.$ubereats_url.'" target="_blank">Uber Eats</a>';
 }
 ?>
 </div>
+
+<div class="mt-4 text-center">
+<a class="btn btn-sm btn-default font-weight-bold" href="<?php echo $referer; ?>">前のページへ</a>
+</div>
+
 </div>
 </div>
 <!-- restaurant__external -->
@@ -229,7 +265,7 @@ if ($ubereats_url != null) {
 </section>
 <?php if ($recommend): ?>
 <div id="restaurant-btn" class="border-top">
-<a class="restaurant-link" href="<?php echo $takeeats_url; ?>" target="_blank" onclick="gtag('event','click',{'event_category':'button','event_label':'テイクアウト予約する'});">WEBで注文<i class="fas fa-angle-right ml-2"></i></a>
+<a class="restaurant-link" href="<?php echo $takeeats_url; ?>" target="_blank" onclick="gtag('event','click',{'event_category':'button','event_label':'テイクアウト予約する'});">ネットで注文する<i class="fas fa-angle-right ml-2"></i></a>
 </div>
 <?php endif; ?>
 

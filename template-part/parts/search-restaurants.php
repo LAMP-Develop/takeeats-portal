@@ -18,11 +18,9 @@ $wp_url = get_template_directory_uri();
 </li>
 </ul>
 <div class="tab-content" id="myTabContent">
-
 <div class="tab-pane fade show active" id="area" role="tabpanel" aria-labelledby="area-tab">
 <select name="pref" id="pref-select" class="form-control border-0">
-<option value="">---</option>
-
+<option value="">すべて</option>
 <option value="13" <?php
 if ($_GET['pref'] != '' && "13" == $_GET['pref']) {
     echo "selected";
@@ -35,10 +33,8 @@ if ($_GET['pref'] != '' && "26" == $_GET['pref']) {
 if ($_GET['pref'] != '' && "27" == $_GET['pref']) {
     echo "selected";
 } ?>>大阪府</option>
-
 </select>
 </div>
-
 <div class="tab-pane fade" id="zipcode" role="tabpanel" aria-labelledby="zipcode-tab">
 <div class="input-group">
 <div class="input-group-prepend">
@@ -47,15 +43,13 @@ if ($_GET['pref'] != '' && "27" == $_GET['pref']) {
 <input type="text" class="form-control border-0" name="zipcode" placeholder="000-0000" aria-describedby="zipicon">
 </div>
 </div>
-
 </div>
 </div>
-
 <div class="search-form mt-4">
 <h3 class="modal-body-title">ジャンル指定</h3>
 <div class="bg-light p-3">
 <select name="genre" id="genre-select" class="form-control border-0">
-<option value="">---</option>
+<option value="">すべて</option>
 <?php
 $genres = get_genres();
 foreach ($genres as $key => $val): ?>
@@ -67,7 +61,6 @@ if ($_GET['genre'] != '' && $val['id'] == $_GET['genre']) {
 </select>
 </div>
 </div>
-
 <div class="search-form mt-4">
 <h3 class="modal-body-title">こだわり条件</h3>
 <div class="bg-light p-3">
@@ -115,7 +108,6 @@ if ($_GET['genre'] != '' && $val['id'] == $_GET['genre']) {
 </div>
 </div>
 </div>
-
 </div>
 <div class="modal-footer">
 <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-search mr-2"></i>検索する</button>
