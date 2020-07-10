@@ -110,7 +110,7 @@ if ($takeeats_url != '' && $takeeats_url != null) {
 ?>
 <a class="shop-buzz__list-inner shadow-sm text-body" href="<?php echo $home; ?>/restaurant?id=<?php echo $shop_id.$recommend; ?>">
 <?php if ($recommend_flag): ?>
-<span class="shop-buzz__list-inner-ribbon"><i class="far fa-check-circle"></i>ネット注文可</span>
+    <span class="shop-buzz__list-inner-ribbon"><img src="<?php echo $wp_url; ?>/dist/images/icon_check.png" srcset="<?php echo $wp_url; ?>/dist/images/icon_check.png 1x, <?php echo $wp_url; ?>/dist/images/icon_check@2x.png 2x" alt="アイコン">ネット注文可</span>
 <?php endif; ?>
 <h3><?php echo $shop_name; ?></h3>
 <div class="shop-buzz__list-inner-wrap">
