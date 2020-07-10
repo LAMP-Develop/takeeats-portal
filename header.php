@@ -31,26 +31,11 @@ $wp_url = get_template_directory_uri(); ?>
 <span class="d-inline-block align-middle">お店検索</span>
 </h1>
 
-<a class="d-block text-body ml-auto mr-3" href="<?php echo $home; ?>#mv"><i class="fas fa-search"></i></a>
-
-<button class="navbar-toggler px-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-<i class="fas fa-bars"></i>
-</button>
-
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-<ul class="navbar-nav mr-auto mt-3">
-<li class="nav-item border-top">
-<a class="nav-link text-body font-weight-bold d-block py-3" href="<?php echo $home; ?>">トップページ</a>
-</li>
-<li class="nav-item border-top">
-<a class="nav-link text-body font-weight-bold d-block py-3" href="https://system.take-eats.jp" target="_blank">当サイトへの掲載について</a>
-</li>
-<li class="nav-item border-top">
-<a class="nav-link text-body font-weight-bold d-block py-3" href="<?php echo $home; ?>/special/">特集</a>
-</li>
-</ul>
-</div>
+<div class="navbar-search-icon" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-search"></i><span>検索</span></div>
 
 </nav>
 </header>
+
+<?php get_template_part('template-part/modal/search-form'); ?>
+
 <main>

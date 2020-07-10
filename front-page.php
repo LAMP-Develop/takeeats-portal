@@ -17,7 +17,6 @@ get_header(); ?>
 </div>
 </section>
 <!-- mv -->
-<?php get_template_part('template-part/modal/search-form'); ?>
 <section class="search">
 <div class="container">
 <div class="search__area shadow-sm">

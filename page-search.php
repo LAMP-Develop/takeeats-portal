@@ -97,6 +97,7 @@ $regular_holiday = mb_strimwidth($val['regular_holiday'], 0, 85, "…");
 $tags = explode(',', $val['tags']);
 $menus = get_menu($shop_id)['data'];
 $takeeats_url = $val['takeeats_url'];
+$credit_card = $val['credit_card'];
 if ($takeeats_url != '' && $takeeats_url != null) {
     $recommend_flag = true;
     $recommend = '&recommend=1';
@@ -132,6 +133,9 @@ endforeach; ?>
 <?php foreach ($tags as $key => $tag): ?>
 <span><?php echo $tag; ?></span>
 <?php endforeach; ?>
+<?php if ($credit_card != null): ?>
+<span>クレカ可</span>
+<?php endif; ?>
 </div>
 <?php endif; ?>
 <div class="shop-buzz__list-inner-time text-muted">

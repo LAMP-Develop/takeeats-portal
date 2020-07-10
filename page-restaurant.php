@@ -63,6 +63,9 @@ get_header(); ?>
 <?php foreach ($tags as $key => $tag): ?>
 <span><?php echo $tag; ?></span>
 <?php endforeach; ?>
+<?php if ($credit_card != null): ?>
+<span>クレカ可</span>
+<?php endif; ?>
 </div>
 <?php endif; ?>
 
@@ -253,14 +256,12 @@ if ($ubereats_url != null) {
 }
 ?>
 </div>
-
-<div class="mt-4 text-center">
-<a class="btn btn-sm btn-default font-weight-bold" href="<?php echo $referer; ?>">前のページへ</a>
-</div>
-
 </div>
 </div>
 <!-- restaurant__external -->
+<div class="mt-4 text-center">
+<a class="btn btn-sm btn-default font-weight-bold" href="<?php echo $referer; ?>">前ページに戻る</a>
+</div>
 </div>
 </section>
 <?php if ($recommend): ?>
