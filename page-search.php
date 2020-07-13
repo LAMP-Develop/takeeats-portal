@@ -1,9 +1,7 @@
 <?php
 global $pref_name,$genre_name,$pref_id,$genre_id;
-
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri();
-
 $request = $_GET;
 $param = '';
 $temp = 0;
@@ -25,14 +23,11 @@ foreach ($request as $key => $val) {
     }
     ++$temp;
 }
-
 $data = get_restaurant($param);
 $total = $data['total'];
 $current_page = $data['current_page'];
-
 $pref = get_pref();
 $genres = get_genres();
-
 if ($_GET['pref'] != '') {
     $pref_name = $pref[((int)$_GET['pref']-1)]['name'];
     $pref_id = (int)$_GET['pref'];
@@ -41,11 +36,8 @@ if ($_GET['genre'] != '') {
     $genre_name = $genres[((int)$_GET['genre']-1)]['name'];
     $genre_id = (int)$_GET['genre'];
 }
-
 get_header(); ?>
-
 <?php get_template_part('template-part/modal/search-form'); ?>
-
 <section class="py-4 search">
 <div class="container">
 <div class="search__filter">
@@ -82,7 +74,6 @@ if ($_GET['parking_flag'] != '') {
 <div class="search__result-txt my-3 small">検索結果：<span><?php echo $data['total']; ?></span>件</div>
 <!-- search__result-txt -->
 <div class="search__result">
-
 <?php
 foreach ($data['data'] as $key => $val):
 $shop_id = $val['id'];
@@ -149,7 +140,6 @@ endforeach; ?>
 <?php endforeach; ?>
 </div>
 <!-- search__result -->
-
 <?php search_page_navi($total, $current_page); ?>
 </div>
 </section>

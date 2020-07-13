@@ -1,14 +1,10 @@
 <?php
 global $shop_name,$shop_address1;
-
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri();
-
 $referer = $_SERVER['HTTP_REFERER'];
-
 $pref = get_pref();
 $genres = get_genres();
-
 $data = get_restaurant_detail($_GET['id']);
 $shop_id = $data['id'];
 $shop_name = $data['name'];
@@ -33,22 +29,17 @@ $tabelog_url = $data['tabelog_url'];
 $demaecan_url = $data['demaecan_url'];
 $ubereats_url = $data['ubereats_url'];
 $takeeats_url = $data['takeeats_url'];
-
 $tags = explode(',', $data['tags']);
-
 if ($takeeats_url != '' && $takeeats_url != null) {
     $recommend = true;
     $menus = get_menu($shop_id)['data'];
 } else {
     $recommend = false;
 }
-
 get_header(); ?>
-
 <section class="py-4 restaurant">
 <div class="sp-mode">
 <div class="search__result__inner__wrap shadow-sm my-0 position-relative">
-
 <?php if ($gmap_url != null): ?>
 <a class="restaurant-mapbtn" href="<?php echo $gmap_url; ?>" target="_blank"><i class="fas fa-map-marker-alt mr-1 text-info"></i>地図</a>
 <?php endif; ?>
@@ -57,7 +48,6 @@ get_header(); ?>
 <span><?php echo $shop_genre; ?></span>
 <span><?php echo $shop_address1; ?></span>
 </p>
-
 <?php if ($tags[0] != '' && $tags[0] != null): ?>
 <div class="shop-buzz__list-inner-label">
 <?php foreach ($tags as $key => $tag): ?>
@@ -68,9 +58,7 @@ get_header(); ?>
 <?php endif; ?>
 </div>
 <?php endif; ?>
-
 <p class="search__result__inner-time">営業時間 <?php echo $business_hours; ?> / 定休日：<?php echo $regular_holiday; ?></p>
-
 <div class="text-center mt-3">
 <a class="btn btn-primary w-100" href="<?php echo $takeeats_url; ?>" target="_blank" onclick="gtag('event','click',{'event_category':'button','event_label':'テイクアウト予約する'});" style="min-width:1px;">ネットで注文する<i class="fas fa-angle-right ml-2"></i></a>
 </div>
@@ -269,5 +257,4 @@ if ($ubereats_url != null) {
 <a class="restaurant-link" href="<?php echo $takeeats_url; ?>" target="_blank" onclick="gtag('event','click',{'event_category':'button','event_label':'テイクアウト予約する'});">ネットで注文する<i class="fas fa-angle-right ml-2"></i></a>
 </div>
 <?php endif; ?>
-
 <?php get_footer();

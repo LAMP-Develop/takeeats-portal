@@ -30,12 +30,8 @@ $wp_url = get_template_directory_uri(); ?>
 </a>
 <span class="d-inline-block align-middle">お店検索</span>
 </h1>
-
 <div class="navbar-search-icon" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-search"></i><span>検索</span></div>
-
 </nav>
 </header>
-
 <?php get_template_part('template-part/modal/search-form'); ?>
-
 <main>

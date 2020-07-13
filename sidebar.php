@@ -2,11 +2,9 @@
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri(); ?>
 <aside class="sidebar col-md-3 mt-md-0 mt-4">
-
 <?php if (is_active_sidebar('side-bar')) {
     dynamic_sidebar('side-bar');
 } ?>
-
 <div class="sidebar-inner">
 <h3>その他のおすすめ記事</h3>
 <div class="sidebar__posts">

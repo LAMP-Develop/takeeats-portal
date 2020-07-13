@@ -85,19 +85,15 @@ get_header(); ?>
 </div>
 </section>
 <!-- search -->
-
 <div class="py-md-5 bg-light">
 <div class="container">
 <div class="row">
 <div class="col-md-8">
-
 <?php get_template_part('template-part/parts/reco-restaurants') ?>
 <!-- buzz -->
-
 <section class="sec bg-white rounded-lg">
 <div class="container">
 <h2 class="ttl-h2">おすすめ特集</h2>
-
 <div class="swiper-container">
 <div class="swiper-wrapper featured">
 <?php
@@ -130,12 +126,10 @@ if (has_post_thumbnail()) {
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
 </div>
-
 <a class="d-block text-center pt-3 mt-3 border-top text-body" href="<?php echo $home; ?>/special/">特集記事一覧へ<i class="fas fa-angle-right ml-3"></i></a>
 </div>
 </section>
 </div>
-
 <div class="col-md-4 d-md-block d-none">
 <?php get_template_part('template-part/parts/search-restaurants') ?>
 </div>
@@ -143,5 +137,4 @@ if (has_post_thumbnail()) {
 </div>
 </div>
 </div>
-
 <?php get_footer();
