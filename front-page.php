@@ -12,7 +12,7 @@ get_header(); ?>
 </span>
 </h2>
 <div class="text-center mt-4">
-<button class="btn btn-primary text-white" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-search mr-2"></i>お店を検索する</button>
+<button class="btn btn-primary text-white" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-search mr-2"></i>テイクアウトできるお店を検索</button>
 </div>
 </div>
 </section>
