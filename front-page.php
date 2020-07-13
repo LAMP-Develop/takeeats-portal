@@ -7,7 +7,7 @@ get_header(); ?>
 <h2>
 <span>
 <img src="<?php echo $wp_url; ?>/dist/images/mv_icon_01.png" alt="アイコン" srcset="<?php echo $wp_url; ?>/dist/images/mv_icon_01.png 1x, <?php echo $wp_url; ?>/dist/images/mv_icon_01@2x.png 2x">
-近くのテイクアウトできる<br>お店を探す
+おうちグルメを<br>楽しもう
 <img src="<?php echo $wp_url; ?>/dist/images/mv_icon_02.png" alt="アイコン" srcset="<?php echo $wp_url; ?>/dist/images/mv_icon_02.png 1x, <?php echo $wp_url; ?>/dist/images/mv_icon_02@2x.png 2x">
 </span>
 </h2>
@@ -19,17 +19,17 @@ get_header(); ?>
 <!-- mv -->
 <section class="search">
 <div class="container">
-<div class="search__area shadow-sm">
+<!-- <div class="search__area shadow-sm">
 <h3>よく見られているエリア</h3>
 <ul>
 <li><a href="<?php echo $home; ?>/search/?pref=26">京都</a></li>
 <li><a href="<?php echo $home; ?>/search/?pref=27">大阪</a></li>
 <li><a href="<?php echo $home; ?>/search/?pref=13">東京</a></li>
 </ul>
-</div>
+</div> -->
 </div>
 <div class="search__genre bg-white">
-<h3><span class="container d-block mx-auto">ジャンルから探す</span></h3>
+<h3><span class="container d-block mx-auto">人気のジャンル</span></h3>
 <div class="search__genre-list">
 <ul>
 <li>

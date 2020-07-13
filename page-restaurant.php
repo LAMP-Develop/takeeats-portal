@@ -59,9 +59,11 @@ get_header(); ?>
 </div>
 <?php endif; ?>
 <p class="search__result__inner-time">営業時間 <?php echo $business_hours; ?> / 定休日：<?php echo $regular_holiday; ?></p>
+<?php if ($recommend): ?>
 <div class="text-center mt-3">
 <a class="btn btn-primary w-100" href="<?php echo $takeeats_url; ?>" target="_blank" onclick="gtag('event','click',{'event_category':'button','event_label':'テイクアウト予約する'});" style="min-width:1px;">ネットで注文する<i class="fas fa-angle-right ml-2"></i></a>
 </div>
+<?php endif; ?>
 </div>
 <!-- search__result__inner__wrap -->
 <?php if ($recommend): ?>

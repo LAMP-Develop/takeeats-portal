@@ -28,7 +28,7 @@ $wp_url = get_template_directory_uri(); ?>
 <a class="d-inline-block align-middle" href="<?php echo $home; ?>">
 <img src="<?php echo $wp_url; ?>/dist/images/logo.png" alt="<?php bloginfo('name'); ?>" srcset="<?php echo $wp_url; ?>/dist/images/logo.png 1x, <?php echo $wp_url; ?>/dist/images/logo@2x.png 2x">
 </a>
-<span class="d-inline-block align-middle">お店検索</span>
+<!-- <span class="d-inline-block align-middle">お店検索</span> -->
 </h1>
 <div class="navbar-search-icon" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-search"></i><span>検索</span></div>
 </nav>
