@@ -4,7 +4,7 @@ $wp_url = get_template_directory_uri();
 get_header(); ?>
 <section id="mv" class="mv">
 <div class="container">
-<h2>
+<h2 class="mb-0">
 <span>
 <img src="<?php echo $wp_url; ?>/dist/images/mv_icon_01.png" alt="アイコン" srcset="<?php echo $wp_url; ?>/dist/images/mv_icon_01.png 1x, <?php echo $wp_url; ?>/dist/images/mv_icon_01@2x.png 2x">
 おうちグルメを<br>楽しもう
@@ -19,14 +19,6 @@ get_header(); ?>
 <!-- mv -->
 <section class="search">
 <div class="container">
-<!-- <div class="search__area shadow-sm">
-<h3>よく見られているエリア</h3>
-<ul>
-<li><a href="<?php echo $home; ?>/search/?pref=26">京都</a></li>
-<li><a href="<?php echo $home; ?>/search/?pref=27">大阪</a></li>
-<li><a href="<?php echo $home; ?>/search/?pref=13">東京</a></li>
-</ul>
-</div> -->
 </div>
 <div class="search__genre bg-white">
 <h3><span class="container d-block mx-auto">人気のジャンル</span></h3>
