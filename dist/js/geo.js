@@ -1,3 +1,5 @@
+let geocode = {};
+
 var setConf = function (str) {
   var tmpFrame = document.createElement("iframe");
   tmpFrame.setAttribute("src", "data:text/plain,");
@@ -23,19 +25,6 @@ function bindInfoWindow(marker, map, infoWindow, html) {
     infoWindow.open(map, marker);
   });
 }
-
-// 緯度経度から住所を求める
-function getAddress(latlng) {
-  var geocoder = new google.maps.Geocoder();
-  geocoder.geocode({
-    latLng: latlng
-  }, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      console.log(results);
-    }
-  });
-}
-
 
 /**
  * GoogleMapの表示
@@ -108,63 +97,32 @@ var viewGoogleMap = function (id, option, isNumberPin, callback) {
     var southWestLatLng = bounds.getSouthWest();
     var latlng = {
       lat: parseFloat(northEastLatLng.lat()),
-      lng: parseFloat(northEastLatLng.lng())
+      lng: parseFloat(northEastLatLng.lng()),
     };
-    let re = getAddress(latlng);
-    console.log(re);
-
-    //jsonファイルの取得
-    // $.ajax({
-    //   url: "gettenpow.php?neLat=" + northEastLatLng.lat() + "&neLng=" + northEastLatLng.lng() + "&swLat=" + southWestLatLng.lat() + "&swLng=" + southWestLatLng.lng() + "&stype=" + option.stype,
-    //   type: "GET",
-    //   dataType: "json",
-    //   timeout: 5000,
-    //   error: function () {
-    //     alert("地図データの読み込みに失敗しました");
-    //   },
-    //   success: function (json) {
-    //     var markerData = new Array();
-    //     $.each(json.points, function () {
-    //       if ((!!option.self && option.self == this.tid) || !option.self)
-    //         markerData.push({
-    //           position: new google.maps.LatLng(this.lat, this.lng),
-    //           title: this.title,
-    //           content: this.content,
-    //           tid: this.tid,
-    //           tel: this.tel,
-    //         });
-    //     });
-
-    //     // マ�?カー�??タをセ�?��
-    //     if (markerData) {
-    //       setMarkerData(markerData);
-    //     }
-    //     if (!!option.current) {
-    //       // 自�??場所の表示
-    //       var image = new google.maps.MarkerImage(
-    //         "/img/bluedot.png",
-    //         null, // size
-    //         null, // origin
-    //         new google.maps.Point(8, 8), // anchor (move to center of marker)
-    //         new google.maps.Size(17, 17) // scaled size (required for Retina display icon)
-    //       );
-    //       // then create the new marker
-    //       var myMarker = new google.maps.Marker({
-    //         flat: true,
-    //         icon: image,
-    //         map: gmap,
-    //         optimized: false,
-    //         position: option.current,
-    //         title: "現在地",
-    //         visible: true,
-    //       });
-    //       markerArray.push(myMarker);
-    //     }
-    //     if (callback) {
-    //       callback(json);
-    //     }
-    //   },
-    // });
+    // 緯度経度から住所を求める
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode(
+      {
+        latLng: latlng,
+      },
+      function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          console.log(results);
+          // 店舗情報の取得
+          // $.ajax({
+          //   url: "gettenpow.php?neLat=" + northEastLatLng.lat() + "&neLng=" + northEastLatLng.lng() + "&swLat=" + southWestLatLng.lat() + "&swLng=" + southWestLatLng.lng() + "&stype=" + option.stype,
+          //   type: "GET",
+          //   dataType: "json",
+          //   timeout: 5000,
+          //   error: function () {
+          //     alert("地図データの読み込みに失敗しました");
+          //   },
+          //   success: function (json) {
+          //   },
+          // });
+        }
+      }
+    );
   };
 
   option = option ? option : {};
@@ -194,7 +152,6 @@ var viewGoogleMap = function (id, option, isNumberPin, callback) {
   var markerData;
   var markerArray = new Array();
 
-  // 地図変更時�?リスナ�?の追�?
   google.maps.event.addListener(gmap, "idle", function () {
     refleshMarker();
   });

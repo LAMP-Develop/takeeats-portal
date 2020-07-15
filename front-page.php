@@ -16,7 +16,7 @@ get_header(); ?>
 <!-- mv -->
 
 <div class="mv__search shadow-sm">
-<a class="mv__search-geo" href="<?php echo $home; ?>/search?geo=true"><i class="fas fa-map-marker-alt mr-2 text-info"></i>現在地から探す</a>
+<a class="mv__search-geo" href="<?php echo $home; ?>/geo/"><i class="fas fa-map-marker-alt mr-2 text-info"></i>現在地から探す</a>
 <form class="mv__search__form" action="<?php echo $home; ?>/search/" method="get">
 <div class="input-group">
 <div class="input-group-prepend">
@@ -96,7 +96,7 @@ get_header(); ?>
 <div class="col-md-8">
 <?php get_template_part('template-part/parts/reco-restaurants'); ?>
 <!-- buzz -->
-<section class="sec bg-white rounded-lg">
+<section class="sec bg-white rounded-lg pb-3 mb-5">
 <div class="container">
 <h2 class="ttl-h2">おすすめ特集</h2>
 <div class="swiper-container">

@@ -3,117 +3,143 @@ $home = esc_url(home_url());
 $wp_url = get_template_directory_uri();
 get_header(); ?>
 
+<?php get_template_part('template-part/modal/search-form'); ?>
+
+<section class="py-4 search">
+<div class="container">
+<div id="geo-result" class="search__result">
+
+<div class="search__current mb-3">
+<span class="badge badge-light p-2 mr-2">現在地</span>
+</div>
+
+<div id="spinner-load" class="text-center">
+<div class="spinner-grow text-primary" role="status">
+<span class="sr-only">Loading...</span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
 <script src="//code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="//maps.google.com/maps/api/js?key=AIzaSyA6caobCHn-IcFLznnEERoWzgHlEQi-YoI"></script>
-<script src="//www.google.com/jsapi"></script>
-<script src="<?php echo $wp_url; ?>/dist/js/geo.js"></script>
-<script src="<?php echo $wp_url; ?>/dist/js/sprintf.js"></script>
-
-
-<div id="map_canvas"></div>
-
+<script src="<?php echo $wp_url; ?>/dist/js/perf-genre.js"></script>
 <script>
-var lat = "";
-var lng = "";
-function GetQueryString() {
-  var result = {};
-  if (1 < window.location.search.length) {
-    var query = window.location.search.substring(1);
-    var parameters = query.split("&");
-    for (var i = 0; i < parameters.length; i++) {
-      var element = parameters[i].split("=");
-      var paramName = decodeURIComponent(element[0]);
-      var paramValue = decodeURIComponent(element[1]);
-      result[paramName] = paramValue;
-    }
-  }
-  return result;
-}
-function loadShops(json) {
-  var shops = '<tr><th>店名</th><th colspan="2">所在地</th><th>駐車場</th><th>詳細</th></tr>';
-  $.each(json.points, function () {
-    shops +=
-      '<tr data-href="detail.php?id=' +
-      this.tid +
-      '"><td class="name" width="20%">' +
-      this.title +
-      '</td><td class="address">' +
-      this.content +
-      '</td><td class="ajikasane" width="15%"></td><td class="parking" width="8%"><span class="pc_none">駐車場：</span>' +
-      this.parking +
-      '</td><td class="btn" width="15%"><span class="anime">詳しく見る</span></td></tr>';
-  });
-  $("#shoplist").html(shops);
-  $("tr[data-href]")
-    .css("cursor", "pointer")
-    .click(function (e) {
-      if (!$(e.target).is("a")) {
-        window.location = $(e.target).closest("tr").data("href");
-      }
-    });
-}
-$(document).ready(function () {
-  var getParams = GetQueryString();
-  var wh = $("body").height();
-  var ww = $("body").width();
-  var h = sprintf("%d", Math.round((wh - 80) / 2));
-  var w = sprintf("%d", Math.round((ww - 200) / 2));
-  if (getParams["mode"] == "c") {
-    $("body").append('<div id="progress" style="position: absolute; top:' + h + "px; left:" + w + 'px;">位置情報確認中...</div>');
-    // (3)位置情報の取得を実行。
-    if (navigator.geolocation) {
-      var options = { timeout: 60000 };
-      navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
-      // (2)位置情報の取得に失敗したときのコールバック関数
-      function errorCallback(error) {
-        $("#progress").remove();
-        setAlert("現在地を取得できません。電波状況の良い所でやり直してください。");
-        var option = {
-          center: new google.maps.LatLng(35.039426924731, 135.79153161946),
-          zoom: 8,
-          stype: "",
-        };
-        var map = viewGoogleMap("map_canvas", option, true, loadShops);
-      }
-      function successCallback(pos) {
-        lat = pos.coords.latitude;
-        lng = pos.coords.longitude;
-        $("#progress").remove();
-        viewmap();
-      }
-    } else {
-      //$('#progress').remove();
-      viewmap();
-    }
-  } else {
-    //$('#progress').remove();
-    viewmap();
-  }
-  function viewmap() {
-    var zm = 13;
-    if (getParams["zoom"] != undefined) {
-      zm = parseInt(getParams["zoom"]);
-    }
-    var option = {
-      center: new google.maps.LatLng(35.039426924731, 135.79153161946),
-      zoom: zm,
-      current: {},
-      stype: "",
-    };
-    if (getParams["mode"] == "c" && !isNaN(lat) && !isNaN(lng)) {
-      option.current = new google.maps.LatLng(lat, lng);
-      option.center = option.current;
-    }
-    if (getParams["lat"] != undefined && getParams["lng"] != undefined) {
-      option.current = new google.maps.LatLng(getParams["lat"], getParams["lng"]);
-      option.center = option.current;
-    }
-    if (Object.keys(option.current).length === 0) {
-      option.current = option.center;
-    }
-    var map = viewGoogleMap("map_canvas", option, true, loadShops);
-  }
+
+$(document).ajaxStop(function() {
+  $('#spinner-load').css('display', 'none');
 });
+
+navigator.geolocation.getCurrentPosition(success, fail);
+function success(pos) {
+  let latlng = {
+    lat: pos.coords.latitude,
+    lng: pos.coords.longitude,
+  };
+  const geocoder = new google.maps.Geocoder();
+  geocoder.geocode(
+    {
+      latLng: latlng,
+    },
+    function (results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        // let address = results[0].address_components[3].long_name+results[0].address_components[2].long_name+results[0].address_components[1].long_name;
+        let address = results[0].address_components[3].long_name+results[0].address_components[2].long_name;
+        let get_url = "https://ssl.omomuki.me/api/restaurants?keyword="+address;
+        // 店舗情報の取得
+        $.when(
+          $.ajax({
+            url: get_url,
+            type: "GET",
+            dataType: "json",
+            timeout: 5000,
+            error: function () {
+              alert("位置情報が取得できません。");
+            },
+            success: function (result) {
+              result.data.forEach(function(val) {
+                let ribbon,
+                tags,
+                tag_html = '',
+                menu_flag = '',
+                cregit;
+
+                if (val.fixed > 0) {
+                  ribbon = '<span class="shop-buzz__list-inner-ribbon"><img src="<?php echo $wp_url; ?>/dist/images/icon_check.png" srcset="<?php echo $wp_url; ?>/dist/images/icon_check.png 1x, <?php echo $wp_url; ?>/dist/images/icon_check@2x.png 2x" alt="アイコン">ネット注文可</span>';
+                  menu_flag = '<div class="shop-buzz__list-inner-imgs" data-id="'+val.id+'"></div>';
+                } else {
+                  ribbon = '';
+                }
+
+                tag_html = '<div class="shop-buzz__list-inner-label">';
+                if (val.tags != null) {
+                  tags = val.tags.split(',');
+                  tags.forEach(function(tag) {
+                    tag_html += '<span>'+tag+'</span>';
+                  });
+                } else {
+                  tags = '';
+                }
+                if (val.credit_card != '') {
+                  tag_html += '<span>クレカ可</span>';
+                }
+                tag_html += '</div>';
+                if (tags == '' && val.credit_card == '') {
+                  tag_html = '';
+                }
+
+                let html = '<a class="shop-buzz__list-inner shadow-sm text-body" href="<?php echo $home; ?>/restaurant?id='+val.id+'">'
+                + ribbon + "\n"
+                + '<h3>'+val.name+'</h3>' + "\n"
+                + '<div class="shop-buzz__list-inner-wrap">' + "\n"
+                + menu_flag + "\n"
+                + '<div class="shop-buzz__list-inner-tag">' + "\n"
+                + '<span class="shop-buzz__list-inner-tag-genre">'+array_genre[0]+'</span>' + "\n"
+                + '<span class="shop-buzz__list-inner-tag-map">'+val.access+'</span>' + "\n"
+                + tag_html + "\n"
+                + '<div class="shop-buzz__list-inner-time text-muted">' + "\n"
+                + '<span class="d-block">'+val.business_hours+'</span>' + "\n"
+                + '<span class="d-block mt-1">定休日：'+val.regular_holiday+'</span>' + "\n"
+                + '</div>' + "\n"
+                + '</div>' + "\n"
+                + '<div class="shop-buzz__list-inner-link">お店の詳細を見る<i class="fas fa-chevron-right ml-2"></i></div>' + "\n"
+                + '</div>' + "\n"
+                + '</a>' + "\n";
+                // htmlの生成
+                $('#geo-result').append(html);
+              });
+            },
+          })
+        ).done(function() {
+          $('.shop-buzz__list-inner-imgs').each(function(index, el) {
+            let dataid = parseInt($(this).attr('data-id'));
+            let menu_url = 'https://ssl.omomuki.me/api/restaurant-menu?restaurants_id='+dataid;
+            let element = $(this);
+            $.ajax({
+              url: menu_url,
+              type: "GET",
+              dataType: "json",
+              timeout: 5000,
+              success: function (menus) {
+                if (menus != null) {
+                  for (let i = 0; i < 3; i++) {
+                    element.append('<div><img src="//ssl.omomuki.me/storage/'+menus.data[i].thumbnail+'" alt="'+menus.data[i].name+'"></div>');
+                  }
+                }
+              }
+            });
+          });
+        });
+      }
+    }
+  );
+}
+
+function fail(error){
+  alert('位置情報が取得できません。');
+}
 </script>
 
 <?php get_footer();

@@ -82,7 +82,6 @@ $shop_access = mb_strimwidth($val['access'], 0, 90, "…");
 $business_hours = mb_strimwidth($val['business_hours'], 0, 90, "…");
 $regular_holiday = mb_strimwidth($val['regular_holiday'], 0, 85, "…");
 $tags = explode(',', $val['tags']);
-$menus = get_menu($shop_id)['data'];
 $takeeats_url = $val['takeeats_url'];
 $credit_card = $val['credit_card'];
 if ($takeeats_url != '' && $takeeats_url != null) {
@@ -97,7 +96,7 @@ if ($takeeats_url != '' && $takeeats_url != null) {
 ?>
 <a class="shop-buzz__list-inner shadow-sm text-body" href="<?php echo $home; ?>/restaurant?id=<?php echo $shop_id.$recommend; ?>">
 <?php if ($recommend_flag): ?>
-    <span class="shop-buzz__list-inner-ribbon"><img src="<?php echo $wp_url; ?>/dist/images/icon_check.png" srcset="<?php echo $wp_url; ?>/dist/images/icon_check.png 1x, <?php echo $wp_url; ?>/dist/images/icon_check@2x.png 2x" alt="アイコン">ネット注文可</span>
+<span class="shop-buzz__list-inner-ribbon"><img src="<?php echo $wp_url; ?>/dist/images/icon_check.png" srcset="<?php echo $wp_url; ?>/dist/images/icon_check.png 1x, <?php echo $wp_url; ?>/dist/images/icon_check@2x.png 2x" alt="アイコン">ネット注文可</span>
 <?php endif; ?>
 <h3><?php echo $shop_name; ?></h3>
 <div class="shop-buzz__list-inner-wrap">
