@@ -59,6 +59,9 @@ function success(pos) {
               alert("位置情報が取得できません。");
             },
             success: function (result) {
+              if (result.data.length == 0) {
+                $('#geo-result').append('<p>検索結果：0件</p>');
+              }
               result.data.forEach(function(val) {
                 let ribbon,
                 tags,
