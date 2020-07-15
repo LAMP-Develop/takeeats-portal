@@ -7,7 +7,6 @@ get_header(); ?>
 
 <section class="py-4 search">
 <div class="container">
-<div id="geo-result" class="search__result">
 
 <div class="search__current mb-3">
 <span class="badge badge-light p-2 mr-2">現在地</span>
@@ -19,6 +18,7 @@ get_header(); ?>
 </div>
 </div>
 
+<div id="geo-result" class="search__result">
 </div>
 </div>
 </section>
