@@ -7,16 +7,29 @@ get_header(); ?>
 <h2 class="mb-0">
 <span>
 <img src="<?php echo $wp_url; ?>/dist/images/mv_icon_01.png" alt="アイコン" srcset="<?php echo $wp_url; ?>/dist/images/mv_icon_01.png 1x, <?php echo $wp_url; ?>/dist/images/mv_icon_01@2x.png 2x">
-おうちグルメを<br>楽しもう
+おうちグルメを楽しもう
 <img src="<?php echo $wp_url; ?>/dist/images/mv_icon_02.png" alt="アイコン" srcset="<?php echo $wp_url; ?>/dist/images/mv_icon_02.png 1x, <?php echo $wp_url; ?>/dist/images/mv_icon_02@2x.png 2x">
 </span>
 </h2>
-<div class="text-center mt-4">
-<button class="btn btn-primary text-white" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-search mr-2"></i>テイクアウトできるお店を検索</button>
-</div>
 </div>
 </section>
 <!-- mv -->
+
+<div class="mv__search shadow-sm">
+<a class="mv__search-geo" href="<?php echo $home; ?>/search?geo=true"><i class="fas fa-map-marker-alt mr-2 text-info"></i>現在地から探す</a>
+<form class="mv__search__form" action="<?php echo $home; ?>/search/" method="get">
+<div class="input-group">
+<div class="input-group-prepend">
+<div class="input-group-text"><i class="fas fa-pen"></i></div>
+</div>
+<input type="text" class="form-control" name="keyword" value="" placeholder="お店の名前、市区町村、駅名">
+</div>
+<div class="mt-3 mv__search__form-btn">
+<button class="btn btn-block btn-primary text-nowrap" type="submit"><i class="fas fa-search mr-2"></i>検索する</button>
+</div>
+</form>
+</div>
+
 <section class="search">
 <div class="container">
 </div>
@@ -81,7 +94,7 @@ get_header(); ?>
 <div class="container">
 <div class="row">
 <div class="col-md-8">
-<?php get_template_part('template-part/parts/reco-restaurants') ?>
+<?php get_template_part('template-part/parts/reco-restaurants'); ?>
 <!-- buzz -->
 <section class="sec bg-white rounded-lg">
 <div class="container">
@@ -112,9 +125,7 @@ if (has_post_thumbnail()) {
 </div>
 <?php endforeach; wp_reset_postdata(); ?>
 </div>
-<!-- Add Pagination -->
 <div class="swiper-pagination"></div>
-<!-- Add Arrows -->
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
 </div>

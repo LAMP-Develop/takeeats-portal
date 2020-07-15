@@ -15,9 +15,6 @@ $wp_url = get_template_directory_uri(); ?>
 <div class="search-form">
 <h3 class="modal-body-title">場所指定</h3>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
-<!-- <li class="nav-item" role="presentation">
-<a class="nav-link" id="geo-tab" data-toggle="tab" href="#geo" role="tab" aria-controls="geo" aria-selected="true">現在地</a>
-</li> -->
 <li class="nav-item" role="presentation">
 <a class="nav-link active" id="area-tab" data-toggle="tab" href="#area" role="tab" aria-controls="area" aria-selected="false">エリア一覧</a>
 </li>
@@ -26,9 +23,6 @@ $wp_url = get_template_directory_uri(); ?>
 </li>
 </ul>
 <div class="tab-content" id="myTabContent">
-<!-- <div class="tab-pane fade" id="geo" role="tabpanel" aria-labelledby="geo-tab">
-<button class="btn btn-block btn-light" type="submit" name="gps"><i class="fas fa-map-marker-alt mr-2 text-info"></i>位置情報から探す</button>
-</div> -->
 <div class="tab-pane fade show active" id="area" role="tabpanel" aria-labelledby="area-tab">
 <select name="pref" id="pref-select" class="form-control border-0">
 <option value="">すべて</option>
@@ -64,6 +58,21 @@ if ($_GET['pref'] != '' && "27" == $_GET['pref']) {
 </div>
 </div>
 </div>
+
+<div class="search-form mt-4">
+<h3 class="modal-body-title">検索キーワード</h3>
+<div class="bg-light p-3">
+<div class="input-group">
+<div class="input-group-prepend">
+<div class="input-group-text"><i class="fas fa-pen"></i></div>
+</div>
+<input type="text" class="form-control" name="keyword" value="<?php if ($_GET['keyword'] != '') {
+    echo $_GET['keyword'];
+} ?>" placeholder="ジャンル 駅名 都道府県">
+</div>
+</div>
+</div>
+
 <div class="search-form mt-4">
 <h3 class="modal-body-title">ジャンル指定</h3>
 <div class="bg-light p-3">

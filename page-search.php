@@ -41,18 +41,14 @@ get_header(); ?>
 <section class="py-4 search">
 <div class="container">
 <div class="search__filter">
-<!-- <div class="dropdown d-inline-block">
-<button type="button" class="btn btn-secondary font-weight-bold dropdown-toggle" id="sort-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-sort-amount-down mr-2"></i>並び替え</button>
-<div class="dropdown-menu" aria-labelledby="sort-menu">
-<a class="dropdown-item" href="#">おすすめ</a>
-<a class="dropdown-item" href="#">最新</a>
-</div>
-</div> -->
 <button type="button" class="btn btn-secondary font-weight-bold" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-filter mr-2"></i>絞り込み</button>
 </div>
 <!-- search__filter -->
 <div class="search__current my-3">
 <?php
+if ($_GET['keyword'] != '') {
+    echo '<span class="badge badge-light p-2 mr-2">検索：'.$_GET['keyword'].'</span>';
+}
 if ($_GET['pref'] != '') {
     echo '<span class="badge badge-light p-2 mr-2">'.$pref[((int)$_GET['pref']-1)]['name'].'</span>';
 }
