@@ -25,6 +25,10 @@ $wp_url = get_template_directory_uri();
 if ($_GET['pref'] != '' && "13" == $_GET['pref']) {
     echo "selected";
 } ?>>東京都</option>
+<option value="23" <?php
+if ($_GET['pref'] != '' && "23" == $_GET['pref']) {
+    echo "selected";
+} ?>>愛知県</option>
 <option value="26" <?php
 if ($_GET['pref'] != '' && "26" == $_GET['pref']) {
     echo "selected";
