@@ -159,52 +159,27 @@ $data = [
 <h2 class="ttl-h2">いま話題のお店</h2>
 <div class="shop-buzz">
 <div class="shop-buzz__list">
-<?php
-$pref = get_pref();
-$genres = get_genres();
-foreach ($data as $keys => $val):
-$shop_id = $val['id'];
-$shop_name = $val['name'];
-$shop_address1 = $val['address1'];
-$shop_address2 = $val['address2'];
-$shop_genre = $genres[((int)$val['cuisine_genre_id']-1)]['name'];
-$shop_pref = $pref[((int)$val['pref_id']-1)]['name'];
-$shop_access = $val['access'];
-$business_hours = mb_strimwidth($val['business_hours'], 0, 90, "…");
-$regular_holiday = mb_strimwidth($val['regular_holiday'], 0, 85, "…");
-$tags = explode(',', $val['tags']);
-$menus = get_menu($shop_id)['data'];
-?>
-<a class="shop-buzz__list-inner shadow-sm text-body" href="<?php echo $home; ?>/restaurant?id=<?php echo $shop_id; ?>&recommend=1">
+<a class="shop-buzz__list-inner shadow-sm text-body" href="<?php echo $home; ?>/restaurant?id=827&recommend=1">
 
 <span class="shop-buzz__list-inner-ribbon"><img src="<?php echo $wp_url; ?>/dist/images/icon_check.png" srcset="<?php echo $wp_url; ?>/dist/images/icon_check.png 1x, <?php echo $wp_url; ?>/dist/images/icon_check@2x.png 2x" alt="アイコン">ネット注文可</span>
 
-<h3><?php echo $shop_name; ?></h3>
+<h3>寿しのむさし 三条本店</h3>
 <div class="shop-buzz__list-inner-wrap">
-<?php if (count($menus) != 0): ?>
 <div class="shop-buzz__list-inner-imgs">
-<?php foreach ($menus as $key => $menu): ?>
-<div><img src="//ssl.omomuki.me/storage/<?php echo $menu['thumbnail']; ?>" alt="<?php echo $menu['name']; ?>"></div>
-<?php
-if ($key === 2) {
-    break;
-}
-endforeach; ?>
+<div><img src="//ssl.omomuki.me/storage/restaurant-menu/July2020/L5XcQxl2eCE39N173ct8.jpg" alt="北山 約3人前（35貫）"></div>
+<div><img src="//ssl.omomuki.me/storage/restaurant-menu/July2020/vpFOwKOIXqWVErdo9Vk8.jpg" alt="八坂 1.5人前（11貫）"></div>
+<div><img src="//ssl.omomuki.me/storage/restaurant-menu/July2020/Pwiq4LuI3UZ944ccxF0C.jpg" alt="清水 1人前（5貫・5個）"></div>
 </div>
-<?php endif; ?>
 <div class="shop-buzz__list-inner-tag">
-<span class="shop-buzz__list-inner-tag-genre"><?php echo $shop_genre; ?></span>
-<span class="shop-buzz__list-inner-tag-map"><?php echo $shop_access; ?></span>
-<?php if ($tags[0] != '' && $tags[0] != null): ?>
+<span class="shop-buzz__list-inner-tag-genre">寿司</span>
+<span class="shop-buzz__list-inner-tag-map">京都市役所前駅から224m</span>
 <div class="shop-buzz__list-inner-label">
-<?php foreach ($tags as $key => $tag): ?>
-<span><?php echo $tag; ?></span>
-<?php endforeach; ?>
+<span>デリバリー可</span>
+<span>駅近</span>
 </div>
-<?php endif; ?>
 <div class="shop-buzz__list-inner-time text-muted">
-<span class="d-block"><?php echo $business_hours; ?></span>
-<span class="d-block mt-2">定休日：<?php echo $regular_holiday; ?></span>
+<span class="d-block">11:00～21:45</span>
+<span class="d-block mt-2">定休日：1月1日（元旦のみ）</span>
 </div>
 </div>
 
@@ -212,11 +187,88 @@ endforeach; ?>
 
 </div>
 </a>
-<?php
-if ($keys === 3) {
-    break;
-}
-endforeach; ?>
+<a class="shop-buzz__list-inner shadow-sm text-body" href="<?php echo $home; ?>/restaurant?id=830&recommend=1">
+
+<span class="shop-buzz__list-inner-ribbon"><img src="<?php echo $wp_url; ?>/dist/images/icon_check.png" srcset="<?php echo $wp_url; ?>/dist/images/icon_check.png 1x, <?php echo $wp_url; ?>/dist/images/icon_check@2x.png 2x" alt="アイコン">ネット注文可</span>
+
+<h3>マールブランシュ 京都北山</h3>
+<div class="shop-buzz__list-inner-wrap">
+<div class="shop-buzz__list-inner-imgs">
+<div><img src="//ssl.omomuki.me/storage/restaurant-menu/June2020/4lagN3i6KNYrjwyXVOhs.jpeg" alt="京都産メロン ゆめろんのショートケーキ"></div>
+<div><img src="//ssl.omomuki.me/storage/restaurant-menu/June2020/hlZ8Esga3PZyC05f69dw.jpeg" alt="【北山本店限定】フルーツバトン"></div>
+<div><img src="//ssl.omomuki.me/storage/restaurant-menu/June2020/SPEPygNU9y08BUdaXWpD.jpeg" alt="【北山本店限定】アニバーサリーロココスタイル"></div>
+</div>
+<div class="shop-buzz__list-inner-tag">
+<span class="shop-buzz__list-inner-tag-genre">カフェ・スイーツ</span>
+<span class="shop-buzz__list-inner-tag-map">京都市営地下鉄烏丸線「北山駅」４番出口を出て、右へ(西へ)約100メートル</span>
+<div class="shop-buzz__list-inner-label">
+<span>デリバリー可</span>
+<span>送料無料</span>
+</div>
+<div class="shop-buzz__list-inner-time text-muted">
+<span class="d-block">販売 9:00～20:00/サロン 10:00～20:00(L.O.19：30)</span>
+<span class="d-block mt-2">定休日：無休</span>
 </div>
 </div>
-</section>
+
+<div class="shop-buzz__list-inner-link">お店の詳細を見る<i class="fas fa-chevron-right ml-2"></i></div>
+
+</div>
+</a>
+<a class="shop-buzz__list-inner shadow-sm text-body" href="<?php echo $home; ?>/restaurant?id=828&recommend=1">
+
+<span class="shop-buzz__list-inner-ribbon"><img src="<?php echo $wp_url; ?>/dist/images/icon_check.png" srcset="<?php echo $wp_url; ?>/dist/images/icon_check.png 1x, <?php echo $wp_url; ?>/dist/images/icon_check@2x.png 2x" alt="アイコン">ネット注文可</span>
+
+<h3>寿しのむさし 上堀川店</h3>
+<div class="shop-buzz__list-inner-wrap">
+<div class="shop-buzz__list-inner-imgs">
+<div><img src="//ssl.omomuki.me/storage/restaurant-menu/July2020/ZYN6Y2h4CKPcFADcxVE7.jpg" alt="蔵馬 約4人前（40貫）"></div>
+<div><img src="//ssl.omomuki.me/storage/restaurant-menu/July2020/d48QEXwRVJGI21nDu60h.jpg" alt="大原 約4人前（46貫）"></div>
+<div><img src="//ssl.omomuki.me/storage/restaurant-menu/July2020/3fzjJz76MN6JbWqZ9SFn.jpg" alt="御所 1.5人前（12貫 鉄火巻1本）"></div>
+</div>
+<div class="shop-buzz__list-inner-tag">
+<span class="shop-buzz__list-inner-tag-genre">寿司</span>
+<span class="shop-buzz__list-inner-tag-map">北大路駅から889m</span>
+<div class="shop-buzz__list-inner-label">
+<span>デリバリー可</span>
+</div>
+<div class="shop-buzz__list-inner-time text-muted">
+<span class="d-block">11:15〜19:30</span>
+<span class="d-block mt-2">定休日：元日・火曜日・水曜日</span>
+</div>
+</div>
+
+<div class="shop-buzz__list-inner-link">お店の詳細を見る<i class="fas fa-chevron-right ml-2"></i></div>
+
+</div>
+</a>
+<a class="shop-buzz__list-inner shadow-sm text-body" href="<?php echo $home; ?>/restaurant?id=829&recommend=1">
+
+<span class="shop-buzz__list-inner-ribbon"><img src="<?php echo $wp_url; ?>/dist/images/icon_check.png" srcset="<?php echo $wp_url; ?>/dist/images/icon_check.png 1x, <?php echo $wp_url; ?>/dist/images/icon_check@2x.png 2x" alt="アイコン">ネット注文可</span>
+
+<h3>寿しのむさし 京都駅八条口店</h3>
+<div class="shop-buzz__list-inner-wrap">
+<div class="shop-buzz__list-inner-imgs">
+<div><img src="//ssl.omomuki.me/storage/restaurant-menu/July2020/KJmawrKSEX69ER3j1XfN.jpg" alt="高雄 約2〜3人前（24貫）"></div>
+<div><img src="//ssl.omomuki.me/storage/restaurant-menu/June2020/j6sPjycTm7Ote9fH4c9t.jpeg" alt="金閣 2人前（16貫）"></div>
+<div><img src="//ssl.omomuki.me/storage/restaurant-menu/June2020/3xg5dcVd24ZCqno6qZYc.jpeg" alt="四季彩"></div>
+</div>
+<div class="shop-buzz__list-inner-tag">
+<span class="shop-buzz__list-inner-tag-genre">寿司</span>
+<span class="shop-buzz__list-inner-tag-map">京都駅から70m</span>
+<div class="shop-buzz__list-inner-label">
+<span>駅近</span>
+</div>
+<div class="shop-buzz__list-inner-time text-muted">
+<span class="d-block">10:30～21:45（LO.21:30）※テイクアウトは9:00～</span>
+<span class="d-block mt-2">定休日：無休</span>
+</div>
+</div>
+
+<div class="shop-buzz__list-inner-link">お店の詳細を見る<i class="fas fa-chevron-right ml-2"></i></div>
+
+</div>
+</a>
+</div>
+</div>
+</section><!-- buzz -->

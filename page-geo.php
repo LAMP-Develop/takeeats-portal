@@ -8,14 +8,19 @@ get_header(); ?>
 <section class="py-4 search">
 <div class="container">
 
-<div class="search__current mb-3">
-<span class="badge badge-light p-2 mr-2">現在地</span>
+<div class="search__filter">
+<button type="button" class="btn btn-secondary font-weight-bold" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-filter mr-2"></i>絞り込み</button>
+</div>
+
+<div class="search__current my-3">
+<span class="badge badge-light p-2 mr-2">現在地から探す</span>
 </div>
 
 <div id="spinner-load" class="text-center">
 <div class="spinner-grow text-primary" role="status">
 <span class="sr-only">Loading...</span>
 </div>
+<small class="d-block text-center mt-1">検索中・・・</small>
 </div>
 
 <div id="geo-result" class="search__result">
@@ -45,10 +50,9 @@ function success(pos) {
     },
     function (results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        // let address = results[0].address_components[3].long_name+results[0].address_components[2].long_name+results[0].address_components[1].long_name;
         let address = results[0].address_components[3].long_name+results[0].address_components[2].long_name;
         let get_url = "https://ssl.omomuki.me/api/restaurants?keyword="+address;
-        // 店舗情報の取得
+        $('[name="keyword"]').val(address);
         $.when(
           $.ajax({
             url: get_url,
@@ -56,7 +60,7 @@ function success(pos) {
             dataType: "json",
             timeout: 5000,
             error: function () {
-              alert("位置情報が取得できません。");
+              alert('位置情報が取得できませんでした。');
             },
             success: function (result) {
               if (result.data.length == 0) {
@@ -110,7 +114,7 @@ function success(pos) {
                 + '<div class="shop-buzz__list-inner-link">お店の詳細を見る<i class="fas fa-chevron-right ml-2"></i></div>' + "\n"
                 + '</div>' + "\n"
                 + '</a>' + "\n";
-                // htmlの生成
+                // create html
                 $('#geo-result').append(html);
               });
             },
@@ -141,7 +145,7 @@ function success(pos) {
 }
 
 function fail(error){
-  alert('位置情報が取得できません。');
+  alert('位置情報が取得できませんでした。');
 }
 </script>
 

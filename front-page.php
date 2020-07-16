@@ -4,25 +4,30 @@ $wp_url = get_template_directory_uri();
 get_header(); ?>
 <section id="mv" class="mv">
 <div class="container">
-<h2 class="mb-0">
+<h2 class="mb-2">
 <span>
 <img src="<?php echo $wp_url; ?>/dist/images/mv_icon_01.png" alt="アイコン" srcset="<?php echo $wp_url; ?>/dist/images/mv_icon_01.png 1x, <?php echo $wp_url; ?>/dist/images/mv_icon_01@2x.png 2x">
+<small class="d-block">テイクアウトで</small>
 おうちグルメを楽しもう
 <img src="<?php echo $wp_url; ?>/dist/images/mv_icon_02.png" alt="アイコン" srcset="<?php echo $wp_url; ?>/dist/images/mv_icon_02.png 1x, <?php echo $wp_url; ?>/dist/images/mv_icon_02@2x.png 2x">
 </span>
 </h2>
+
+<p class="text-center mb-0 mt-3">
+<img src="<?php echo $wp_url; ?>/dist/images/mv_tenpo.png" alt="掲載店舗" srcset="<?php echo $wp_url; ?>/dist/images/mv_tenpo.png 1x, <?php echo $wp_url; ?>/dist/images/mv_tenpo@2x.png 2x">
+</p>
+
 </div>
 </section>
 <!-- mv -->
 
 <div class="mv__search shadow-sm">
-<a class="mv__search-geo" href="<?php echo $home; ?>/geo/"><i class="fas fa-map-marker-alt mr-2 text-info"></i>現在地から探す</a>
 <form class="mv__search__form" action="<?php echo $home; ?>/search/" method="get">
 <div class="input-group">
 <div class="input-group-prepend">
 <div class="input-group-text"><i class="fas fa-pen"></i></div>
 </div>
-<input type="text" class="form-control" name="keyword" value="" placeholder="お店の名前、市区町村、駅名">
+<input type="text" class="form-control" name="keyword" value="" placeholder="キーワードで検索">
 </div>
 <div class="mt-3 mv__search__form-btn">
 <button class="btn btn-block btn-primary text-nowrap" type="submit"><i class="fas fa-search mr-2"></i>検索する</button>
@@ -30,11 +35,15 @@ get_header(); ?>
 </form>
 </div>
 
+<div class="container mt-3">
+<a class="mv__search-geo bg-white" href="<?php echo $home; ?>/geo/"><i class="fas fa-map-marker-alt mr-2 text-info"></i><span>現在地</span>から近いお店を探す</a>
+</div>
+
 <section class="search">
 <div class="container">
 </div>
 <div class="search__genre bg-white">
-<h3><span class="container d-block mx-auto">人気のジャンル</span></h3>
+<h3><span class="container d-block mx-auto">人気のジャンルから探す</span></h3>
 <div class="search__genre-list">
 <ul>
 <li>

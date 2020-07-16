@@ -10,11 +10,17 @@ foreach ($request as $key => $val) {
         unset($request[$key]);
     } else {
         if ($param === '') {
+            if ($key === 'keyword') {
+                $val = urlencode($val);
+            }
             $param .= "?".$key."=".$val;
             if ($key === 'pages') {
                 $param .= "?page=".$val;
             }
         } else {
+            if ($key === 'keyword') {
+                $val = urlencode($val);
+            }
             $param .= "&".$key."=".$val;
             if ($key === 'pages') {
                 $param .= "&page=".$val;
@@ -67,7 +73,7 @@ if ($_GET['parking_flag'] != '') {
 ?>
 </div>
 <!-- search__current -->
-<div class="search__result-txt my-3 small">検索結果：<span><?php echo $data['total']; ?></span>件</div>
+<div class="search__result-txt my-3 small">検索結果：<span><?php echo number_format($data['total']); ?></span>件</div>
 <!-- search__result-txt -->
 <div class="search__result">
 <?php
