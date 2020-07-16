@@ -36,7 +36,7 @@ get_header(); ?>
 </div>
 
 <div class="container mt-3">
-<a class="mv__search-geo bg-white" href="<?php echo $home; ?>/geo/"><i class="fas fa-map-marker-alt mr-2 text-info"></i><span>現在地</span>から近いお店を探す</a>
+<a class="mv__search-geo bg-white" href="<?php echo $home; ?>/geo/"><i class="fas fa-map-marker-alt mr-2 text-info"></i><span>現在地</span>から近くのお店を探す</a>
 </div>
 
 <section class="search">
