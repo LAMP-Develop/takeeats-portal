@@ -13,22 +13,25 @@ foreach ($request as $key => $val) {
             if ($key === 'keyword') {
                 $val = urlencode($val);
             }
-            $param .= "?".$key."=".$val;
             if ($key === 'pages') {
                 $param .= "?page=".$val;
+            } else {
+                $param .= "?".$key."=".$val;
             }
         } else {
             if ($key === 'keyword') {
                 $val = urlencode($val);
             }
-            $param .= "&".$key."=".$val;
             if ($key === 'pages') {
                 $param .= "&page=".$val;
+            } else {
+                $param .= "&".$key."=".$val;
             }
         }
     }
     ++$temp;
 }
+// var_dump($param);
 $data = get_restaurant($param);
 $total = $data['total'];
 $current_page = $data['current_page'];
@@ -120,16 +123,16 @@ endforeach; ?>
 <div class="shop-buzz__list-inner-tag">
 <span class="shop-buzz__list-inner-tag-genre"><?php echo $shop_genre; ?></span>
 <span class="shop-buzz__list-inner-tag-map"><?php echo $shop_access; ?></span>
-<?php if ($tags[0] != '' && $tags[0] != null): ?>
 <div class="shop-buzz__list-inner-label">
-<?php foreach ($tags as $key => $tag): ?>
+<?php
+if ($tags[0] != '' && $tags[0] != null):
+foreach ($tags as $key => $tag): ?>
 <span><?php echo $tag; ?></span>
-<?php endforeach; ?>
-<?php if ($credit_card != '' && $credit_card != null): ?>
+<?php endforeach; endif; ?>
+<?php if ($credit_card != null): ?>
 <span>クレカ可</span>
 <?php endif; ?>
 </div>
-<?php endif; ?>
 <div class="shop-buzz__list-inner-time text-muted">
 <span class="d-block"><?php echo $business_hours; ?></span>
 <span class="d-block mt-1">定休日：<?php echo $regular_holiday; ?></span>
