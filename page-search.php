@@ -61,10 +61,10 @@ if ($_GET['pref'] != '') {
 if ($_GET['genre'] != '') {
     echo '<span class="badge badge-light p-2 mr-2">'.$genres[((int)$_GET['genre']-1)]['name'].'</span>';
 }
-if ($_GET['credit_card'] != null) {
+if ($_GET['credit_card'] != '') {
     echo '<span class="badge badge-light p-2 mr-2">クレカ可</span>';
 }
-if ($_GET['electronic_money'] != null) {
+if ($_GET['electronic_money'] != '') {
     echo '<span class="badge badge-light p-2 mr-2">電子マネー可</span>';
 }
 if ($_GET['parking_flag'] != '') {
@@ -125,7 +125,7 @@ endforeach; ?>
 <?php foreach ($tags as $key => $tag): ?>
 <span><?php echo $tag; ?></span>
 <?php endforeach; ?>
-<?php if ($credit_card != null): ?>
+<?php if ($credit_card != '' && $credit_card != null): ?>
 <span>クレカ可</span>
 <?php endif; ?>
 </div>
