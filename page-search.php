@@ -61,10 +61,10 @@ if ($_GET['pref'] != '') {
 if ($_GET['genre'] != '') {
     echo '<span class="badge badge-light p-2 mr-2">'.$genres[((int)$_GET['genre']-1)]['name'].'</span>';
 }
-if ($_GET['credit_card'] != '') {
+if ($_GET['credit_card'] != null) {
     echo '<span class="badge badge-light p-2 mr-2">クレカ可</span>';
 }
-if ($_GET['electronic_money'] != '') {
+if ($_GET['electronic_money'] != null) {
     echo '<span class="badge badge-light p-2 mr-2">電子マネー可</span>';
 }
 if ($_GET['parking_flag'] != '') {
