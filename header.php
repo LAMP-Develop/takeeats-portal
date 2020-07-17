@@ -21,7 +21,11 @@ $wp_url = get_template_directory_uri(); ?>
 </script>
 <?php endif; ?>
 </head>
+<?php if (!is_page(['search', 'geo'])): ?>
 <body class="bg-light">
+<?php else: ?>
+<body>
+<?php endif; ?>
 <header class="header shadow-sm sticky-top bg-white">
 <nav class="navbar navbar-expand-xlg justify-content-start align-items-center">
 <h1 class="navbar-brand p-0 m-0">
