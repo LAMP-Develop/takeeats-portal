@@ -10,7 +10,6 @@ $wp_url = get_template_directory_uri(); ?>
 <link rel="stylesheet" href="//unpkg.com/swiper/swiper-bundle.min.css">
 <?php endif;?>
 <?php wp_head(); ?>
-<?php if (!is_user_logged_in()): ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167493209-2"></script>
 <script>
@@ -19,7 +18,6 @@ $wp_url = get_template_directory_uri(); ?>
   gtag('js', new Date());
   gtag('config', 'UA-167493209-2');
 </script>
-<?php endif; ?>
 </head>
 <?php if (!is_page(['search', 'geo'])): ?>
 <body class="bg-light">
