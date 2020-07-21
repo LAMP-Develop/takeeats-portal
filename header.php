@@ -24,6 +24,7 @@ $wp_url = get_template_directory_uri(); ?>
 <?php else: ?>
 <body>
 <?php endif; ?>
+<?php wp_body_open(); ?>
 <header class="header shadow-sm sticky-top bg-white">
 <nav class="navbar navbar-expand-xlg justify-content-start align-items-center">
 <h1 class="navbar-brand p-0 m-0">
