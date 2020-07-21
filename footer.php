@@ -1,21 +1,42 @@
 <?php
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri(); ?>
+
 <div class="py-md-5 py-3 cta">
+
+<div class="cta-takeeats">
+<div class="cta-takeeats-wrap">
+<div class="cta-takeeats__txt">
+<p class="cta-takeeats__txt-ttl">あなたのお店でも<span><i>無料</i>でテイクアウト</span><span>はじめませんか？</span></p>
+<div class="cta-takeeats-btn d-md-block d-none">
+<a class="btn btn-primary rounded-pill px-5" href="https://system.take-eats.jp" target="_blank"><span class="d-block small font-weight-bold">＼最短1営業日／</span>無料でお店に導入！</a>
+</div>
+</div>
+<div class="cta-takeeats__img">
+<img src="<?php echo $wp_url; ?>/dist/images/cta_pict.png" alt="あなたのお店でも無料でテイクアウトはじめませんか？" srcset="<?php echo $wp_url; ?>/dist/images/cta_pict.png 1x, <?php echo $wp_url; ?>/dist/images/cta_pict@2x.png 2x">
+</div>
+
+<img class="cta-takeeats-wrap-bg" src="<?php echo $wp_url; ?>/dist/images/cta_wave.png" alt="装飾" srcset="<?php echo $wp_url; ?>/dist/images/cta_wave.png 1x, <?php echo $wp_url; ?>/dist/images/cta_wave@2x.png 2x">
+
+</div>
+
+<div class="cta-takeeats-btn d-md-none">
+<a class="btn btn-primary rounded-pill" href="https://system.take-eats.jp" target="_blank"><span class="d-block small font-weight-bold">＼最短1営業日／</span>無料でお店に導入！</a>
+</div>
+
+</div>
+
 <div class="container">
 <div class="footer-bnr">
 <a class="mb-md-0 mb-3" href="<?php echo $home; ?>/request/">
-<img class="w-100 d-md-none" src="<?php echo $wp_url; ?>/dist/images/banner_portal.png" alt="TakeEats" srcset="<?php echo $wp_url; ?>/dist/images/banner_portal.png 1x, <?php echo $wp_url; ?>/dist/images/banner_portal@2x.png 2x">
-<img class="w-100 d-md-block d-none" src="<?php echo $wp_url; ?>/dist/images/banner_portal_pc.png" alt="TakeEats" srcset="<?php echo $wp_url; ?>/dist/images/banner_portal_pc.png 1x, <?php echo $wp_url; ?>/dist/images/banner_portal_pc@2x.png 2x">
-</a>
-<a href="https://system.take-eats.jp" target="_blank" onclick="gtag('event','click',{'event_category':'bnr','event_label':'サービスサイト'});">
-<img class="w-100 d-md-none" src="<?php echo $wp_url; ?>/dist/images/banner_service.png" alt="TakeEats" srcset="<?php echo $wp_url; ?>/dist/images/banner_service.png 1x, <?php echo $wp_url; ?>/dist/images/banner_service@2x.png 2x">
-<img class="w-100 d-md-block d-none" src="<?php echo $wp_url; ?>/dist/images/banner_service_pc.png" alt="TakeEats" srcset="<?php echo $wp_url; ?>/dist/images/banner_service_pc.png 1x, <?php echo $wp_url; ?>/dist/images/banner_service_pc@2x.png 2x">
+<img class="w-100" src="<?php echo $wp_url; ?>/dist/images/banner_portal.png" alt="TakeEats" srcset="<?php echo $wp_url; ?>/dist/images/banner_portal.png 1x, <?php echo $wp_url; ?>/dist/images/banner_portal@2x.png 2x">
 </a>
 </div>
 </div>
 </div>
+
 </main>
+
 <footer class="footer py-5">
 <div class="container">
 <ul class="footer-links">
@@ -23,7 +44,6 @@ $wp_url = get_template_directory_uri(); ?>
 <li><a href="<?php echo $home; ?>/company/">企業情報</a></li>
 <li><a href="<?php echo $home; ?>/term/">利用規約</a></li>
 <li><a href="<?php echo $home; ?>/privacy-policy/">プライバシーポリシー</a></li>
-<!-- <li><a href="<?php echo $home; ?>/contact/">お問い合わせ</a></li> -->
 </ul>
 <p class="mb-0 text-center socket">©2020 <a class="text-white" href="<?php echo $home; ?>">TakeEats（テイクイーツ）</a></p>
 </div>
@@ -53,6 +73,6 @@ new Swiper(".swiper-container", {
   },
 });
 </script>
-<?php endif;?>
+<?php endif; ?>
 </body>
 </html>
