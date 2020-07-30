@@ -5,7 +5,7 @@ function edit_wpseo_title($title)
 {
     global $shop_name,$shop_address1,$pref_name,$genre_name;
     if (is_page('restaurant')) {
-        return $shop_name.'['.$shop_address1.']のテイクアウト(お持ち帰り) | TakeEats(テイクイーツ)';
+        return 'テイクアウト(お持ち帰り)可のお店「'.$shop_name.'['.$shop_address1.']」 | TakeEats(テイクイーツ)';
     } elseif (is_page('search')) {
         if ($pref_name != null && $genre_name != null) {
             return $pref_name.'で'.$genre_name.'がテイクアウト(お持ち帰り)できるおすすめのお店 | TakeEats(テイクイーツ)';
