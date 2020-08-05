@@ -1,0 +1,91 @@
+.menu {
+  &__ranking {
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    @include media-breakpoint-up(md) {
+      text-align: center;
+    }
+    &__inner {
+      display: inline-block;
+      vertical-align: top;
+      width: 60vw;
+      box-sizing: border-box;
+      margin-right: 1rem;
+      color: $body-color;
+      white-space: normal;
+      @include media-breakpoint-up(md) {
+        width: 25%;
+      }
+      &__thumbnail {
+        z-index: 1;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        padding-top: 75%;
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        &-no {
+          z-index: 1;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: $primary;
+          color: $white;
+          font-weight: bold;
+          font-size: 1rem;
+          display: block;
+          line-height: 1;
+          padding: 0.5rem 0.75rem;
+        }
+        &-area {
+          z-index: 1;
+          position: absolute;
+          bottom: 5px;
+          left: 5px;
+          background-color: rgba($white, 0.9);
+          font-size: 12px;
+          display: block;
+          line-height: 1;
+          padding: 0.25rem 0.75rem;
+          border-radius: 0.1rem;
+        }
+      }
+      &-name {
+        font-weight: bold;
+        font-size: $font-size-sm;
+        margin: 1rem 0 0;
+      }
+      &-shop {
+        font-weight: bold;
+        font-size: 12px;
+        color: #cccccc;
+        margin: 0;
+      }
+      &-price {
+        font-size: $font-size-sm;
+        margin: 0;
+        span {
+          font-weight: bold;
+          color: $primary;
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+.btn {
+  &-primary {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.8rem 2em;
+    letter-spacing: 0.1rem;
+    min-width: 320px;
+    border-radius: 10px;
+    color: $white;
+    @include media-breakpoint-up(md) {
+      min-width: 1px;
+    }
+    &.rounded-pill {
+      position: relative;
+      &::after {
+        content: "";
+        display: block;
+        width: 0.5em;
+        height: 0.5em;
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%) rotate(45deg);
+        border-top: solid 2px $white;
+        border-right: solid 2px $white;
+      }
+    }
+  }
+  &-light {
+    position: relative;
+    background-color: $light;
+    font-size: $font-size-sm;
+    color: $body-color;
+    font-weight: bold;
+    padding: 0.4rem 2rem;
+    letter-spacing: 0.1rem;
+    border-radius: 50em;
+    min-width: 200px;
+    @include media-breakpoint-up(md) {
+      min-width: 1px;
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 0.5em;
+      height: 0.5em;
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%) rotate(45deg);
+      border-top: solid 2px $body-color;
+      border-right: solid 2px $body-color;
+    }
+  }
+  &-default {
+    background-color: #fdf5d7;
+    color: $body-color;
+    padding: 0.4rem 2rem;
+    letter-spacing: 0.1rem;
+    border-radius: 50em;
+  }
+}
+
+@media (max-width: 330px) {
+  .btn-primary {
+    min-width: 260px;
+  }
+}

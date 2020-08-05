@@ -1,0 +1,154 @@
+.restaurant {
+  position: relative;
+  background-color: $secondary;
+  &-mapbtn {
+    z-index: 1;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    color: $body-color;
+    font-size: 13px;
+    line-height: 1;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.25rem;
+    border: solid 1px $light;
+  }
+  &-thumbnail {
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+    font-size: 0;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .search__result__inner__wrap {
+    position: relative;
+    width: 92.5vw;
+    border-radius: 0.25rem;
+    margin: -5rem auto 0;
+    background-color: $white;
+    @include media-breakpoint-up(md) {
+      width: 92.5%;
+    }
+  }
+  &-block {
+    background-color: $white;
+    margin-top: 1rem;
+    .container {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      font-size: $font-size-sm;
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        tbody {
+          tr {
+            th,
+            td {
+              font-size: 13px;
+              padding: 0.75em;
+              border: solid 1px $white;
+            }
+            th {
+              background-color: $light;
+            }
+            td {
+              word-break: break-all;
+            }
+          }
+        }
+        thead {
+          tr {
+            th {
+              border: solid 1px $white;
+              background-color: $warning;
+              text-align: center;
+              padding: $font-size-sm;
+              font-size: 12px;
+            }
+          }
+          & + tbody {
+            tr {
+              td {
+                text-align: center;
+                padding: $font-size-sm;
+                border: solid 1px $secondary;
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &-ttl {
+    font-size: 1rem;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: 1rem;
+    border-bottom: solid 2px $secondary;
+    margin-bottom: 0;
+  }
+  &__external {
+    .btn-block {
+      position: relative;
+      &::after {
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+        content: "\f105";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        color: $body-color;
+      }
+    }
+  }
+}
+
+#restaurant-btn {
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  box-sizing: border-box;
+  width: 100vw;
+  background-color: $white;
+  padding: 0.5rem;
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+  a {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: $primary;
+    text-align: center;
+    box-sizing: border-box;
+    padding: $font-size-sm;
+    font-size: $font-size-sm;
+    font-weight: bold;
+    color: $white;
+    line-height: 1;
+    &.restaurant-tel {
+      background-color: #cccccc;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  &.is-tel {
+    a {
+      width: 50%;
+      &.restaurant-link {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}

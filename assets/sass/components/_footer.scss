@@ -1,0 +1,128 @@
+.cta {
+  .container {
+    @include media-breakpoint-up(md) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+  &-takeeats {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    &-wrap {
+      z-index: 1;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+      background-color: #f9cf41;
+      padding: 3rem 1rem 0;
+      @include media-breakpoint-up(md) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      &-bg {
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        @include media-breakpoint-up(md) {
+          display: none;
+        }
+      }
+    }
+    &__txt {
+      display: block;
+      @include media-breakpoint-up(md) {
+        margin-right: 3rem;
+      }
+      &-ttl {
+        font-weight: bold;
+        text-align: center;
+        font-size: $font-size-sm;
+        span {
+          display: block;
+          &:first-child {
+            font-size: 1.5rem;
+            margin: 5px 0;
+            i {
+              font-style: normal;
+              padding-top: 0.5em;
+              background-position: top left;
+              background-repeat: repeat-x;
+              background-size: 1em 0.3em;
+              background-image: radial-gradient(0.1em 0.1em at center center, $body-color, $body-color 100%, transparent);
+            }
+          }
+          &:last-child {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+    &__img {
+      z-index: 1;
+      position: relative;
+      text-align: center;
+    }
+    &-btn {
+      background-color: $white;
+      box-sizing: border-box;
+      padding: 1rem 1rem 2rem;
+      text-align: center;
+      @include media-breakpoint-up(md) {
+        background-color: transparent;
+        padding: 0;
+        margin-top: 1.5rem;
+      }
+    }
+  }
+}
+
+.footer {
+  margin-top: 1rem;
+  background-color: $black;
+  color: $white;
+  &-bnr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    a {
+      width: 100%;
+      display: block;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  &-links {
+    padding: 0;
+    margin: 0;
+    display: block;
+    text-align: center;
+    margin-bottom: 1rem;
+    li {
+      list-style: none;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+      margin: 0 0.5rem 1rem;
+      a {
+        display: block;
+        color: $white;
+        text-align: center;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+.socket {
+  font-size: 10px;
+  line-height: 1;
+  color: $white;
+}
