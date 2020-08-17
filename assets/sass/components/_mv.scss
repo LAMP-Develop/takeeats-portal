@@ -101,6 +101,35 @@
       }
     }
   }
+  &__tenpo {
+    text-align: center;
+    margin: 2rem 0 0;
+    &-wrap {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      box-sizing: border-box;
+      border-radius: 10rem;
+      background-color: $white;
+      padding: 0.25rem 2rem;
+      &::after {
+        position: absolute;
+        bottom: -0.6rem;
+        left: 50%;
+        content: "";
+        width: 0.7rem;
+        height: 0.7rem;
+        background-color: $white;
+        transform: rotate(45deg) translateX(-50%);
+      }
+    }
+    &-num {
+      font-size: 110%;
+    }
+    &-txt {
+      font-size: $font-size-sm;
+    }
+  }
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
