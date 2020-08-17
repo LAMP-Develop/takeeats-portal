@@ -18,7 +18,6 @@ get_header(); ?>
 <span class="mv__tenpo-num"><?php echo number_format(get_restaurant()['total']); ?></span>
 <span class="mv__tenpo-txt">店舗掲載中！</span>
 </span>
-<img src="<?php echo $wp_url; ?>/dist/images/mv_tenpo.png" alt="掲載店舗" srcset="<?php echo $wp_url; ?>/dist/images/mv_tenpo.png 1x, <?php echo $wp_url; ?>/dist/images/mv_tenpo@2x.png 2x">
 </p>
 
 </div>
