@@ -4,7 +4,7 @@ $wp_url = get_template_directory_uri(); ?>
 
 <div class="cta">
 
-<div class="cta-takeeats">
+<div class="cta-takeeats mb-0">
 <div class="cta-takeeats-wrap">
 <div class="cta-takeeats__txt">
 <p class="cta-takeeats__txt-ttl">あなたのお店でも<span><i>無料</i>でテイクアウト</span><span>はじめませんか？</span></p>
