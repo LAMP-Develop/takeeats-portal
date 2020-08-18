@@ -37,7 +37,7 @@ $wp_url = get_template_directory_uri(); ?>
 
 </main>
 
-<footer class="footer py-5">
+<footer class="footer py-5 mt-0">
 <div class="container">
 <ul class="footer-links">
 <li><a href="<?php echo $home; ?>/request/">掲載のお申し込み</a></li>
