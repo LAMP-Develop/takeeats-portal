@@ -2,7 +2,7 @@
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri(); ?>
 
-<div class="py-md-5 py-3 cta">
+<div class="cta">
 
 <div class="cta-takeeats">
 <div class="cta-takeeats-wrap">
