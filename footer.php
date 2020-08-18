@@ -26,13 +26,13 @@ $wp_url = get_template_directory_uri(); ?>
 
 </div>
 
-<div class="container">
+<!-- <div class="container">
 <div class="footer-bnr">
 <a class="mb-md-0 mb-3" href="<?php echo $home; ?>/request/">
 <img class="w-100" src="<?php echo $wp_url; ?>/dist/images/banner_portal.png" alt="TakeEats" srcset="<?php echo $wp_url; ?>/dist/images/banner_portal.png 1x, <?php echo $wp_url; ?>/dist/images/banner_portal@2x.png 2x">
 </a>
 </div>
-</div>
+</div> -->
 </div>
 
 </main>
