@@ -210,21 +210,29 @@ if ($electronic_money != null) {
 <td><?php
 if ($tabelog_url != null) {
     echo '<a class="d-block w-100 text-center" href="'.$tabelog_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
+} else {
+    echo '<i class="fas fa-times"></i>';
 }
 ?></td>
 <td><?php
 if ($gnavi_url != null) {
     echo '<a class="d-block w-100 text-center" href="'.$gnavi_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
+} else {
+    echo '<i class="fas fa-times"></i>';
 }
 ?></td>
 <td><?php
 if ($demaecan_url != null) {
     echo '<a class="d-block w-100 text-center" href="'.$demaecan_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
+} else {
+    echo '<i class="fas fa-times"></i>';
 }
 ?></td>
 <td><?php
 if ($ubereats_url != null) {
     echo '<a class="d-block w-100 text-center" href="'.$ubereats_url.'" target="_blank"><i class="far fa-circle text-primary"></i></a>';
+} else {
+    echo '<i class="fas fa-times"></i>';
 }
 ?></td>
 </tr>

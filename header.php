@@ -3,6 +3,7 @@ $home = esc_url(home_url());
 $wp_url = get_template_directory_uri(); ?>
 <!DOCTYPE HTML>
 <html lang="ja">
+
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -13,12 +14,13 @@ $wp_url = get_template_directory_uri(); ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167493209-2"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-167493209-2');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-167493209-2');
 </script>
 </head>
+
 <?php if (!is_page(['search', 'geo'])): ?>
 <body class="bg-light">
 <?php else: ?>
@@ -31,7 +33,6 @@ $wp_url = get_template_directory_uri(); ?>
 <a class="d-inline-block align-middle" href="<?php echo $home; ?>">
 <img src="<?php echo $wp_url; ?>/dist/images/logo.png" alt="<?php bloginfo('name'); ?>" srcset="<?php echo $wp_url; ?>/dist/images/logo.png 1x, <?php echo $wp_url; ?>/dist/images/logo@2x.png 2x">
 </a>
-<!-- <span class="d-inline-block align-middle">お店検索</span> -->
 </h1>
 <div class="navbar-search-icon" data-toggle="modal" data-target="#search-restaurant"><i class="fas fa-search"></i><span>検索</span></div>
 </nav>
