@@ -264,7 +264,7 @@ if ($ubereats_url != null) {
 </section>
 <?php if ($recommend): ?>
 <div id="restaurant-btn" class="border-top">
-<a class="restaurant-link" href="<?php echo $takeeats_url; ?>" target="_blank" onclick="gtag('event','click',{'event_category':'button','event_label':'テイクアウト予約する'});">ネットで注文する<i class="fas fa-angle-right ml-2"></i></a>
+<a class="restaurant-link" href="<?php echo $takeeats_url; ?>" target="_blank" onclick="gtag('event','click',{'event_category':'button','event_label':'<?php echo $shop_name; ?>'});">ネットで注文する<i class="fas fa-angle-right ml-2"></i></a>
 </div>
 <?php endif; ?>
 <?php get_footer();
