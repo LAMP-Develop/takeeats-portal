@@ -78,6 +78,7 @@
       border-bottom: solid 2px $light;
       font-size: $font-size-sm;
       @include media-breakpoint-up(md) {
+        display: none;
         width: 50%;
         border-radius: 0.25rem;
         margin: 3rem auto 0;
