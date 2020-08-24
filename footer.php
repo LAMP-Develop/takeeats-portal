@@ -7,9 +7,9 @@ $wp_url = get_template_directory_uri(); ?>
 <div class="cta-takeeats mb-0">
 <div class="cta-takeeats-wrap">
 <div class="cta-takeeats__txt">
-<p class="cta-takeeats__txt-ttl">あなたのお店でも<span><i>無料</i>でテイクアウト</span><span>はじめませんか？</span></p>
+<p class="cta-takeeats__txt-ttl">TakeEatsお店検索に<span>あなたのお店を掲載</span><span>しませんか？</span></p>
 <div class="cta-takeeats-btn d-md-block d-none">
-<a class="btn btn-primary rounded-pill px-5" href="https://system.take-eats.jp" target="_blank"><span class="d-block small font-weight-bold">＼最短1営業日／</span>無料でお店に導入！</a>
+<a class="btn btn-primary rounded-pill px-5" href="https://system.take-eats.jp" target="_blank">掲載のお申し込みはこちら</a>
 </div>
 </div>
 <div class="cta-takeeats__img">
@@ -21,7 +21,7 @@ $wp_url = get_template_directory_uri(); ?>
 </div>
 
 <div class="cta-takeeats-btn d-md-none">
-<a class="btn btn-primary rounded-pill" href="https://system.take-eats.jp" target="_blank"><span class="d-block small font-weight-bold">＼最短1営業日／</span>無料でお店に導入！</a>
+<a class="btn btn-primary rounded-pill" href="https://system.take-eats.jp" target="_blank"><span class="d-block small font-weight-bold">掲載のお申し込みはこちら</a>
 </div>
 
 </div>
