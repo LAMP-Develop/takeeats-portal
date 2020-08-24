@@ -27,6 +27,9 @@ get_header(); ?>
 <!-- mv -->
 
 <div class="mv__search shadow-sm">
+
+<a class="mv__search-geo bg-white" href="<?php echo $home; ?>/geo/"><i class="fas fa-map-marker-alt mr-2 text-info"></i><span>現在地</span>から近くのお店を探す</a>
+
 <form class="mv__search__form" action="<?php echo $home; ?>/search/" method="get">
 <div class="input-group">
 <div class="input-group-prepend">
@@ -38,10 +41,6 @@ get_header(); ?>
 <button class="btn btn-block btn-primary text-nowrap" type="submit"><i class="fas fa-search mr-2"></i>検索する</button>
 </div>
 </form>
-</div>
-
-<div class="container mt-3">
-<a class="mv__search-geo bg-white" href="<?php echo $home; ?>/geo/"><i class="fas fa-map-marker-alt mr-2 text-info"></i><span>現在地</span>から近くのお店を探す</a>
 </div>
 
 <section class="search">
