@@ -50,6 +50,44 @@ $wp_url = get_template_directory_uri(); ?>
 </footer>
 <?php wp_footer(); ?>
 <?php if (is_home() || is_front_page()): ?>
+<script src="//code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="//maps.google.com/maps/api/js?key=AIzaSyA6caobCHn-IcFLznnEERoWzgHlEQi-YoI"></script>
+<script src="<?php echo $wp_url; ?>/dist/js/perf-genre.js"></script>
+<script>
+
+$(document).ajaxStop(function() {
+  $('#spinner-load').css('display', 'none');
+});
+
+navigator.geolocation.getCurrentPosition(success, fail);
+function success(pos) {
+  let latlng = {
+    lat: pos.coords.latitude,
+    lng: pos.coords.longitude,
+  };
+  const geocoder = new google.maps.Geocoder();
+  geocoder.geocode(
+    {
+      latLng: latlng,
+    },
+    function (results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        let address = results[0].address_components[4].long_name+results[0].address_components[3].long_name;
+        console.log(address);
+        $('.search__genre-list a').each(function() {
+          let temp_url = $(this).attr('href')+"&keyword="+address;
+          $(this).attr('href', temp_url);
+        });
+      }
+    }
+  );
+}
+
+function fail(error){
+  alert('位置情報が取得できませんでした。');
+}
+</script>
+
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
 new Swiper(".swiper-container", {

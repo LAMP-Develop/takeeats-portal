@@ -50,7 +50,8 @@ function success(pos) {
     },
     function (results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        let address = results[0].address_components[3].long_name+results[0].address_components[2].long_name;
+        let address = results[0].address_components[4].long_name+results[0].address_components[3].long_name;
+        console.log(address);
         let get_url = "https://ssl.omomuki.me/api/restaurants?keyword="+address+"&paginate=100";
         $('[name="keyword"]').val(address);
         $.when(
