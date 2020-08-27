@@ -56,7 +56,7 @@ get_header(); ?>
 <div class="search__current my-3">
 <?php
 if ($_GET['keyword'] != '') {
-    echo '<span class="badge badge-light p-2 mr-2">検索：'.$_GET['keyword'].'</span>';
+    echo '<span class="badge badge-light p-2 mr-2">'.$_GET['keyword'].'</span>';
 }
 if ($_GET['pref'] != '') {
     echo '<span class="badge badge-light p-2 mr-2">'.$pref[((int)$_GET['pref']-1)]['name'].'</span>';
