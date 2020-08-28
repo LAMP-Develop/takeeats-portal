@@ -95,17 +95,17 @@ add_action('after_setup_theme', 'gutenberg_support_setup');
 function twpp_enqueue_styles()
 {
     wp_enqueue_style(
-        'default-style',
-        get_template_directory_uri().'/style.css',
-        [],
-        '1.0.0',
-        'all'
-    );
-    wp_enqueue_style(
         'main-style',
         get_template_directory_uri().'/dist/css/style.css',
         [],
         '1.0.3',
+        'all'
+    );
+    wp_enqueue_style(
+        'default-style',
+        get_template_directory_uri().'/style.css',
+        [],
+        '1.0.0',
         'all'
     );
 }
