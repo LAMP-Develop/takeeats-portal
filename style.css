@@ -3,3 +3,7 @@ Theme Name: irori-new
 Author: Shunya Suzuki
 Version: 0.9.0
 */
+
+.has-text-align-center {
+  text-align: center !important;
+}
