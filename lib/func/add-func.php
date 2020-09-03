@@ -255,7 +255,9 @@ function shortcode_takeeats($atts)
     $html .= '<tr><th>住所</th><td>〒'.$restaurant['zipcode'].'<br>'.set_pref((int)$restaurant['pref_id']-1).$restaurant['address1'].$restaurant['address2'].'</td></tr>';
     $html .= '<tr><th>アクセス</th><td>'.$restaurant['access'].'</td></tr>';
     $html .= '</tbody></table>';
-    $html .= '<div class="single__shop-btn"><a href="'.$restaurant['access'].'" target="_blank">メニューを見る</a></div>';
+    if ($restaurant['takeeats_url'] != '' && $restaurant['takeeats_url'] != null) {
+        $html .= '<div class="single__shop-btn"><a href="'.$restaurant['takeeats_url'].'" target="_blank">メニューを見る</a></div>';
+    }
     $html .= '</div>';
     return $html;
 }

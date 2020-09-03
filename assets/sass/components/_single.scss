@@ -136,6 +136,7 @@
       margin-bottom: $font-size-sm;
     }
     .table {
+      margin: 0;
       tr {
         th,
         td {
@@ -150,6 +151,7 @@
     }
     &-btn {
       text-align: center;
+      margin-top: 1rem;
       a {
         display: inline-block;
         line-height: 1;
