@@ -85,6 +85,61 @@ function get_pref()
     return $pref;
 }
 
+function set_pref($pref_id)
+{
+    $pref = [
+        "北海道",
+        "青森県",
+        "岩手県",
+        "宮城県",
+        "秋田県",
+        "山形県",
+        "福島県",
+        "茨城県",
+        "栃木県",
+        "群馬県",
+        "埼玉県",
+        "千葉県",
+        "東京都",
+        "神奈川県",
+        "新潟県",
+        "富山県",
+        "石川県",
+        "福井県",
+        "山梨県",
+        "長野県",
+        "岐阜県",
+        "静岡県",
+        "愛知県",
+        "三重県",
+        "滋賀県",
+        "京都府",
+        "大阪府",
+        "兵庫県",
+        "奈良県",
+        "和歌山県",
+        "鳥取県",
+        "島根県",
+        "岡山県",
+        "広島県",
+        "山口県",
+        "徳島県",
+        "香川県",
+        "愛媛県",
+        "高知県",
+        "福岡県",
+        "佐賀県",
+        "長崎県",
+        "熊本県",
+        "大分県",
+        "宮崎県",
+        "鹿児島県",
+        "沖縄県",
+    ];
+
+    return $pref[$pref_id];
+}
+
 function get_menu($restaurants_id = 1)
 {
     $url = 'https://ssl.omomuki.me/api/restaurant-menu?restaurants_id='.$restaurants_id;
@@ -178,3 +233,30 @@ function build_url(array $elements)
         ) : '') .
         (isset($e['fragment']) ? "#$e[fragment]" : '');
 }
+
+// 店舗詳細ショートコード
+function shortcode_takeeats($atts)
+{
+    $atts = shortcode_atts(
+        ['id' => ''],
+        $atts,
+        'takeeats'//ショートコード名。省略可能だが含めるのが推奨
+    );
+
+    $url = 'https://ssl.omomuki.me/api/restaurants/'.$atts['id'];
+    $json = mb_convert_encoding(file_get_contents($url), 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+    $restaurant = json_decode($json, true);
+
+    $html = '<div class="single__shop">';
+    $html .= '<p class="single__shop-name">'.$restaurant['name'].'</p>';
+    $html .= '<table class="table"><tbody>';
+    $html .= '<tr><th>営業時間</th><td>'.$restaurant['business_hours'].'</td></tr>';
+    $html .= '<tr><th>TEL</th><td>'.$restaurant['tel'].'</td></tr>';
+    $html .= '<tr><th>住所</th><td>〒'.$restaurant['zipcode'].'<br>'.set_pref((int)$restaurant['pref_id']-1).$restaurant['address1'].$restaurant['address2'].'</td></tr>';
+    $html .= '<tr><th>アクセス</th><td>'.$restaurant['access'].'</td></tr>';
+    $html .= '</tbody></table>';
+    $html .= '<div class="single__shop-btn"><a href="'.$restaurant['access'].'" target="_blank">メニューを見る</a></div>';
+    $html .= '</div>';
+    return $html;
+}
+add_shortcode('takeeats', 'shortcode_takeeats');

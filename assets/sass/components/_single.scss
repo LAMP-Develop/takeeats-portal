@@ -122,3 +122,44 @@
     }
   }
 }
+
+.single {
+  &__shop {
+    max-width: 480px;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border: 3px solid #eeeeee;
+    border-radius: 0.5rem;
+    &-name {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: $font-size-sm;
+    }
+    .table {
+      tr {
+        th,
+        td {
+          font-size: 12px;
+          font-weight: normal;
+          padding: 0.25em 1em 0.25em 0;
+        }
+        th {
+          white-space: nowrap;
+        }
+      }
+    }
+    &-btn {
+      text-align: center;
+      a {
+        display: inline-block;
+        line-height: 1;
+        background-color: $primary;
+        color: $white;
+        font-size: $font-size-sm;
+        padding: 0.8em 3em;
+        border-radius: 5px;
+        border-bottom: 3px solid #d27110;
+      }
+    }
+  }
+}
