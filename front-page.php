@@ -17,7 +17,7 @@ get_header(); ?>
 <span class="mv__tenpo-wrap">
 <span class="mv__tenpo-txt">全国</span>
 <!-- <span class="mv__tenpo-num"><?php // echo number_format(get_restaurant()['total']); ?></span> -->
-<span class="mv__tenpo-num">15,000</span>
+<span class="mv__tenpo-num">30,000</span>
 <span class="mv__tenpo-txt">店舗掲載中！</span>
 </span>
 </p>
