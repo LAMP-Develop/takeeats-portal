@@ -21,7 +21,7 @@ gtag('config', 'UA-167493209-2');
 </script>
 </head>
 
-<?php if (!is_page(['search', 'geo'])): ?>
+<?php if (!is_page(['search', 'geo']) && !is_single()): ?>
 <body class="bg-light">
 <?php else: ?>
 <body>

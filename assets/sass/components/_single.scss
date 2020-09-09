@@ -129,6 +129,7 @@
     margin: 1.5rem 0;
     padding: 1rem;
     border: 3px solid #eeeeee;
+    background-color: $white;
     border-radius: 0.5rem;
     &-name {
       font-size: 1rem;
@@ -143,6 +144,7 @@
           font-size: 12px;
           font-weight: normal;
           padding: 0.25em 1em 0.25em 0;
+          white-space: normal;
         }
         th {
           white-space: nowrap;
