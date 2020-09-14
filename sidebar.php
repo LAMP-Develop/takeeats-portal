@@ -2,6 +2,13 @@
 $home = esc_url(home_url());
 $wp_url = get_template_directory_uri(); ?>
 <aside class="sidebar col-md-3 mt-md-0 mt-4">
+
+<div class="sidebar-inner">
+<a href="https://system.take-eats.jp/" target="_blank">
+<img src="<?php echo $wp_url; ?>/dist/images/blog_banner.png" alt="" srcset="<?php echo $wp_url; ?>/dist/images/blog_banner.png 1x, <?php echo $wp_url; ?>/dist/images/blog_banner@2x.png 2x">
+</a>
+</div>
+
 <?php if (is_active_sidebar('side-bar')) {
     dynamic_sidebar('side-bar');
 } ?>
