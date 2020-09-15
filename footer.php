@@ -41,9 +41,9 @@ $wp_url = get_template_directory_uri(); ?>
 <div class="container">
 <ul class="footer-links">
 <li><a href="<?php echo $home; ?>/request/">掲載のお申し込み</a></li>
-<li><a href="<?php echo $home; ?>/company/">企業情報</a></li>
 <li><a href="<?php echo $home; ?>/term/">利用規約</a></li>
 <li><a href="<?php echo $home; ?>/privacy-policy/">プライバシーポリシー</a></li>
+<li><a href="https://lamp.jp" target="_blank">運営会社</a></li>
 <li><a href="https://system.take-eats.jp/" target="_blank">TakeEats（飲食店向け）</a></li>
 </ul>
 <p class="mb-0 text-center socket">©2020 <a class="text-white" href="<?php echo $home; ?>">TakeEats（テイクイーツ）</a></p>
