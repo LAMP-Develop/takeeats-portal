@@ -21,22 +21,14 @@ $wp_url = get_template_directory_uri();
 <div class="tab-pane fade show active" id="areaS" role="tabpanel" aria-labelledby="areaS-tab">
 <select name="pref" class="form-control border-0">
 <option value="">すべて</option>
-<option value="13" <?php
-if ($_GET['pref'] != '' && "13" == $_GET['pref']) {
+<?php
+$pref = get_pref();
+foreach ($pref as $key => $val): ?>
+<option value="<?php echo $val['id']; ?>" <?php
+if ($_GET['pref'] != '' && $val['id'] == $_GET['pref']) {
     echo "selected";
-} ?>>東京都</option>
-<option value="23" <?php
-if ($_GET['pref'] != '' && "23" == $_GET['pref']) {
-    echo "selected";
-} ?>>愛知県</option>
-<option value="26" <?php
-if ($_GET['pref'] != '' && "26" == $_GET['pref']) {
-    echo "selected";
-} ?>>京都府</option>
-<option value="27" <?php
-if ($_GET['pref'] != '' && "27" == $_GET['pref']) {
-    echo "selected";
-} ?>>大阪府</option>
+} ?>><?php echo $val['name']; ?></option>
+<?php endforeach; ?>
 </select>
 </div>
 <div class="tab-pane fade" id="zipcodeS" role="tabpanel" aria-labelledby="zipcodeS-tab">
