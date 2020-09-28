@@ -95,7 +95,7 @@ foreach ($menus as $key => $menu): ?>
 <p>〒<?php echo $shop_zipcode; ?> <?php echo $shop_address1; ?> <?php echo $shop_address2; ?></p>
 <?php if ($gmap_url): ?>
 <div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://maps.google.co.jp/maps?output=embed&q=<?php echo $shop_name; ?>"></iframe>
+<iframe class="embed-responsive-item" src="https://maps.google.co.jp/maps?output=embed&q=<?php echo $shop_address1.' '.$shop_address2; ?>"></iframe>
 </div>
 <p class="text-muted small mt-2"><?php echo $shop_access; ?></p>
 <div class="text-center mt-3">
