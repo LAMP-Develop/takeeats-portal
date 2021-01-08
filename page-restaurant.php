@@ -78,7 +78,7 @@ foreach ($menus as $key => $menu): ?>
 <img src="//ssl.omomuki.me/storage/<?php echo $menu['thumbnail']; ?>" alt="<?php echo $menu['name']; ?>">
 </div>
 <p class="menu__ranking__inner-name"><?php echo $menu['name']; ?></p>
-<p class="menu__ranking__inner-price">¥<span><?php echo number_format((int)$menu['price']); ?></span>[税抜]</p>
+<p class="menu__ranking__inner-price">¥<span><?php echo number_format((int)$menu['price']); ?></span></p>
 </a>
 <?php endforeach; endif; ?>
 </div>
